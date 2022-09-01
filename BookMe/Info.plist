@@ -21,5 +21,11 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Chivo-Regular.ttf</string>
+		<string>Chivo-Bold.ttf</string>
+		<string>Chivo-Light.ttf</string>
+	</array>
 </dict>
 </plist>

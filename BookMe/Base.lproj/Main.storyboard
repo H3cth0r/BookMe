@@ -1,24 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Chivo-Light.ttf">
+            <string>Chivo-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BookMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35S-8f-HnG">
+                                <rect key="frame" x="39" y="243" width="149" height="41"/>
+                                <fontDescription key="fontDescription" name="Chivo-Light" family="Chivo" pointSize="35"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h0j-dG-zum">
+                                <rect key="frame" x="39" y="317" width="337" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="This is an app developed by a team of software engeeniers from the ITESM in collaboration with the Cibersecurity Hub.">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <font key="NSFont" size="20" name="Chivo-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.3" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FN-3b-Cha">
+                                <rect key="frame" x="270" y="531" width="106" height="32"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="nextButtonArrow"/>
+                                <connections>
+                                    <action selector="buttonNextView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3u6-A2-3gl"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stepControlButtons" translatesAutoresizingMaskIntoConstraints="NO" id="JkY-Wo-Uhi">
+                                <rect key="frame" x="171" y="828.33333333333337" width="73" height="16.666666666666629"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="35S-8f-HnG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="199" id="EZ7-bG-REs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4FN-3b-Cha" secondAttribute="bottom" constant="299" id="GRc-lO-nio"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="35S-8f-HnG" secondAttribute="trailing" symbolic="YES" id="Srm-Qi-wQg"/>
+                            <constraint firstItem="JkY-Wo-Uhi" firstAttribute="centerX" secondItem="h0j-dG-zum" secondAttribute="centerX" id="YpG-Lu-tdM"/>
+                            <constraint firstItem="4FN-3b-Cha" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="dNr-vQ-whj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JkY-Wo-Uhi" secondAttribute="bottom" constant="17" id="e4h-LT-pEK"/>
+                            <constraint firstItem="4FN-3b-Cha" firstAttribute="trailing" secondItem="h0j-dG-zum" secondAttribute="trailing" id="imc-QE-v1W"/>
+                            <constraint firstItem="JkY-Wo-Uhi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="171" id="pv7-KC-Khd"/>
+                            <constraint firstItem="4FN-3b-Cha" firstAttribute="top" secondItem="h0j-dG-zum" secondAttribute="bottom" constant="54" id="rCp-T0-gqU"/>
+                            <constraint firstItem="35S-8f-HnG" firstAttribute="leading" secondItem="h0j-dG-zum" secondAttribute="leading" id="xXb-mf-PAb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="vwContainer" destination="8bC-Xf-vdC" id="mdk-fh-vkf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="28.985507246376812" y="77.678571428571431"/>
+        </scene>
+        <!--Welcome Info TwoV Controller-->
+        <scene sceneID="eNy-sY-Z5a">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeInfoTwoVController" id="wUz-gp-aQd" customClass="WelcomeInfoTwoVController" customModule="BookMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QJw-b8-8QF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHM-7h-Jcx">
+                                <rect key="frame" x="288" y="725" width="106" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="mbJ-NH-oxd"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="nextButtonArrow"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stepControlButtonsTwo" translatesAutoresizingMaskIntoConstraints="NO" id="xkq-lz-AMF">
+                                <rect key="frame" x="193.33333333333334" y="827.66666666666663" width="33.333333333333343" height="17"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gL8-KX-1Vd">
+                                <rect key="frame" x="20" y="216" width="374" height="427"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="20" name="Chivo-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.3" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Cibersecurity Hub" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d98-cn-hJv">
+                                <rect key="frame" x="20" y="112" width="368.33333333333331" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="moo-KL-WyK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chivo-Light" family="Chivo" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ee8-Uq-cT5"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ee8-Uq-cT5" firstAttribute="bottom" secondItem="bHM-7h-Jcx" secondAttribute="bottom" constant="111" id="147-NL-xpz"/>
+                            <constraint firstItem="d98-cn-hJv" firstAttribute="top" secondItem="ee8-Uq-cT5" secondAttribute="top" constant="68" id="9BR-sI-NaJ"/>
+                            <constraint firstItem="bHM-7h-Jcx" firstAttribute="leading" secondItem="ee8-Uq-cT5" secondAttribute="leading" constant="288" id="Hux-kT-3KF"/>
+                            <constraint firstItem="bHM-7h-Jcx" firstAttribute="top" secondItem="gL8-KX-1Vd" secondAttribute="bottom" constant="82" id="OPu-JR-lhq"/>
+                            <constraint firstItem="gL8-KX-1Vd" firstAttribute="top" secondItem="d98-cn-hJv" secondAttribute="bottom" constant="8" symbolic="YES" id="Y1V-3x-Gfv"/>
+                            <constraint firstItem="ee8-Uq-cT5" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="d98-cn-hJv" secondAttribute="trailing" symbolic="YES" id="a6B-Kd-Bmm"/>
+                            <constraint firstItem="xkq-lz-AMF" firstAttribute="leading" secondItem="ee8-Uq-cT5" secondAttribute="leading" constant="193.33333333333331" id="aFM-WW-xqs"/>
+                            <constraint firstItem="ee8-Uq-cT5" firstAttribute="bottom" secondItem="xkq-lz-AMF" secondAttribute="bottom" constant="17.333333333333371" id="iKa-u7-ZVi"/>
+                            <constraint firstItem="gL8-KX-1Vd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d98-cn-hJv" secondAttribute="leading" id="oek-g4-39G"/>
+                            <constraint firstItem="d98-cn-hJv" firstAttribute="leading" secondItem="QJw-b8-8QF" secondAttribute="leadingMargin" id="rjG-CU-TY8"/>
+                            <constraint firstItem="ee8-Uq-cT5" firstAttribute="trailing" secondItem="gL8-KX-1Vd" secondAttribute="trailing" constant="20" id="sfE-Ku-Opc"/>
+                            <constraint firstItem="bHM-7h-Jcx" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QJw-b8-8QF" secondAttribute="trailingMargin" id="sjS-EI-SyE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="vwContainer" destination="QJw-b8-8QF" id="JaY-CI-9Cp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ted-ro-KrS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="760.86956521739137" y="77.678571428571431"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nextButtonArrow" width="82" height="8"/>
+        <image name="stepControlButtons" width="33.333332061767578" height="16.666666030883789"/>
+        <image name="stepControlButtonsTwo" width="33.333332061767578" height="16.666666030883789"/>
+    </resources>
 </document>
