@@ -1,16 +1,15 @@
 //
-//  WelcomeInfoTwoVController.swift
+//  loginOrRegisterVController.swift
 //  BookMe
 //
-//  Created by Héctor Miranda García on 31/08/22.
+//  Created by Héctor Miranda García on 01/09/22.
 //
 
 import UIKit
 
-class WelcomeInfoTwoVController: UIViewController {
-    
-    @IBOutlet weak var vwContainer: UIView!
-    
+class loginOrRegisterVController: UIViewController {
+
+    @IBOutlet var vwContainer: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,16 +20,30 @@ class WelcomeInfoTwoVController: UIViewController {
         }
     }
     
-    @IBAction func nextViewButton(_ sender: UIButton) {
+    
+    @IBAction func goToLoginButton(_ sender: UIButton) {
         vwContainer.fadeOut()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeInfoThreeVController") as! WelcomeInfoThreeVController
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "loginViewController") as! loginViewController
             //vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
     }
     
+    
+    @IBAction func goToRegisterButton(_ sender: UIButton) {
+        vwContainer.fadeOut()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "registerViewController") as! registerViewController
+            //vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+        
+    }
+    
+
     /*
     // MARK: - Navigation
 

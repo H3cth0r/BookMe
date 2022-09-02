@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A43D928F28C124E800028D73 /* loginOrRegisterVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D928E28C124E800028D73 /* loginOrRegisterVController.swift */; };
+		A43D929128C125E000028D73 /* WelcomeInfoThreeVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D929028C125E000028D73 /* WelcomeInfoThreeVController.swift */; };
+		A43D929328C1303A00028D73 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D929228C1303A00028D73 /* loginViewController.swift */; };
+		A43D929728C1354200028D73 /* registerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D929628C1354200028D73 /* registerViewController.swift */; };
 		A45FD90628BC5C2100E7D788 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FD90528BC5C2100E7D788 /* AppDelegate.swift */; };
 		A45FD90828BC5C2100E7D788 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FD90728BC5C2100E7D788 /* SceneDelegate.swift */; };
 		A45FD90A28BC5C2100E7D788 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FD90928BC5C2100E7D788 /* ViewController.swift */; };
@@ -23,9 +27,14 @@
 		A49159D428BFE2C1006DF136 /* Chivo-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A49159CC28BFE2C1006DF136 /* Chivo-Black.ttf */; };
 		A49159D628BFF0D0006DF136 /* GeneralMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49159D528BFF0D0006DF136 /* GeneralMethods.swift */; };
 		A49159D828BFFE99006DF136 /* WelcomeInfoTwoVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49159D728BFFE99006DF136 /* WelcomeInfoTwoVController.swift */; };
+		A4DB750728C25B5B00C19228 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB750628C25B5B00C19228 /* VerifyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A43D928E28C124E800028D73 /* loginOrRegisterVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginOrRegisterVController.swift; sourceTree = "<group>"; };
+		A43D929028C125E000028D73 /* WelcomeInfoThreeVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInfoThreeVController.swift; sourceTree = "<group>"; };
+		A43D929228C1303A00028D73 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		A43D929628C1354200028D73 /* registerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerViewController.swift; sourceTree = "<group>"; };
 		A45FD90228BC5C2100E7D788 /* BookMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45FD90528BC5C2100E7D788 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A45FD90728BC5C2100E7D788 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +53,7 @@
 		A49159CC28BFE2C1006DF136 /* Chivo-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chivo-Black.ttf"; sourceTree = "<group>"; };
 		A49159D528BFF0D0006DF136 /* GeneralMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralMethods.swift; sourceTree = "<group>"; };
 		A49159D728BFFE99006DF136 /* WelcomeInfoTwoVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInfoTwoVController.swift; sourceTree = "<group>"; };
+		A4DB750628C25B5B00C19228 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +91,12 @@
 				A45FD90728BC5C2100E7D788 /* SceneDelegate.swift */,
 				A45FD90928BC5C2100E7D788 /* ViewController.swift */,
 				A45FD90B28BC5C2100E7D788 /* Main.storyboard */,
+				A4DB750628C25B5B00C19228 /* VerifyViewController.swift */,
+				A43D929628C1354200028D73 /* registerViewController.swift */,
+				A43D929228C1303A00028D73 /* loginViewController.swift */,
+				A43D928E28C124E800028D73 /* loginOrRegisterVController.swift */,
 				A49159D728BFFE99006DF136 /* WelcomeInfoTwoVController.swift */,
+				A43D929028C125E000028D73 /* WelcomeInfoThreeVController.swift */,
 				A49159D528BFF0D0006DF136 /* GeneralMethods.swift */,
 				A45FD90E28BC5C2400E7D788 /* Assets.xcassets */,
 				A45FD91028BC5C2400E7D788 /* LaunchScreen.storyboard */,
@@ -187,7 +202,12 @@
 				A45FD90A28BC5C2100E7D788 /* ViewController.swift in Sources */,
 				A49159D628BFF0D0006DF136 /* GeneralMethods.swift in Sources */,
 				A45FD90628BC5C2100E7D788 /* AppDelegate.swift in Sources */,
+				A4DB750728C25B5B00C19228 /* VerifyViewController.swift in Sources */,
+				A43D929728C1354200028D73 /* registerViewController.swift in Sources */,
+				A43D929128C125E000028D73 /* WelcomeInfoThreeVController.swift in Sources */,
+				A43D929328C1303A00028D73 /* loginViewController.swift in Sources */,
 				A49159D828BFFE99006DF136 /* WelcomeInfoTwoVController.swift in Sources */,
+				A43D928F28C124E800028D73 /* loginOrRegisterVController.swift in Sources */,
 				A45FD90828BC5C2100E7D788 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

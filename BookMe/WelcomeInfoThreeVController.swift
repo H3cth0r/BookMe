@@ -1,15 +1,15 @@
 //
-//  WelcomeInfoTwoVController.swift
+//  WelcomeInfoThreeVController.swift
 //  BookMe
 //
-//  Created by Héctor Miranda García on 31/08/22.
+//  Created by Héctor Miranda García on 01/09/22.
 //
 
 import UIKit
 
-class WelcomeInfoTwoVController: UIViewController {
+class WelcomeInfoThreeVController: UIViewController {
     
-    @IBOutlet weak var vwContainer: UIView!
+    @IBOutlet var vwContainer: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +21,10 @@ class WelcomeInfoTwoVController: UIViewController {
         }
     }
     
-    @IBAction func nextViewButton(_ sender: UIButton) {
+    @IBAction func buttonNextView(_ sender: UIButton) {
         vwContainer.fadeOut()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "WelcomeInfoThreeVController") as! WelcomeInfoThreeVController
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "loginOrRegisterVController") as! loginOrRegisterVController
             //vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
