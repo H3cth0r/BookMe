@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A430AF8728C2FF240076565C /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8628C2FF240076565C /* TicketViewController.swift */; };
 		A43D928F28C124E800028D73 /* loginOrRegisterVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D928E28C124E800028D73 /* loginOrRegisterVController.swift */; };
 		A43D929128C125E000028D73 /* WelcomeInfoThreeVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D929028C125E000028D73 /* WelcomeInfoThreeVController.swift */; };
 		A43D929328C1303A00028D73 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D929228C1303A00028D73 /* loginViewController.swift */; };
@@ -28,9 +29,12 @@
 		A49159D628BFF0D0006DF136 /* GeneralMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49159D528BFF0D0006DF136 /* GeneralMethods.swift */; };
 		A49159D828BFFE99006DF136 /* WelcomeInfoTwoVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49159D728BFFE99006DF136 /* WelcomeInfoTwoVController.swift */; };
 		A4DB750728C25B5B00C19228 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB750628C25B5B00C19228 /* VerifyViewController.swift */; };
+		A4DB750928C27A6F00C19228 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB750828C27A6F00C19228 /* MainMenuViewController.swift */; };
+		A4DB750D28C2A66800C19228 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB750C28C2A66800C19228 /* SlideMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A430AF8628C2FF240076565C /* TicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
 		A43D928E28C124E800028D73 /* loginOrRegisterVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginOrRegisterVController.swift; sourceTree = "<group>"; };
 		A43D929028C125E000028D73 /* WelcomeInfoThreeVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInfoThreeVController.swift; sourceTree = "<group>"; };
 		A43D929228C1303A00028D73 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 		A49159D528BFF0D0006DF136 /* GeneralMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralMethods.swift; sourceTree = "<group>"; };
 		A49159D728BFFE99006DF136 /* WelcomeInfoTwoVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInfoTwoVController.swift; sourceTree = "<group>"; };
 		A4DB750628C25B5B00C19228 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
+		A4DB750828C27A6F00C19228 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		A4DB750C28C2A66800C19228 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,9 @@
 				A45FD90728BC5C2100E7D788 /* SceneDelegate.swift */,
 				A45FD90928BC5C2100E7D788 /* ViewController.swift */,
 				A45FD90B28BC5C2100E7D788 /* Main.storyboard */,
+				A430AF8628C2FF240076565C /* TicketViewController.swift */,
+				A4DB750C28C2A66800C19228 /* SlideMenuViewController.swift */,
+				A4DB750828C27A6F00C19228 /* MainMenuViewController.swift */,
 				A4DB750628C25B5B00C19228 /* VerifyViewController.swift */,
 				A43D929628C1354200028D73 /* registerViewController.swift */,
 				A43D929228C1303A00028D73 /* loginViewController.swift */,
@@ -200,7 +209,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A45FD90A28BC5C2100E7D788 /* ViewController.swift in Sources */,
+				A4DB750D28C2A66800C19228 /* SlideMenuViewController.swift in Sources */,
+				A430AF8728C2FF240076565C /* TicketViewController.swift in Sources */,
 				A49159D628BFF0D0006DF136 /* GeneralMethods.swift in Sources */,
+				A4DB750928C27A6F00C19228 /* MainMenuViewController.swift in Sources */,
 				A45FD90628BC5C2100E7D788 /* AppDelegate.swift in Sources */,
 				A4DB750728C25B5B00C19228 /* VerifyViewController.swift in Sources */,
 				A43D929728C1354200028D73 /* registerViewController.swift in Sources */,
