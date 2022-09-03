@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A430AF8728C2FF240076565C /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8628C2FF240076565C /* TicketViewController.swift */; };
+		A430AF8928C30DBF0076565C /* ObjectTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8828C30DBF0076565C /* ObjectTypeSelectionViewController.swift */; };
+		A430AF8B28C31FD20076565C /* ObjectRowElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8A28C31FD20076565C /* ObjectRowElement.swift */; };
+		A430AF8D28C320E80076565C /* ObjectSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8C28C320E80076565C /* ObjectSelectionViewController.swift */; };
+		A430AF8F28C331BE0076565C /* ObjectSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8E28C331BE0076565C /* ObjectSelectionView.swift */; };
 		A43D928F28C124E800028D73 /* loginOrRegisterVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D928E28C124E800028D73 /* loginOrRegisterVController.swift */; };
 		A43D929128C125E000028D73 /* WelcomeInfoThreeVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D929028C125E000028D73 /* WelcomeInfoThreeVController.swift */; };
 		A43D929328C1303A00028D73 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D929228C1303A00028D73 /* loginViewController.swift */; };
@@ -35,6 +39,10 @@
 
 /* Begin PBXFileReference section */
 		A430AF8628C2FF240076565C /* TicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
+		A430AF8828C30DBF0076565C /* ObjectTypeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTypeSelectionViewController.swift; sourceTree = "<group>"; };
+		A430AF8A28C31FD20076565C /* ObjectRowElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectRowElement.swift; sourceTree = "<group>"; };
+		A430AF8C28C320E80076565C /* ObjectSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSelectionViewController.swift; sourceTree = "<group>"; };
+		A430AF8E28C331BE0076565C /* ObjectSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSelectionView.swift; sourceTree = "<group>"; };
 		A43D928E28C124E800028D73 /* loginOrRegisterVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginOrRegisterVController.swift; sourceTree = "<group>"; };
 		A43D929028C125E000028D73 /* WelcomeInfoThreeVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInfoThreeVController.swift; sourceTree = "<group>"; };
 		A43D929228C1303A00028D73 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +105,10 @@
 				A45FD90728BC5C2100E7D788 /* SceneDelegate.swift */,
 				A45FD90928BC5C2100E7D788 /* ViewController.swift */,
 				A45FD90B28BC5C2100E7D788 /* Main.storyboard */,
+				A430AF8C28C320E80076565C /* ObjectSelectionViewController.swift */,
+				A430AF8A28C31FD20076565C /* ObjectRowElement.swift */,
+				A430AF8E28C331BE0076565C /* ObjectSelectionView.swift */,
+				A430AF8828C30DBF0076565C /* ObjectTypeSelectionViewController.swift */,
 				A430AF8628C2FF240076565C /* TicketViewController.swift */,
 				A4DB750C28C2A66800C19228 /* SlideMenuViewController.swift */,
 				A4DB750828C27A6F00C19228 /* MainMenuViewController.swift */,
@@ -208,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A430AF8F28C331BE0076565C /* ObjectSelectionView.swift in Sources */,
 				A45FD90A28BC5C2100E7D788 /* ViewController.swift in Sources */,
 				A4DB750D28C2A66800C19228 /* SlideMenuViewController.swift in Sources */,
 				A430AF8728C2FF240076565C /* TicketViewController.swift in Sources */,
@@ -218,8 +231,11 @@
 				A43D929728C1354200028D73 /* registerViewController.swift in Sources */,
 				A43D929128C125E000028D73 /* WelcomeInfoThreeVController.swift in Sources */,
 				A43D929328C1303A00028D73 /* loginViewController.swift in Sources */,
+				A430AF8D28C320E80076565C /* ObjectSelectionViewController.swift in Sources */,
 				A49159D828BFFE99006DF136 /* WelcomeInfoTwoVController.swift in Sources */,
+				A430AF8B28C31FD20076565C /* ObjectRowElement.swift in Sources */,
 				A43D928F28C124E800028D73 /* loginOrRegisterVController.swift in Sources */,
+				A430AF8928C30DBF0076565C /* ObjectTypeSelectionViewController.swift in Sources */,
 				A45FD90828BC5C2100E7D788 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

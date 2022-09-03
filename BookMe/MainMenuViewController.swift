@@ -27,6 +27,15 @@ class MainMenuViewController: UIViewController {
         
     }
     
+    @IBAction func toNewBookingButton(_ sender: UIButton) {
+        vwContainer.fadeOut()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ObjectTypeSelectionViewController") as! ObjectTypeSelectionViewController
+            //vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
     
     @IBAction func toCommingTicket(_ sender: UIButton) {
         //vwContainer.fadeOut()
