@@ -10,8 +10,14 @@ import UIKit
 class ObjectSelectionViewController: UIViewController {
     
 
-
+    @IBOutlet var vwContainer: UIView!
     
+    @IBOutlet weak var objRowvr: UIStackView!
+    
+    @IBOutlet weak var typeObjectTitle: UILabel!
+    var theTypeOfObject = ""
+    
+    var reservation = ReservationClass()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,18 +31,105 @@ class ObjectSelectionViewController: UIViewController {
         
         stackViewRows.widthAnchor.constraint(equalTo:self.view.widthAnchor).isActive=true
          */
-        
-        stackViewRows.axis = .vertical
-        stackViewRows.distribution = .fillEqually
-        stackViewRows.spacing = 60
+        // https://stackoverflow.com/questions/55817614/how-to-set-an-empty-uistackview-inside-a-uiscrollview-so-that-i-can-fill-it-on-r
 
-        for _ in 0...30{
+        typeObjectTitle.text = theTypeOfObject
+        
+        objRowvr.axis = .vertical
+        objRowvr.distribution = .fillEqually
+        objRowvr.spacing = 60
+        objRowvr.distribution = .fill
+        objRowvr.alignment = .fill
+        
+        
+        var roomsTitleName: [String] = ["Sala de redes: CDT101",
+                                        "Sala de redes: CDT201",
+                                        "Sala: CDT301",
+                                        "Sala: CDT401"]
+        var softwareTitleName: [String] = ["Software: Adobe XD",
+                                           "Software: Autocad",
+                                           "Software: Blender",
+                                           "Software: VIM",
+                                           "Software: Inkscape",
+                                           "Software: Figma",
+                                           "Software: Terminal",
+                                           "Software: Ubuntu",
+                                           "Software: Word",
+                                           "Software: AutoDesk",
+                                           "Software: Powerpoint",
+                                           "Software: Excel",
+                                           "Software: Android"]
+        var hardwareTitleName: [String] = ["Hardware: Mac",
+                                           "Hardware: Iphone",
+                                           "Hardware: Radio",
+                                           "Hardware: Rocket",
+                                           "Hardware: Clock",
+                                           "Hardware: Server",
+                                           "Hardware: Keyboard",
+                                           "Hardware: Mouse",
+                                           "Hardware: Ipad",
+                                           "Hardware: Plane",
+                                           "Hardware: Microwave",
+                                           "Hardware: Arduino",
+                                           "Hardware: Raspberry",
+                                           "Hardware: Microchip"]
+        var selectionList: [String] = []
+        
+        if(typeObjectTitle.text == "Space"){
+            selectionList = roomsTitleName
+        }else if(typeObjectTitle.text == "Hardware"){
+            selectionList = hardwareTitleName
+        }else{
+            selectionList = softwareTitleName
+        }
+        
+        for i in selectionList{
             let one = ObjectRowElement()
-            stackViewRows.addArrangedSubview(one)
+            one.frame = CGRect(x: 0, y: 0, width: 414, height: 63)
+            one.isUserInteractionEnabled = true
+            one.objName = i
+            one.objType = typeObjectTitle.text!
+            one.setupV()
+            objRowvr.addArrangedSubview(one)
         }
     }
     
+    @IBAction func toNextBookingConfigView(_ sender: Any) {
+        vwContainer.fadeOut()
+        reservation.objectTypeReservation = theTypeOfObject
+        reservation.objectName = "VIM"
+        if theTypeOfObject == "Space"{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "NumberOfAssistantsViewController") as! NumberOfAssistantsViewController
+                //vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .fullScreen
+                vc.reservation = self.reservation
+                self.present(vc, animated: true, completion: nil)
+            }
+        } else{
+            let boolRandom = Bool.random()
+            if boolRandom{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
+                    //vc.modalTransitionStyle = .crossDissolve
+                    vc.modalPresentationStyle = .fullScreen
+                    vc.reservation = self.reservation
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }else{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "twoDatesSelectionViewController") as! twoDatesSelectionViewController
+                    //vc.modalTransitionStyle = .crossDissolve
+                    vc.modalPresentationStyle = .fullScreen
+                    vc.reservation = self.reservation
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }
 
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 

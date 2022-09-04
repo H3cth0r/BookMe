@@ -17,6 +17,8 @@ class MainMenuViewController: UIViewController {
     
     @IBOutlet weak var closeSlideNavMenuView: UIView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -26,9 +26,34 @@ class ObjectTypeSelectionViewController: UIViewController {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ObjectSelectionViewController") as! ObjectSelectionViewController
             //vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
+            vc.theTypeOfObject = "Space"
             self.present(vc, animated: true, completion: nil)
         }
         
+    }
+    
+    
+    @IBAction func toSoftwareObjectsButton(_ sender: Any) {
+        vwContainer.fadeOut()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ObjectSelectionViewController") as! ObjectSelectionViewController
+            //vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .fullScreen
+            vc.theTypeOfObject = "Software"
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    
+    @IBAction func toHardwareObjectsButton(_ sender: UIButton) {
+        vwContainer.fadeOut()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ObjectSelectionViewController") as! ObjectSelectionViewController
+            //vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .fullScreen
+            vc.theTypeOfObject = "Hardware"
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     /*
