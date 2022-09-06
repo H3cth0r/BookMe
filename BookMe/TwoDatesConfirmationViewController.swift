@@ -28,6 +28,17 @@ class TwoDatesConfirmationViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func toMainMenuButton(_ sender: Any) {
+        // To Main Menu after some time
+        vwContainer.fadeOut()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
+            //vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
     /*
     // MARK: - Navigation
 

@@ -31,7 +31,16 @@ class loginViewController: UIViewController {
     }
     
     
-
+    @IBAction func returnToLogOrReg(_ sender: Any) {
+        vwContainer.fadeOut()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "loginOrRegisterVController") as! loginOrRegisterVController
+            //vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

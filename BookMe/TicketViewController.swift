@@ -9,13 +9,25 @@ import UIKit
 
 class TicketViewController: UIViewController {
 
+    @IBOutlet var vwContainer: UIView!
+    
+    var reservation = ReservationClass()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func editButton(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "twoDatesSelectionViewController") as! twoDatesSelectionViewController
+            //vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .fullScreen
+            vc.reservation = self.reservation
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

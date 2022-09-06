@@ -24,7 +24,7 @@ class WelcomeInfoThreeVController: UIViewController {
     @IBAction func buttonNextView(_ sender: UIButton) {
         vwContainer.fadeOut()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "loginOrRegisterVController") as! loginOrRegisterVController
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ReserveOrMoreInfoViewController") as! ReserveOrMoreInfoViewController
             //vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)

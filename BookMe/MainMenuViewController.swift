@@ -39,6 +39,18 @@ class MainMenuViewController: UIViewController {
         }
     }
     
+    @IBAction func toCurrentBookingsButton(_ sender: Any) {
+        vwContainer.fadeOut()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "CurrentBookingsViewController") as! CurrentBookingsViewController
+            //vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+        
+    }
+    
+    
     @IBAction func toCommingTicket(_ sender: UIButton) {
         //vwContainer.fadeOut()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
@@ -48,6 +60,8 @@ class MainMenuViewController: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }
     }
+    
+    
     
     
     @IBAction func showSlideMenu(_ sender: UIButton) {
@@ -66,6 +80,16 @@ class MainMenuViewController: UIViewController {
     @IBAction func closeSlideMenu(_ sender: UIButton) {
         closeSlideNavMenuView.isHidden = true
         slideNavMenuController.isHidden = true
+    }
+    
+    
+    @IBAction func toStatsButton(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "StatsViewController") as! StatsViewController
+            //vc.modalTransitionStyle = .crossDissolve
+            //vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     /*

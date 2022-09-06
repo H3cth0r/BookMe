@@ -18,6 +18,13 @@
 		A4338C9728C5487B00C715FB /* HourSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4338C9628C5487B00C715FB /* HourSelectionViewController.swift */; };
 		A4338C9928C54AC500C715FB /* SIngleDateConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4338C9828C54AC500C715FB /* SIngleDateConfirmationViewController.swift */; };
 		A4338C9B28C54AD400C715FB /* TwoDatesConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4338C9A28C54AD400C715FB /* TwoDatesConfirmationViewController.swift */; };
+		A4338C9F28C642F500C715FB /* ReservationRowClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4338C9E28C642F500C715FB /* ReservationRowClass.swift */; };
+		A4338CA128C6489800C715FB /* CurrentBookingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4338CA028C6489800C715FB /* CurrentBookingsViewController.swift */; };
+		A4338CA328C6566500C715FB /* AccountConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4338CA228C6566500C715FB /* AccountConfigViewController.swift */; };
+		A4338CA528C6643300C715FB /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4338CA428C6643300C715FB /* CreditsViewController.swift */; };
+		A4338CA728C6645300C715FB /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4338CA628C6645300C715FB /* StatsViewController.swift */; };
+		A4338CA928C67D0100C715FB /* ReserveOrMoreInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4338CA828C67D0100C715FB /* ReserveOrMoreInfoViewController.swift */; };
+		A4338CAB28C68DA300C715FB /* MoreInfoOfHubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4338CAA28C68DA300C715FB /* MoreInfoOfHubViewController.swift */; };
 		A43D928F28C124E800028D73 /* loginOrRegisterVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D928E28C124E800028D73 /* loginOrRegisterVController.swift */; };
 		A43D929128C125E000028D73 /* WelcomeInfoThreeVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D929028C125E000028D73 /* WelcomeInfoThreeVController.swift */; };
 		A43D929328C1303A00028D73 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D929228C1303A00028D73 /* loginViewController.swift */; };
@@ -56,6 +63,13 @@
 		A4338C9628C5487B00C715FB /* HourSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourSelectionViewController.swift; sourceTree = "<group>"; };
 		A4338C9828C54AC500C715FB /* SIngleDateConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIngleDateConfirmationViewController.swift; sourceTree = "<group>"; };
 		A4338C9A28C54AD400C715FB /* TwoDatesConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoDatesConfirmationViewController.swift; sourceTree = "<group>"; };
+		A4338C9E28C642F500C715FB /* ReservationRowClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationRowClass.swift; sourceTree = "<group>"; };
+		A4338CA028C6489800C715FB /* CurrentBookingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBookingsViewController.swift; sourceTree = "<group>"; };
+		A4338CA228C6566500C715FB /* AccountConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountConfigViewController.swift; sourceTree = "<group>"; };
+		A4338CA428C6643300C715FB /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		A4338CA628C6645300C715FB /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		A4338CA828C67D0100C715FB /* ReserveOrMoreInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveOrMoreInfoViewController.swift; sourceTree = "<group>"; };
+		A4338CAA28C68DA300C715FB /* MoreInfoOfHubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreInfoOfHubViewController.swift; sourceTree = "<group>"; };
 		A43D928E28C124E800028D73 /* loginOrRegisterVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginOrRegisterVController.swift; sourceTree = "<group>"; };
 		A43D929028C125E000028D73 /* WelcomeInfoThreeVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInfoThreeVController.swift; sourceTree = "<group>"; };
 		A43D929228C1303A00028D73 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
@@ -119,7 +133,14 @@
 				A45FD90728BC5C2100E7D788 /* SceneDelegate.swift */,
 				A45FD90928BC5C2100E7D788 /* ViewController.swift */,
 				A45FD90B28BC5C2100E7D788 /* Main.storyboard */,
+				A4338CAA28C68DA300C715FB /* MoreInfoOfHubViewController.swift */,
+				A4338CA828C67D0100C715FB /* ReserveOrMoreInfoViewController.swift */,
+				A4338CA628C6645300C715FB /* StatsViewController.swift */,
+				A4338CA428C6643300C715FB /* CreditsViewController.swift */,
+				A4338CA228C6566500C715FB /* AccountConfigViewController.swift */,
+				A4338CA028C6489800C715FB /* CurrentBookingsViewController.swift */,
 				A4338C9828C54AC500C715FB /* SIngleDateConfirmationViewController.swift */,
+				A4338C9E28C642F500C715FB /* ReservationRowClass.swift */,
 				A4338C9A28C54AD400C715FB /* TwoDatesConfirmationViewController.swift */,
 				A4338C9628C5487B00C715FB /* HourSelectionViewController.swift */,
 				A4338C9428C5429A00C715FB /* oneDateSelectionViewController.swift */,
@@ -244,26 +265,33 @@
 				A430AF8F28C331BE0076565C /* ObjectSelectionView.swift in Sources */,
 				A45FD90A28BC5C2100E7D788 /* ViewController.swift in Sources */,
 				A4338C9128C5400000C715FB /* ReservationClass.swift in Sources */,
+				A4338CAB28C68DA300C715FB /* MoreInfoOfHubViewController.swift in Sources */,
 				A4DB750D28C2A66800C19228 /* SlideMenuViewController.swift in Sources */,
 				A4338C9328C5426D00C715FB /* twoDatesSelectionViewController.swift in Sources */,
 				A430AF8728C2FF240076565C /* TicketViewController.swift in Sources */,
 				A49159D628BFF0D0006DF136 /* GeneralMethods.swift in Sources */,
 				A4DB750928C27A6F00C19228 /* MainMenuViewController.swift in Sources */,
 				A45FD90628BC5C2100E7D788 /* AppDelegate.swift in Sources */,
+				A4338CA728C6645300C715FB /* StatsViewController.swift in Sources */,
 				A4DB750728C25B5B00C19228 /* VerifyViewController.swift in Sources */,
+				A4338CA928C67D0100C715FB /* ReserveOrMoreInfoViewController.swift in Sources */,
 				A43D929728C1354200028D73 /* registerViewController.swift in Sources */,
 				A4338C9728C5487B00C715FB /* HourSelectionViewController.swift in Sources */,
 				A43D929128C125E000028D73 /* WelcomeInfoThreeVController.swift in Sources */,
 				A43D929328C1303A00028D73 /* loginViewController.swift in Sources */,
 				A4338C9528C5429A00C715FB /* oneDateSelectionViewController.swift in Sources */,
+				A4338CA528C6643300C715FB /* CreditsViewController.swift in Sources */,
 				A4B652EF28C455D500E48DCF /* NumberOfAssistantsViewController.swift in Sources */,
 				A430AF8D28C320E80076565C /* ObjectSelectionViewController.swift in Sources */,
+				A4338CA328C6566500C715FB /* AccountConfigViewController.swift in Sources */,
 				A49159D828BFFE99006DF136 /* WelcomeInfoTwoVController.swift in Sources */,
+				A4338CA128C6489800C715FB /* CurrentBookingsViewController.swift in Sources */,
 				A430AF8B28C31FD20076565C /* ObjectRowElement.swift in Sources */,
 				A43D928F28C124E800028D73 /* loginOrRegisterVController.swift in Sources */,
 				A430AF8928C30DBF0076565C /* ObjectTypeSelectionViewController.swift in Sources */,
 				A45FD90828BC5C2100E7D788 /* SceneDelegate.swift in Sources */,
 				A4338C9B28C54AD400C715FB /* TwoDatesConfirmationViewController.swift in Sources */,
+				A4338C9F28C642F500C715FB /* ReservationRowClass.swift in Sources */,
 				A4338C9928C54AC500C715FB /* SIngleDateConfirmationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

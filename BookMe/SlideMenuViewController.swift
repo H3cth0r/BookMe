@@ -9,13 +9,70 @@ import UIKit
 
 class SlideMenuViewController: UIViewController {
 
+    @IBOutlet var vwContainer: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func toAccountConfigView(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "AccountConfigViewController") as! AccountConfigViewController
+            //vc.modalTransitionStyle = .crossDissolve
+            //vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func toCreditsViewButton(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "CreditsViewController") as! CreditsViewController
+            //vc.modalTransitionStyle = .crossDissolve
+            //vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func toTicketsButton(_ sender: Any) {
+        vwContainer.fadeOut()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "CurrentBookingsViewController") as! CurrentBookingsViewController
+            //vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func toStatsViewButton(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "StatsViewController") as! StatsViewController
+            //vc.modalTransitionStyle = .crossDissolve
+            //vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func toMoreInfoOfTheHub(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MoreInfoOfHubViewController") as! MoreInfoOfHubViewController
+            //vc.modalTransitionStyle = .crossDissolve
+            //vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    
+    @IBAction func LogOutButton(_ sender: Any) {
+        vwContainer.fadeOut()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ReserveOrMoreInfoViewController") as! ReserveOrMoreInfoViewController
+            //vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
