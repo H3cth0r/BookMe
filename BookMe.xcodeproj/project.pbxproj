@@ -29,6 +29,8 @@
 		A43D929128C125E000028D73 /* WelcomeInfoThreeVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D929028C125E000028D73 /* WelcomeInfoThreeVController.swift */; };
 		A43D929328C1303A00028D73 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D929228C1303A00028D73 /* loginViewController.swift */; };
 		A43D929728C1354200028D73 /* registerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43D929628C1354200028D73 /* registerViewController.swift */; };
+		A43F966F28C7F2A900F76546 /* ObjectDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F966E28C7F2A900F76546 /* ObjectDescriptionViewController.swift */; };
+		A447423728C7CE3F0037D234 /* TermsNConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A447423628C7CE3F0037D234 /* TermsNConditionsViewController.swift */; };
 		A45FD90628BC5C2100E7D788 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FD90528BC5C2100E7D788 /* AppDelegate.swift */; };
 		A45FD90828BC5C2100E7D788 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FD90728BC5C2100E7D788 /* SceneDelegate.swift */; };
 		A45FD90A28BC5C2100E7D788 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45FD90928BC5C2100E7D788 /* ViewController.swift */; };
@@ -74,6 +76,8 @@
 		A43D929028C125E000028D73 /* WelcomeInfoThreeVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInfoThreeVController.swift; sourceTree = "<group>"; };
 		A43D929228C1303A00028D73 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		A43D929628C1354200028D73 /* registerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerViewController.swift; sourceTree = "<group>"; };
+		A43F966E28C7F2A900F76546 /* ObjectDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDescriptionViewController.swift; sourceTree = "<group>"; };
+		A447423628C7CE3F0037D234 /* TermsNConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsNConditionsViewController.swift; sourceTree = "<group>"; };
 		A45FD90228BC5C2100E7D788 /* BookMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45FD90528BC5C2100E7D788 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A45FD90728BC5C2100E7D788 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,9 +134,12 @@
 			children = (
 				A49159C428BFE2C1006DF136 /* Chivo */,
 				A45FD90528BC5C2100E7D788 /* AppDelegate.swift */,
+				A430AF8A28C31FD20076565C /* ObjectRowElement.swift */,
 				A45FD90728BC5C2100E7D788 /* SceneDelegate.swift */,
 				A45FD90928BC5C2100E7D788 /* ViewController.swift */,
 				A45FD90B28BC5C2100E7D788 /* Main.storyboard */,
+				A43F966E28C7F2A900F76546 /* ObjectDescriptionViewController.swift */,
+				A447423628C7CE3F0037D234 /* TermsNConditionsViewController.swift */,
 				A4338CAA28C68DA300C715FB /* MoreInfoOfHubViewController.swift */,
 				A4338CA828C67D0100C715FB /* ReserveOrMoreInfoViewController.swift */,
 				A4338CA628C6645300C715FB /* StatsViewController.swift */,
@@ -148,7 +155,6 @@
 				A4338C9028C5400000C715FB /* ReservationClass.swift */,
 				A4B652EE28C455D500E48DCF /* NumberOfAssistantsViewController.swift */,
 				A430AF8C28C320E80076565C /* ObjectSelectionViewController.swift */,
-				A430AF8A28C31FD20076565C /* ObjectRowElement.swift */,
 				A430AF8E28C331BE0076565C /* ObjectSelectionView.swift */,
 				A430AF8828C30DBF0076565C /* ObjectTypeSelectionViewController.swift */,
 				A430AF8628C2FF240076565C /* TicketViewController.swift */,
@@ -263,7 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A430AF8F28C331BE0076565C /* ObjectSelectionView.swift in Sources */,
+				A447423728C7CE3F0037D234 /* TermsNConditionsViewController.swift in Sources */,
 				A45FD90A28BC5C2100E7D788 /* ViewController.swift in Sources */,
+				A43F966F28C7F2A900F76546 /* ObjectDescriptionViewController.swift in Sources */,
 				A4338C9128C5400000C715FB /* ReservationClass.swift in Sources */,
 				A4338CAB28C68DA300C715FB /* MoreInfoOfHubViewController.swift in Sources */,
 				A4DB750D28C2A66800C19228 /* SlideMenuViewController.swift in Sources */,

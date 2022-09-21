@@ -24,7 +24,7 @@ class loginOrRegisterVController: UIViewController {
     @IBAction func goToLoginButton(_ sender: UIButton) {
         vwContainer.fadeOut()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "loginViewController") as! loginViewController
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "registerViewController") as! registerViewController
             //vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
@@ -35,12 +35,11 @@ class loginOrRegisterVController: UIViewController {
     @IBAction func goToRegisterButton(_ sender: UIButton) {
         vwContainer.fadeOut()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "registerViewController") as! registerViewController
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "loginViewController") as! loginViewController
             //vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
-        
     }
     
     

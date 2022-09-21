@@ -37,7 +37,7 @@ class ObjectSelectionViewController: UIViewController {
         
         objRowvr.axis = .vertical
         objRowvr.distribution = .fillEqually
-        objRowvr.spacing = 60
+        objRowvr.spacing = 0
         objRowvr.distribution = .fill
         objRowvr.alignment = .fill
         
@@ -85,47 +85,25 @@ class ObjectSelectionViewController: UIViewController {
         
         for i in selectionList{
             let one = ObjectRowElement()
-            one.frame = CGRect(x: 0, y: 0, width: 414, height: 63)
+            //one.frame = CGRect(x: 0, y: 0, width: 414, height: 63)
             one.isUserInteractionEnabled = true
             one.objName = i
+            one.heightAnchor.constraint(equalToConstant:55).isActive = true
             one.objType = typeObjectTitle.text!
             one.setupV()
+            one.bookMeButton.addTarget(self, action: #selector(toNextBookingConfigView), for: .touchUpInside)
             objRowvr.addArrangedSubview(one)
         }
     }
     
-    @IBAction func toNextBookingConfigView(_ sender: Any) {
+    @objc func toNextBookingConfigView(sender: UIButton!) {
         vwContainer.fadeOut()
-        reservation.objectTypeReservation = theTypeOfObject
-        reservation.objectName = "VIM"
-        if theTypeOfObject == "Space"{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "NumberOfAssistantsViewController") as! NumberOfAssistantsViewController
-                //vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .fullScreen
-                vc.reservation = self.reservation
-                self.present(vc, animated: true, completion: nil)
-            }
-        } else{
-            let boolRandom = Bool.random()
-            if boolRandom{
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
-                    //vc.modalTransitionStyle = .crossDissolve
-                    vc.modalPresentationStyle = .fullScreen
-                    vc.reservation = self.reservation
-                    self.present(vc, animated: true, completion: nil)
-                }
-            }else{
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "twoDatesSelectionViewController") as! twoDatesSelectionViewController
-                    //vc.modalTransitionStyle = .crossDissolve
-                    vc.modalPresentationStyle = .fullScreen
-                    vc.reservation = self.reservation
-                    self.present(vc, animated: true, completion: nil)
-                }
-            }
-
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ObjectDescriptionViewController") as! ObjectDescriptionViewController
+            vc.theTypeOfObject = self.theTypeOfObject
+            //vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
         }
         
     }

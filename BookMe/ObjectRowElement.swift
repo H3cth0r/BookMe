@@ -32,7 +32,8 @@ class ObjectRowElement: UIView {
         bookMeButton.setImage(UIImage(named: "BooKMeButton"), for: .normal)
         bookMeButton.setTitle("", for: .normal)
         bookMeButton.tintColor = .black
-        bookMeButton.addTarget(self, action: #selector(buttonClicked(sender:)), for: .touchUpInside)
+        //bookMeButton.backgroundColor = .red // <----------
+        //bookMeButton.addTarget(self, action: #selector(buttonClicked(sender:)), for: .touchUpInside)
         return bookMeButton
     }()
     lazy var disponibility: UILabel! = {
@@ -75,12 +76,12 @@ class ObjectRowElement: UIView {
         setupView()
     }
     
-    //common func to init our view
+    // common func to init our view
     private func setupView() {
-        backgroundColor = .white
+        //frame = CGRect(x: 0, y: 0, width: 414, height: 63)
         objectName.text = objName
         //bookMeButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
-        bookMeButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        //bookMeButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
         addSubview(bookMeButton)
         addSubview(objectName)
         addSubview(disponibility)
@@ -89,7 +90,6 @@ class ObjectRowElement: UIView {
     }
     
     @objc func buttonClicked(sender: UIButton!){
-        print("lol")
         if objType == "Software"{
             print("Type software")
         }else if objType == "Hardware"{
