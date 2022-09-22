@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A410B72728DB8A470016F59C /* ReservationRowObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410B72628DB8A470016F59C /* ReservationRowObjectView.swift */; };
 		A430AF8728C2FF240076565C /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8628C2FF240076565C /* TicketViewController.swift */; };
 		A430AF8928C30DBF0076565C /* ObjectTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8828C30DBF0076565C /* ObjectTypeSelectionViewController.swift */; };
 		A430AF8B28C31FD20076565C /* ObjectRowElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8A28C31FD20076565C /* ObjectRowElement.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A410B72628DB8A470016F59C /* ReservationRowObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationRowObjectView.swift; sourceTree = "<group>"; };
 		A430AF8628C2FF240076565C /* TicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
 		A430AF8828C30DBF0076565C /* ObjectTypeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTypeSelectionViewController.swift; sourceTree = "<group>"; };
 		A430AF8A28C31FD20076565C /* ObjectRowElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectRowElement.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				A4338C9028C5400000C715FB /* ReservationClass.swift */,
 				A4B652EE28C455D500E48DCF /* NumberOfAssistantsViewController.swift */,
 				A430AF8C28C320E80076565C /* ObjectSelectionViewController.swift */,
+				A410B72628DB8A470016F59C /* ReservationRowObjectView.swift */,
 				A430AF8E28C331BE0076565C /* ObjectSelectionView.swift */,
 				A430AF8828C30DBF0076565C /* ObjectTypeSelectionViewController.swift */,
 				A430AF8628C2FF240076565C /* TicketViewController.swift */,
@@ -279,6 +282,7 @@
 				A430AF8728C2FF240076565C /* TicketViewController.swift in Sources */,
 				A49159D628BFF0D0006DF136 /* GeneralMethods.swift in Sources */,
 				A4DB750928C27A6F00C19228 /* MainMenuViewController.swift in Sources */,
+				A410B72728DB8A470016F59C /* ReservationRowObjectView.swift in Sources */,
 				A45FD90628BC5C2100E7D788 /* AppDelegate.swift in Sources */,
 				A4338CA728C6645300C715FB /* StatsViewController.swift in Sources */,
 				A4DB750728C25B5B00C19228 /* VerifyViewController.swift in Sources */,

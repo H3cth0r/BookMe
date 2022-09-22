@@ -1754,66 +1754,64 @@ RESERVATION:</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Bookings" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpV-Tz-1sa">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Bookings" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpV-Tz-1sa">
                                 <rect key="frame" x="226" y="762" width="168" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Chivo-Bold" family="Chivo" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tempReservationRows" translatesAutoresizingMaskIntoConstraints="NO" id="zrr-IJ-cVS">
-                                <rect key="frame" x="26" y="195" width="362" height="342"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainMenuBar" translatesAutoresizingMaskIntoConstraints="NO" id="FhD-HV-pqF">
                                 <rect key="frame" x="20" y="123" width="370" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ew7-uU-zJ7">
-                                <rect key="frame" x="282" y="151" width="57" height="386"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHb-mk-8RJ">
+                                <rect key="frame" x="20" y="80" width="44" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="closeXButton"/>
                                 <connections>
-                                    <action selector="openTicketButton:" destination="E6f-hs-L6D" eventType="touchUpInside" id="mrT-ne-ip0"/>
+                                    <action selector="closeCurrentBookings:" destination="E6f-hs-L6D" eventType="touchUpInside" id="mAB-fv-psI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpw-7C-iYc">
-                                <rect key="frame" x="347" y="195" width="41" height="342"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
-                                <connections>
-                                    <action selector="deleteTicketButton:" destination="E6f-hs-L6D" eventType="touchUpInside" id="bmb-Z6-CUo"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kys-m0-q2D">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ClF-3f-Vtc">
                                 <rect key="frame" x="0.0" y="151" width="414" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="confirmDelete" translatesAutoresizingMaskIntoConstraints="NO" id="ShU-sm-hwt">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="H0q-BT-dvP">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="603"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="H0q-BT-dvP" secondAttribute="bottom" id="9jt-Ci-w9d"/>
+                                    <constraint firstItem="H0q-BT-dvP" firstAttribute="height" secondItem="ClF-3f-Vtc" secondAttribute="height" placeholder="YES" id="DYa-uF-zmN"/>
+                                    <constraint firstItem="H0q-BT-dvP" firstAttribute="top" secondItem="ClF-3f-Vtc" secondAttribute="top" id="TrB-VD-bWh"/>
+                                    <constraint firstItem="H0q-BT-dvP" firstAttribute="width" secondItem="ClF-3f-Vtc" secondAttribute="width" id="ivl-bX-kTc"/>
+                                    <constraint firstAttribute="trailing" secondItem="H0q-BT-dvP" secondAttribute="trailing" id="yH9-Bi-5KW"/>
+                                    <constraint firstItem="H0q-BT-dvP" firstAttribute="leading" secondItem="ClF-3f-Vtc" secondAttribute="leading" id="zG5-Pf-p2o"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="XCr-9e-7oL"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="KSz-ZR-pZv"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kys-m0-q2D">
+                                <rect key="frame" x="0.0" y="151" width="414" height="603"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="confirmDelete" translatesAutoresizingMaskIntoConstraints="NO" id="ShU-sm-hwt">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="603"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oo0-ze-lZ9">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oo0-ze-lZ9">
                                         <rect key="frame" x="220" y="426" width="157" height="65"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="acceptButton"/>
                                         <connections>
                                             <action selector="confirmDeleteReservation:" destination="E6f-hs-L6D" eventType="touchUpInside" id="jSa-hc-vWz"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delete?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtE-4g-dV2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtE-4g-dV2">
                                         <rect key="frame" x="97" y="193" width="220" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Chivo-Bold" family="Chivo" pointSize="60"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goz-DN-auz">
-                                        <rect key="frame" x="333" y="90" width="44" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goz-DN-auz">
+                                        <rect key="frame" x="333" y="90" width="60" height="35"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="closeXButton"/>
                                         <connections>
@@ -1822,22 +1820,50 @@ RESERVATION:</string>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Oo0-ze-lZ9" secondAttribute="trailing" constant="20" symbolic="YES" id="0ZF-jM-8Dh"/>
+                                    <constraint firstItem="Oo0-ze-lZ9" firstAttribute="top" secondItem="Kys-m0-q2D" secondAttribute="top" constant="426" id="2Rf-4E-4NS"/>
+                                    <constraint firstAttribute="bottom" secondItem="goz-DN-auz" secondAttribute="bottom" constant="478" id="ARw-Lk-TM2"/>
+                                    <constraint firstAttribute="bottom" secondItem="ShU-sm-hwt" secondAttribute="bottom" id="KpL-hr-qMv"/>
+                                    <constraint firstItem="ShU-sm-hwt" firstAttribute="leading" secondItem="Kys-m0-q2D" secondAttribute="leading" id="LEc-Dx-Ik0"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EtE-4g-dV2" secondAttribute="trailing" symbolic="YES" id="NRt-en-vU5"/>
+                                    <constraint firstItem="goz-DN-auz" firstAttribute="leading" secondItem="Kys-m0-q2D" secondAttribute="leading" constant="333" id="WVz-YO-j6i"/>
+                                    <constraint firstItem="ShU-sm-hwt" firstAttribute="top" secondItem="Kys-m0-q2D" secondAttribute="top" id="Yyd-8m-WeO"/>
+                                    <constraint firstItem="EtE-4g-dV2" firstAttribute="leading" secondItem="Kys-m0-q2D" secondAttribute="leading" constant="97" id="ZFh-OT-N3K"/>
+                                    <constraint firstItem="goz-DN-auz" firstAttribute="top" secondItem="Kys-m0-q2D" secondAttribute="top" constant="90" id="k7E-bg-1Zu"/>
+                                    <constraint firstItem="Oo0-ze-lZ9" firstAttribute="leading" secondItem="Kys-m0-q2D" secondAttribute="leading" constant="220" id="kA8-2H-9sy"/>
+                                    <constraint firstAttribute="bottom" secondItem="EtE-4g-dV2" secondAttribute="bottom" constant="338" id="pey-Mz-lFp"/>
+                                    <constraint firstAttribute="bottom" secondItem="Oo0-ze-lZ9" secondAttribute="bottom" constant="112" id="uIP-yg-Z0l"/>
+                                    <constraint firstAttribute="trailing" secondItem="ShU-sm-hwt" secondAttribute="trailing" id="v7F-Vl-J8N"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="goz-DN-auz" secondAttribute="trailing" symbolic="YES" id="xSU-IU-dri"/>
+                                    <constraint firstItem="EtE-4g-dV2" firstAttribute="top" secondItem="Kys-m0-q2D" secondAttribute="top" constant="193" id="zXU-8O-GR2"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHb-mk-8RJ">
-                                <rect key="frame" x="20" y="80" width="44" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="closeXButton"/>
-                                <connections>
-                                    <action selector="closeCurrentBookings:" destination="E6f-hs-L6D" eventType="touchUpInside" id="mAB-fv-psI"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OqP-w2-xe1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OqP-w2-xe1" firstAttribute="bottom" secondItem="Kys-m0-q2D" secondAttribute="bottom" constant="108" id="013-Ed-RKv"/>
+                            <constraint firstItem="DpV-Tz-1sa" firstAttribute="leading" secondItem="OqP-w2-xe1" secondAttribute="leading" constant="226" id="7Xa-Ge-EGl"/>
+                            <constraint firstItem="Kys-m0-q2D" firstAttribute="trailing" secondItem="OqP-w2-xe1" secondAttribute="trailing" id="7eo-0e-Uyf"/>
+                            <constraint firstItem="OqP-w2-xe1" firstAttribute="bottom" secondItem="ClF-3f-Vtc" secondAttribute="bottom" constant="108" id="GQC-ZR-5kh"/>
+                            <constraint firstItem="OqP-w2-xe1" firstAttribute="bottom" secondItem="WHb-mk-8RJ" secondAttribute="bottom" constant="747" id="MLW-Jo-ZgS"/>
+                            <constraint firstItem="WHb-mk-8RJ" firstAttribute="top" secondItem="OqP-w2-xe1" secondAttribute="top" constant="36" id="NzY-9j-oov"/>
+                            <constraint firstItem="OqP-w2-xe1" firstAttribute="trailing" secondItem="DpV-Tz-1sa" secondAttribute="trailing" constant="20" id="T05-mO-xcH"/>
+                            <constraint firstItem="Kys-m0-q2D" firstAttribute="leading" secondItem="OqP-w2-xe1" secondAttribute="leading" id="XkS-p2-x3f"/>
+                            <constraint firstItem="ClF-3f-Vtc" firstAttribute="top" secondItem="OqP-w2-xe1" secondAttribute="top" constant="107" id="YEx-Gf-bGt"/>
+                            <constraint firstItem="WHb-mk-8RJ" firstAttribute="leading" secondItem="OqP-w2-xe1" secondAttribute="leading" constant="20" id="dBo-wP-8XH"/>
+                            <constraint firstItem="DpV-Tz-1sa" firstAttribute="top" secondItem="OqP-w2-xe1" secondAttribute="top" constant="718" id="icr-gS-GVe"/>
+                            <constraint firstItem="ClF-3f-Vtc" firstAttribute="leading" secondItem="OqP-w2-xe1" secondAttribute="leading" id="mhf-x7-anA"/>
+                            <constraint firstItem="OqP-w2-xe1" firstAttribute="trailing" secondItem="WHb-mk-8RJ" secondAttribute="trailing" constant="350" id="qoe-ft-GTD"/>
+                            <constraint firstItem="ClF-3f-Vtc" firstAttribute="trailing" secondItem="OqP-w2-xe1" secondAttribute="trailing" id="rgB-91-zkQ"/>
+                            <constraint firstItem="DpV-Tz-1sa" firstAttribute="bottom" secondItem="OqP-w2-xe1" secondAttribute="bottom" id="tDY-2H-6XR"/>
+                            <constraint firstItem="Kys-m0-q2D" firstAttribute="top" secondItem="OqP-w2-xe1" secondAttribute="top" constant="107" id="zy4-yR-Eh3"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="deleteBookingMenu" destination="Kys-m0-q2D" id="4jN-NW-d0Y"/>
+                        <outlet property="objRowvr" destination="H0q-BT-dvP" id="Ewf-rg-en1"/>
                         <outlet property="vwContainer" destination="TTB-VS-L76" id="tvG-Qy-PUu"/>
                     </connections>
                 </viewController>
@@ -2502,7 +2528,6 @@ RESERVATION:</string>
         <image name="stepControlButtonsTwo" width="33.333332061767578" height="16.666666030883789"/>
         <image name="tempAccountConfigProfilePic" width="428" height="274"/>
         <image name="tempHourSelectionLines" width="428" height="465"/>
-        <image name="tempReservationRows" width="362" height="342"/>
         <image name="tempSelectDate" width="428" height="428"/>
         <image name="tempSelectTwoDate" width="428" height="689"/>
         <image name="tempStatsData" width="424" height="806"/>
