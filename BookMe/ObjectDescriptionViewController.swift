@@ -39,10 +39,12 @@ class ObjectDescriptionViewController: UIViewController {
             let boolRandom = Bool.random()
             if boolRandom{
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
+                    //let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "ChildHostingController") as! ChildHostingController
+                    //let vc = DateSelectionViewController()
                     //vc.modalTransitionStyle = .crossDissolve
                     vc.modalPresentationStyle = .fullScreen
-                    vc.reservation = self.reservation
+                    //vc.reservation = self.reservation
                     self.present(vc, animated: true, completion: nil)
                 }
             }else{

@@ -12,7 +12,6 @@
 		A430AF8928C30DBF0076565C /* ObjectTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8828C30DBF0076565C /* ObjectTypeSelectionViewController.swift */; };
 		A430AF8B28C31FD20076565C /* ObjectRowElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8A28C31FD20076565C /* ObjectRowElement.swift */; };
 		A430AF8D28C320E80076565C /* ObjectSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8C28C320E80076565C /* ObjectSelectionViewController.swift */; };
-		A430AF8F28C331BE0076565C /* ObjectSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8E28C331BE0076565C /* ObjectSelectionView.swift */; };
 		A4338C9128C5400000C715FB /* ReservationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4338C9028C5400000C715FB /* ReservationClass.swift */; };
 		A4338C9328C5426D00C715FB /* twoDatesSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4338C9228C5426D00C715FB /* twoDatesSelectionViewController.swift */; };
 		A4338C9528C5429A00C715FB /* oneDateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4338C9428C5429A00C715FB /* oneDateSelectionViewController.swift */; };
@@ -49,6 +48,7 @@
 		A49159D628BFF0D0006DF136 /* GeneralMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49159D528BFF0D0006DF136 /* GeneralMethods.swift */; };
 		A49159D828BFFE99006DF136 /* WelcomeInfoTwoVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49159D728BFFE99006DF136 /* WelcomeInfoTwoVController.swift */; };
 		A4B652EF28C455D500E48DCF /* NumberOfAssistantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B652EE28C455D500E48DCF /* NumberOfAssistantsViewController.swift */; };
+		A4C9AB4028DCD780006C746E /* DateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9AB3F28DCD780006C746E /* DateSelectionViewController.swift */; };
 		A4DB750728C25B5B00C19228 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB750628C25B5B00C19228 /* VerifyViewController.swift */; };
 		A4DB750928C27A6F00C19228 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB750828C27A6F00C19228 /* MainMenuViewController.swift */; };
 		A4DB750D28C2A66800C19228 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB750C28C2A66800C19228 /* SlideMenuViewController.swift */; };
@@ -60,7 +60,6 @@
 		A430AF8828C30DBF0076565C /* ObjectTypeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTypeSelectionViewController.swift; sourceTree = "<group>"; };
 		A430AF8A28C31FD20076565C /* ObjectRowElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectRowElement.swift; sourceTree = "<group>"; };
 		A430AF8C28C320E80076565C /* ObjectSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSelectionViewController.swift; sourceTree = "<group>"; };
-		A430AF8E28C331BE0076565C /* ObjectSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSelectionView.swift; sourceTree = "<group>"; };
 		A4338C9028C5400000C715FB /* ReservationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationClass.swift; sourceTree = "<group>"; };
 		A4338C9228C5426D00C715FB /* twoDatesSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twoDatesSelectionViewController.swift; sourceTree = "<group>"; };
 		A4338C9428C5429A00C715FB /* oneDateSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oneDateSelectionViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +98,7 @@
 		A49159D528BFF0D0006DF136 /* GeneralMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralMethods.swift; sourceTree = "<group>"; };
 		A49159D728BFFE99006DF136 /* WelcomeInfoTwoVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInfoTwoVController.swift; sourceTree = "<group>"; };
 		A4B652EE28C455D500E48DCF /* NumberOfAssistantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfAssistantsViewController.swift; sourceTree = "<group>"; };
+		A4C9AB3F28DCD780006C746E /* DateSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionViewController.swift; sourceTree = "<group>"; };
 		A4DB750628C25B5B00C19228 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		A4DB750828C27A6F00C19228 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		A4DB750C28C2A66800C19228 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +158,6 @@
 				A4B652EE28C455D500E48DCF /* NumberOfAssistantsViewController.swift */,
 				A430AF8C28C320E80076565C /* ObjectSelectionViewController.swift */,
 				A410B72628DB8A470016F59C /* ReservationRowObjectView.swift */,
-				A430AF8E28C331BE0076565C /* ObjectSelectionView.swift */,
 				A430AF8828C30DBF0076565C /* ObjectTypeSelectionViewController.swift */,
 				A430AF8628C2FF240076565C /* TicketViewController.swift */,
 				A4DB750C28C2A66800C19228 /* SlideMenuViewController.swift */,
@@ -168,6 +167,7 @@
 				A43D929228C1303A00028D73 /* loginViewController.swift */,
 				A43D928E28C124E800028D73 /* loginOrRegisterVController.swift */,
 				A49159D728BFFE99006DF136 /* WelcomeInfoTwoVController.swift */,
+				A4C9AB3F28DCD780006C746E /* DateSelectionViewController.swift */,
 				A43D929028C125E000028D73 /* WelcomeInfoThreeVController.swift */,
 				A49159D528BFF0D0006DF136 /* GeneralMethods.swift */,
 				A45FD90E28BC5C2400E7D788 /* Assets.xcassets */,
@@ -271,7 +271,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A430AF8F28C331BE0076565C /* ObjectSelectionView.swift in Sources */,
 				A447423728C7CE3F0037D234 /* TermsNConditionsViewController.swift in Sources */,
 				A45FD90A28BC5C2100E7D788 /* ViewController.swift in Sources */,
 				A43F966F28C7F2A900F76546 /* ObjectDescriptionViewController.swift in Sources */,
@@ -279,6 +278,7 @@
 				A4338CAB28C68DA300C715FB /* MoreInfoOfHubViewController.swift in Sources */,
 				A4DB750D28C2A66800C19228 /* SlideMenuViewController.swift in Sources */,
 				A4338C9328C5426D00C715FB /* twoDatesSelectionViewController.swift in Sources */,
+				A4C9AB4028DCD780006C746E /* DateSelectionViewController.swift in Sources */,
 				A430AF8728C2FF240076565C /* TicketViewController.swift in Sources */,
 				A49159D628BFF0D0006DF136 /* GeneralMethods.swift in Sources */,
 				A4DB750928C27A6F00C19228 /* MainMenuViewController.swift in Sources */,

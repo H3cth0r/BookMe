@@ -1470,6 +1470,14 @@ Assistants</string>
             </objects>
             <point key="canvasLocation" x="4622" y="-613"/>
         </scene>
+        <!--Child Hosting Controller-->
+        <scene sceneID="yWS-f8-0U1">
+            <objects>
+                <hostingController storyboardIdentifier="ChildHostingController" id="y2A-Ks-mdA" customClass="ChildHostingController" customModule="BookMe" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5mh-jr-Sk1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5302" y="-617"/>
+        </scene>
         <!--Object Type Selection View Controller-->
         <scene sceneID="Wzk-xk-vvN">
             <objects>
