@@ -21,6 +21,8 @@ class ReservationRowObjectView: UIView {
     var initialDate = "SEPT 04th 10:00 AM"
     var endDate     = "SEPT 16th 11:00 AM"
     
+
+    
     lazy var objectName: UILabel! = {
         let objectName = UILabel(frame: CGRect(x: 41, y: 10, width: 86, height: 42))
         objectName.font = UIFont(name: "Chivo-Bold", size: 15)
