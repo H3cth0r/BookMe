@@ -1410,7 +1410,7 @@ Assistants</string>
                                     <action selector="toMainMenuButton:" destination="0SN-L3-uFm" eventType="touchUpInside" id="fpI-oT-T0H"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOe-Wx-Ul0">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOe-Wx-Ul0">
                                 <rect key="frame" x="0.0" y="123" width="414" height="280"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7o-h6-lce">
@@ -1428,7 +1428,7 @@ Assistants</string>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Eh9-t7-RO8"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="lWd-6b-CoB"/>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vr-6Z-05U">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vr-6Z-05U">
                                 <rect key="frame" x="0.0" y="430" width="414" height="280"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TuF-7Q-U2T">
@@ -1446,6 +1446,20 @@ Assistants</string>
                                 <viewLayoutGuide key="contentLayoutGuide" id="hYF-vD-s8M"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="0fi-wb-5p9"/>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjo-24-wv8">
+                                <rect key="frame" x="20" y="780" width="212" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBy-Sm-fFD">
+                                <rect key="frame" x="20" y="832" width="212" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dbh-ZZ-HQ5"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1469,6 +1483,10 @@ Assistants</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="firstDateLabel" destination="fjo-24-wv8" id="1dw-9D-d1w"/>
+                        <outlet property="lowerDateSelectionBand" destination="TuF-7Q-U2T" id="gzm-yS-dXV"/>
+                        <outlet property="secondDateLabel" destination="YBy-Sm-fFD" id="SIB-de-n35"/>
+                        <outlet property="upperDateSelectionBand" destination="U7o-h6-lce" id="BX7-yO-mHa"/>
                         <outlet property="vwContainer" destination="AZG-YP-B6m" id="uhh-fr-zV2"/>
                     </connections>
                 </viewController>
@@ -1502,7 +1520,7 @@ Assistants</string>
                                     <action selector="toMainMenuButton:" destination="81w-hw-Y6e" eventType="touchUpInside" id="FS4-fG-JCe"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OjG-p9-XuQ">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OjG-p9-XuQ">
                                 <rect key="frame" x="0.0" y="258" width="414" height="380"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7E-gx-0XT">
