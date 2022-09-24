@@ -82,10 +82,20 @@ struct Home : View {
                 }
                 
                 Spacer()
+                /*
                 Button(action: {print("Lol")}){
                     Image("nextButtonSquare").renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
 
                 }.padding(.leading, 200)
+                */
+                
+                NavigationLink(
+                    destination: HourSelectionUIKitView(),
+                    label: {
+                        Image("nextButtonSquare").renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                    }
+                )
+                
             }
             .background(Color.black.opacity(1).edgesIgnoringSafeArea(.all))
             //.navigationBarTitle("Carousel List")
@@ -151,3 +161,23 @@ var data = [
     Card(id: 3, date: "TUESDAY 26TH AUGUST 2022", show: false),
     Card(id: 4, date: "TUESDAY 27TH AUGUST 2022", show: false)
 ]
+
+
+struct HourSelectionUIKitView: UIViewControllerRepresentable{
+    
+    typealias UIViewControllerType = HourSelectionViewController
+    
+    func makeUIViewController(context: Context) -> HourSelectionViewController {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = sb.instantiateViewController(identifier: "HourSelectionViewController") as! HourSelectionViewController
+        viewController.modalPresentationStyle = .fullScreen
+        return viewController
+    }
+    
+    func updateUIViewController(_ uiViewController: HourSelectionViewController, context: Context) {
+        
+    }
+    
+    
+    
+}

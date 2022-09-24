@@ -40,7 +40,7 @@ class ObjectDescriptionViewController: UIViewController {
             if boolRandom{
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     //let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "ChildHostingController") as! ChildHostingController
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
                     //let vc = DateSelectionViewController()
                     //vc.modalTransitionStyle = .crossDissolve
                     vc.modalPresentationStyle = .fullScreen
