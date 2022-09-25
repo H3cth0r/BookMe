@@ -18,8 +18,10 @@ class oneDateSelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        
+        // https://www.youtube.com/watch?v=6Qd3CdWYeJ8
         objCard.axis = .horizontal
         objCard.distribution = .fillEqually
         objCard.spacing = 30

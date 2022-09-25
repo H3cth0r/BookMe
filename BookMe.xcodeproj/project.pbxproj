@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4086B3B28DFEBC900CFEFCF /* HourPickerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4086B3A28DFEBC900CFEFCF /* HourPickerRowView.swift */; };
+		A4086B3F28DFF4E700CFEFCF /* HourModelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4086B3E28DFF4E700CFEFCF /* HourModelPicker.swift */; };
+		A4086B4128DFF51700CFEFCF /* HourModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4086B4028DFF51700CFEFCF /* HourModel.swift */; };
 		A410B72728DB8A470016F59C /* ReservationRowObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A410B72628DB8A470016F59C /* ReservationRowObjectView.swift */; };
 		A430AF8728C2FF240076565C /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8628C2FF240076565C /* TicketViewController.swift */; };
 		A430AF8928C30DBF0076565C /* ObjectTypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430AF8828C30DBF0076565C /* ObjectTypeSelectionViewController.swift */; };
@@ -56,6 +59,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4086B3A28DFEBC900CFEFCF /* HourPickerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourPickerRowView.swift; sourceTree = "<group>"; };
+		A4086B3E28DFF4E700CFEFCF /* HourModelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourModelPicker.swift; sourceTree = "<group>"; };
+		A4086B4028DFF51700CFEFCF /* HourModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourModel.swift; sourceTree = "<group>"; };
 		A410B72628DB8A470016F59C /* ReservationRowObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationRowObjectView.swift; sourceTree = "<group>"; };
 		A430AF8628C2FF240076565C /* TicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
 		A430AF8828C30DBF0076565C /* ObjectTypeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectTypeSelectionViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +148,8 @@
 				A45FD90728BC5C2100E7D788 /* SceneDelegate.swift */,
 				A45FD90928BC5C2100E7D788 /* ViewController.swift */,
 				A45FD90B28BC5C2100E7D788 /* Main.storyboard */,
+				A4086B3E28DFF4E700CFEFCF /* HourModelPicker.swift */,
+				A4086B4028DFF51700CFEFCF /* HourModel.swift */,
 				A43F966E28C7F2A900F76546 /* ObjectDescriptionViewController.swift */,
 				A447423628C7CE3F0037D234 /* TermsNConditionsViewController.swift */,
 				A4338CAA28C68DA300C715FB /* MoreInfoOfHubViewController.swift */,
@@ -155,6 +163,7 @@
 				A4338C9A28C54AD400C715FB /* TwoDatesConfirmationViewController.swift */,
 				A4338C9628C5487B00C715FB /* HourSelectionViewController.swift */,
 				A4338C9428C5429A00C715FB /* oneDateSelectionViewController.swift */,
+				A4086B3A28DFEBC900CFEFCF /* HourPickerRowView.swift */,
 				A4A8147D28DEAE6E0070EC87 /* DateCardObject.swift */,
 				A4338C9228C5426D00C715FB /* twoDatesSelectionViewController.swift */,
 				A4338C9028C5400000C715FB /* ReservationClass.swift */,
@@ -283,8 +292,10 @@
 				A4DB750D28C2A66800C19228 /* SlideMenuViewController.swift in Sources */,
 				A4338C9328C5426D00C715FB /* twoDatesSelectionViewController.swift in Sources */,
 				A4C9AB4028DCD780006C746E /* DateSelectionViewController.swift in Sources */,
+				A4086B3B28DFEBC900CFEFCF /* HourPickerRowView.swift in Sources */,
 				A430AF8728C2FF240076565C /* TicketViewController.swift in Sources */,
 				A49159D628BFF0D0006DF136 /* GeneralMethods.swift in Sources */,
+				A4086B3F28DFF4E700CFEFCF /* HourModelPicker.swift in Sources */,
 				A4DB750928C27A6F00C19228 /* MainMenuViewController.swift in Sources */,
 				A410B72728DB8A470016F59C /* ReservationRowObjectView.swift in Sources */,
 				A45FD90628BC5C2100E7D788 /* AppDelegate.swift in Sources */,
@@ -301,6 +312,7 @@
 				A430AF8D28C320E80076565C /* ObjectSelectionViewController.swift in Sources */,
 				A4338CA328C6566500C715FB /* AccountConfigViewController.swift in Sources */,
 				A49159D828BFFE99006DF136 /* WelcomeInfoTwoVController.swift in Sources */,
+				A4086B4128DFF51700CFEFCF /* HourModel.swift in Sources */,
 				A4338CA128C6489800C715FB /* CurrentBookingsViewController.swift in Sources */,
 				A430AF8B28C31FD20076565C /* ObjectRowElement.swift in Sources */,
 				A43D928F28C124E800028D73 /* loginOrRegisterVController.swift in Sources */,
