@@ -39,7 +39,7 @@ class AccountConfigViewController: UIViewController {
     @objc func keyboardWillShow(notification: NSNotification){
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
             let keyboardHeight = keyboardFrame.cgRectValue.height
-            let bottomSpace = self.view.frame.height - (self.sendFormOutlet.frame.origin.y + sendFormOutlet.frame.height) - 70
+            let bottomSpace = self.view.frame.height - (self.sendFormOutlet.frame.origin.y + sendFormOutlet.frame.height) - 90
             if editingSomeTextInput == false{
                 editingSomeTextInput = true
                 self.view.frame.origin.y -= keyboardHeight + bottomSpace
@@ -52,9 +52,13 @@ class AccountConfigViewController: UIViewController {
     }
     
     @IBAction func openConfirmationButton(_ sender: Any) {
+        self.view.endEditing(true)
+        editingSomeTextInput = false
         confirmChangesView.isHidden = false
     }
     @IBAction func saveDataButton(_ sender: Any) {
+        self.view.endEditing(true)
+        editingSomeTextInput = false
         confirmChangesView.isHidden = true
         if mailinputspace.text != "yledo@tec.mx" {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
