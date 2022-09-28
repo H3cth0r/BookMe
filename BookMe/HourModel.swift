@@ -22,4 +22,16 @@ class HourModel{
         self.occupy = occupy
         self.stringHour = String(hour) + ":"  + String(minute)
     }
+    
+    func hourToString(){
+        var h = String(self.hour)
+        var m = String(self.minute)
+        if(h.count == 1){
+            h = "0" + h
+        }
+        if(m.count == 1){
+            m = "0" + m
+        }
+        self.stringHour = h + "." + m
+    }
 }

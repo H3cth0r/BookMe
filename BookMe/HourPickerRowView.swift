@@ -30,6 +30,15 @@ class HourPickerRowView: UIView {
         occupyRow.isHidden = false
         return occupyRow
     }()
+    
+    lazy var hourLabel: UILabel! = {
+        let hourLabel = UILabel(frame: CGRect(x: 93, y: 25, width: 32, height: 12))
+        hourLabel.font = UIFont(name: "Chivo-Light", size: 10)
+        hourLabel.text = "14 . 00"
+        hourLabel.textAlignment = .center
+        hourLabel.textColor = .white
+        return hourLabel
+    }()
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -63,6 +72,7 @@ class HourPickerRowView: UIView {
         //bookMeButton.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
         addSubview(occupiedRow)
         addSubview(occupyRow)
+        addSubview(hourLabel)
         
     }
 
