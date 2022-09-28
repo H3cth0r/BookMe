@@ -15,11 +15,40 @@ class AccountConfigViewController: UIViewController {
     
     @IBOutlet weak var mailinputspace: UITextField!
     
+    
+    @IBOutlet weak var sendFormOutlet: UIButton!
+    
+    var editingSomeTextInput = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         // Do any additional setup after loading the view.
         confirmChangesView.isHidden = true
+    }
+    
+    @objc func dismissKeyboard(){
+        self.view.endEditing(true)
+    }
+    @objc func keyboardWillShow(notification: NSNotification){
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            let bottomSpace = self.view.frame.height - (self.sendFormOutlet.frame.origin.y + sendFormOutlet.frame.height) - 70
+            if editingSomeTextInput == false{
+                editingSomeTextInput = true
+                self.view.frame.origin.y -= keyboardHeight + bottomSpace
+            }
+        }
+    }
+    @objc func keyboardWillHide(){
+        editingSomeTextInput = false
+        self.view.frame.origin.y = 0
     }
     
     @IBAction func openConfirmationButton(_ sender: Any) {
