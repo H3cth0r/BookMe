@@ -508,13 +508,13 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BooKME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZQ-bP-63d">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="BooKME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZQ-bP-63d">
                                 <rect key="frame" x="138" y="90" width="139" height="41"/>
                                 <fontDescription key="fontDescription" name="Chivo-Light" family="Chivo" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyM-ds-0Mm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyM-ds-0Mm">
                                 <rect key="frame" x="43" y="282" width="329" height="101.66666666666669"/>
                                 <string key="text">{
 
@@ -532,13 +532,13 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;password&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3H-Rk-7wT">
-                                <rect key="frame" x="104" y="441.66666666666669" width="94.666666666666686" height="20"/>
+                                <rect key="frame" x="104" y="445.66666666666674" width="94.666666666666686" height="20"/>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91r-jo-Wth">
-                                <rect key="frame" x="43" y="469.66666666666669" width="329" height="61.000000000000057"/>
+                                <rect key="frame" x="43" y="474" width="351" height="61"/>
                                 <string key="text">         },
 
 }</string>
@@ -547,15 +547,15 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KIf-SO-zDO">
-                                <rect key="frame" x="249.66666666666663" y="399" width="32" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="250" y="399" width="144" height="34"/>
+                                <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5y3-hR-pVh">
-                                <rect key="frame" x="206.66666666666666" y="434.66666666666669" width="32" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="250" y="439" width="144" height="34"/>
+                                <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -568,9 +568,11 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                     <action selector="toVerificationButton:" destination="ae9-Wg-bOP" eventType="touchUpInside" id="Xp5-DM-lCD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRG-z4-GsC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRG-z4-GsC">
                                 <rect key="frame" x="43" y="788" width="88" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="B6A-dG-Ds3"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="returnWhiteButton"/>
                                 <connections>
@@ -581,30 +583,31 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                         <viewLayoutGuide key="safeArea" id="NXb-RB-311"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="n3H-Rk-7wT" firstAttribute="top" secondItem="hv8-GX-zYH" secondAttribute="bottom" constant="17" id="2Jt-Gg-6eZ"/>
-                            <constraint firstItem="91r-jo-Wth" firstAttribute="leading" secondItem="NXb-RB-311" secondAttribute="leading" constant="43" id="3u9-fo-3e5"/>
-                            <constraint firstItem="HZQ-bP-63d" firstAttribute="leading" secondItem="NXb-RB-311" secondAttribute="leading" constant="138" id="3yJ-s1-Z1G"/>
-                            <constraint firstItem="91r-jo-Wth" firstAttribute="top" secondItem="n3H-Rk-7wT" secondAttribute="bottom" constant="8" symbolic="YES" id="6Dc-4M-U43"/>
-                            <constraint firstItem="QyM-ds-0Mm" firstAttribute="top" secondItem="HZQ-bP-63d" secondAttribute="bottom" constant="151" id="7BY-iQ-qjD"/>
-                            <constraint firstItem="KIf-SO-zDO" firstAttribute="leading" secondItem="hv8-GX-zYH" secondAttribute="trailing" constant="8" symbolic="YES" id="7vW-bD-RAO"/>
-                            <constraint firstItem="hv8-GX-zYH" firstAttribute="top" secondItem="QyM-ds-0Mm" secondAttribute="bottom" constant="22.329999999999998" id="A34-Cj-iPC"/>
-                            <constraint firstItem="QyM-ds-0Mm" firstAttribute="top" secondItem="HZQ-bP-63d" secondAttribute="bottom" constant="151" id="BTa-8y-HAI"/>
-                            <constraint firstItem="5y3-hR-pVh" firstAttribute="leading" secondItem="n3H-Rk-7wT" secondAttribute="trailing" constant="8" symbolic="YES" id="BZ0-Va-XeG"/>
-                            <constraint firstItem="hv8-GX-zYH" firstAttribute="leading" secondItem="NXb-RB-311" secondAttribute="leading" constant="104" id="DUF-yF-kqj"/>
-                            <constraint firstItem="NXb-RB-311" firstAttribute="bottom" secondItem="zl7-Kf-jZH" secondAttribute="bottom" constant="11" id="H0J-aU-eE0"/>
-                            <constraint firstItem="5y3-hR-pVh" firstAttribute="top" secondItem="hv8-GX-zYH" secondAttribute="bottom" constant="10" id="HyB-J4-bYX"/>
-                            <constraint firstItem="NXb-RB-311" firstAttribute="trailing" secondItem="zl7-Kf-jZH" secondAttribute="trailing" constant="43" id="JcM-ek-HUU"/>
-                            <constraint firstItem="n3H-Rk-7wT" firstAttribute="leading" secondItem="NXb-RB-311" secondAttribute="leading" constant="104" id="KRN-RQ-nnV"/>
-                            <constraint firstItem="NXb-RB-311" firstAttribute="trailing" secondItem="QyM-ds-0Mm" secondAttribute="trailing" constant="42" id="QH7-go-wkN"/>
-                            <constraint firstItem="QyM-ds-0Mm" firstAttribute="leading" secondItem="NXb-RB-311" secondAttribute="leading" constant="43" id="TeL-ne-uMr"/>
-                            <constraint firstItem="KIf-SO-zDO" firstAttribute="top" secondItem="QyM-ds-0Mm" secondAttribute="bottom" constant="15.33" id="eE0-CM-bCR"/>
-                            <constraint firstItem="91r-jo-Wth" firstAttribute="top" secondItem="5y3-hR-pVh" secondAttribute="bottom" constant="1" id="gOm-n0-rcH"/>
-                            <constraint firstItem="NXb-RB-311" firstAttribute="trailing" secondItem="HZQ-bP-63d" secondAttribute="trailing" constant="137" id="i9k-Jk-AZc"/>
-                            <constraint firstItem="zl7-Kf-jZH" firstAttribute="top" secondItem="91r-jo-Wth" secondAttribute="bottom" constant="255" id="rxM-Lu-mZK"/>
-                            <constraint firstItem="NXb-RB-311" firstAttribute="trailing" secondItem="91r-jo-Wth" secondAttribute="trailing" constant="42" id="tnr-Sr-mCj"/>
-                            <constraint firstItem="HZQ-bP-63d" firstAttribute="top" secondItem="NXb-RB-311" secondAttribute="top" constant="46" id="wbm-h0-QOZ"/>
-                            <constraint firstItem="zl7-Kf-jZH" firstAttribute="leading" secondItem="NXb-RB-311" secondAttribute="leading" constant="204" id="yX6-V5-wlo"/>
-                            <constraint firstItem="zl7-Kf-jZH" firstAttribute="top" secondItem="91r-jo-Wth" secondAttribute="bottom" constant="255" id="yj2-mW-UWW"/>
+                            <constraint firstItem="n3H-Rk-7wT" firstAttribute="centerY" secondItem="5y3-hR-pVh" secondAttribute="centerY" id="231-jf-9iA"/>
+                            <constraint firstItem="91r-jo-Wth" firstAttribute="leading" secondItem="fRG-z4-GsC" secondAttribute="leading" id="48u-Ie-NR0"/>
+                            <constraint firstItem="NXb-RB-311" firstAttribute="bottom" secondItem="zl7-Kf-jZH" secondAttribute="bottom" constant="11.000000000000114" id="7Iw-gP-ZI1"/>
+                            <constraint firstItem="HZQ-bP-63d" firstAttribute="top" secondItem="NXb-RB-311" secondAttribute="top" constant="46" id="8Kx-Q2-shF"/>
+                            <constraint firstItem="KIf-SO-zDO" firstAttribute="trailing" secondItem="HTw-My-fbm" secondAttribute="trailingMargin" id="8a1-w4-2eP"/>
+                            <constraint firstItem="HZQ-bP-63d" firstAttribute="centerX" secondItem="HTw-My-fbm" secondAttribute="centerX" id="AIe-pe-gvT"/>
+                            <constraint firstItem="91r-jo-Wth" firstAttribute="top" secondItem="5y3-hR-pVh" secondAttribute="bottom" constant="1" id="Abh-yD-JYC"/>
+                            <constraint firstItem="KIf-SO-zDO" firstAttribute="leading" secondItem="5y3-hR-pVh" secondAttribute="leading" id="B5M-zc-3nU"/>
+                            <constraint firstItem="NXb-RB-311" firstAttribute="bottom" secondItem="fRG-z4-GsC" secondAttribute="bottom" constant="14" id="FtG-g0-R9Y"/>
+                            <constraint firstItem="5y3-hR-pVh" firstAttribute="trailing" secondItem="91r-jo-Wth" secondAttribute="trailing" id="Fu0-Aw-Cbn"/>
+                            <constraint firstItem="QyM-ds-0Mm" firstAttribute="leading" secondItem="NXb-RB-311" secondAttribute="leading" constant="43" id="JPj-oI-V2w"/>
+                            <constraint firstItem="HZQ-bP-63d" firstAttribute="centerX" secondItem="QyM-ds-0Mm" secondAttribute="centerX" id="Jql-pr-0F4"/>
+                            <constraint firstItem="HZQ-bP-63d" firstAttribute="leading" secondItem="NXb-RB-311" secondAttribute="leading" constant="138" id="Nja-cc-9gd"/>
+                            <constraint firstItem="QyM-ds-0Mm" firstAttribute="leading" secondItem="91r-jo-Wth" secondAttribute="leading" id="Opw-NE-RaI"/>
+                            <constraint firstItem="fRG-z4-GsC" firstAttribute="centerY" secondItem="zl7-Kf-jZH" secondAttribute="centerY" id="SQB-kh-c4z"/>
+                            <constraint firstItem="zl7-Kf-jZH" firstAttribute="leading" secondItem="fRG-z4-GsC" secondAttribute="trailing" constant="73" id="Z8A-Un-3zL"/>
+                            <constraint firstItem="KIf-SO-zDO" firstAttribute="leading" secondItem="hv8-GX-zYH" secondAttribute="trailing" constant="8.3333333333333712" id="aYY-N8-RYB"/>
+                            <constraint firstItem="KIf-SO-zDO" firstAttribute="top" secondItem="QyM-ds-0Mm" secondAttribute="bottom" constant="15.333333333333314" id="fNM-XC-k4E"/>
+                            <constraint firstItem="QyM-ds-0Mm" firstAttribute="top" secondItem="HTw-My-fbm" secondAttribute="top" constant="282" id="fUh-Xv-sP9"/>
+                            <constraint firstItem="KIf-SO-zDO" firstAttribute="trailing" secondItem="5y3-hR-pVh" secondAttribute="trailing" id="j00-4s-583"/>
+                            <constraint firstItem="91r-jo-Wth" firstAttribute="top" secondItem="n3H-Rk-7wT" secondAttribute="bottom" constant="8.3333333333332575" id="nL0-hc-Thj"/>
+                            <constraint firstItem="hv8-GX-zYH" firstAttribute="centerY" secondItem="KIf-SO-zDO" secondAttribute="centerY" id="tG4-EM-ivL"/>
+                            <constraint firstItem="hv8-GX-zYH" firstAttribute="leading" secondItem="n3H-Rk-7wT" secondAttribute="leading" id="wQm-m8-zXA"/>
+                            <constraint firstItem="hv8-GX-zYH" firstAttribute="leading" secondItem="NXb-RB-311" secondAttribute="leading" constant="104" id="zCf-ZK-sJd"/>
+                            <constraint firstItem="5y3-hR-pVh" firstAttribute="top" secondItem="KIf-SO-zDO" secondAttribute="bottom" constant="6" id="zvy-U0-cC5"/>
                         </constraints>
                     </view>
                     <connections>
@@ -613,7 +616,7 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neO-sr-sbA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2550.7246376811595" y="400.44642857142856"/>
+            <point key="canvasLocation" x="2550.7246376811595" y="432.58928571428572"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ben-Tb-m7E">
@@ -625,54 +628,82 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;name&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSa-U5-EpF">
                                 <rect key="frame" x="98" y="315.66666666666669" width="68.666666666666686" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="M9r-N6-4hg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;surname&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHT-E2-ogb">
                                 <rect key="frame" x="98" y="351.33333333333331" width="98.333333333333314" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="xzR-px-C9p"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;username&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TD8-F0-gsT">
-                                <rect key="frame" x="98" y="405.33333333333331" width="108.33333333333331" height="21"/>
+                                <rect key="frame" x="98" y="407.33333333333331" width="108.33333333333331" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="twq-uw-VBb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;birth&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLg-Su-GeZ">
-                                <rect key="frame" x="98" y="444.33333333333331" width="63" height="21"/>
+                                <rect key="frame" x="98.000000000000014" y="442.66666666666669" width="63.666666666666671" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63.666666666666671" id="9qQ-ob-FRs"/>
+                                    <constraint firstAttribute="height" constant="21" id="efV-QS-ZNM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
                                 <color key="textColor" red="0.83921568627450982" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;organization&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Li3-Am-sEs">
-                                <rect key="frame" x="98" y="473.33333333333331" width="128" height="21"/>
+                                <rect key="frame" x="98" y="477.66666666666669" width="128" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="BOu-r4-fOU"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;mail&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Soi-T2-4aB">
-                                <rect key="frame" x="98" y="511.33333333333331" width="58" height="20.666666666666686"/>
+                                <rect key="frame" x="98" y="514" width="128" height="20.666666666666629"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.666666666666629" id="8ic-qB-hwl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;password&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mv4-y1-272">
-                                <rect key="frame" x="98" y="653.33333333333337" width="106.33333333333331" height="21"/>
+                                <rect key="frame" x="98" y="667" width="111" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="YSj-17-Bfv"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
                                 <color key="textColor" red="0.81568627450980391" green="0.36470588235294116" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;password&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEi-Hy-hnJ">
-                                <rect key="frame" x="98" y="690.33333333333337" width="106.33333333333331" height="21"/>
+                                <rect key="frame" x="98" y="700" width="111" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Ll8-np-CjN"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9EI-ik-MJx">
                                 <rect key="frame" x="43" y="191" width="328" height="101.66666666666669"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101.66666666666669" id="SQq-uf-JHe"/>
+                                </constraints>
                                 <string key="text">{
 
   "register" : {
@@ -683,70 +714,82 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Juan" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="At2-aW-eQl">
-                                <rect key="frame" x="174.66666666666663" y="309" width="219.33333333333337" height="34.333333333333314"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="234" y="309" width="160" height="34.333333333333314"/>
+                                <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Smith" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lJv-bZ-wnQ">
-                                <rect key="frame" x="204" y="344.66666666666669" width="190" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="234" y="345" width="160" height="33.666666666666686"/>
+                                <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fDO-eD-C6y">
-                                <rect key="frame" x="214.33333333333337" y="398.66666666666669" width="179.66666666666663" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="234" y="400.66666666666669" width="160" height="34.333333333333314"/>
+                                <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wOu-fA-5hd">
-                                <rect key="frame" x="234" y="466.66666666666669" width="160" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wOu-fA-5hd">
+                                <rect key="frame" x="234" y="472.66666666666669" width="160" height="34"/>
+                                <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="hT7-BG-Yiz"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rgb-kf-I2e">
-                                <rect key="frame" x="164" y="504.66666666666674" width="230" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rgb-kf-I2e">
+                                <rect key="frame" x="234" y="509" width="160" height="34"/>
+                                <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="JTf-Jp-CP7"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUs-8p-0Ev">
-                                <rect key="frame" x="188.66666666666666" y="534" width="32" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUs-8p-0Ev">
+                                <rect key="frame" x="234" y="545" width="160" height="34"/>
+                                <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="2RZ-AL-aQK"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Whi-4Q-I3g">
-                                <rect key="frame" x="188.66666666666663" y="570" width="205.33333333333337" height="35.333333333333371"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Whi-4Q-I3g">
+                                <rect key="frame" x="234" y="581" width="159" height="35"/>
+                                <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="7Tr-8h-Q3U"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YY2-hb-vri">
-                                <rect key="frame" x="206.33333333333337" y="646.66666666666663" width="187.66666666666663" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="234" y="660.66666666666663" width="160" height="34"/>
+                                <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vW8-FW-zAt">
-                                <rect key="frame" x="206.33333333333337" y="688.66666666666663" width="187.66666666666663" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="234" y="698.66666666666663" width="160" height="34"/>
+                                <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyM-Ia-S8C">
-                                <rect key="frame" x="204" y="805.66666666666663" width="167" height="63"/>
+                                <rect key="frame" x="204" y="801.66666666666663" width="167" height="63"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="sendButton" title=""/>
                                 <connections>
@@ -754,7 +797,7 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzo-UD-uXa">
-                                <rect key="frame" x="43" y="716.66666666666663" width="328" height="61"/>
+                                <rect key="frame" x="43" y="730" width="328" height="61"/>
                                 <string key="text">         },
 
 }</string>
@@ -764,23 +807,64 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BooKME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQ2-kZ-VL9">
                                 <rect key="frame" x="134" y="90" width="146" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="b86-KL-nlK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Chivo-Light" family="Chivo" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTI-6j-zT0">
-                                <rect key="frame" x="43" y="779" width="88" height="36"/>
+                                <rect key="frame" x="68" y="794" width="88" height="22.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="returnWhiteButton"/>
                                 <connections>
                                     <action selector="returnToLogOrReg:" destination="bEw-R0-YhZ" eventType="touchUpInside" id="QcP-GK-gyL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0f-PK-YjN">
-                                <rect key="frame" x="43.666666666666671" y="814" width="159.33333333333331" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="&quot;country&quot;:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fc-MF-Gky">
+                                <rect key="frame" x="98" y="550" width="128" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="mSr-iw-bSJ"/>
+                                    <constraint firstAttribute="height" constant="22" id="koc-4y-91A"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;phone&quot;:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4O-rk-ql2">
+                                <rect key="frame" x="98" y="585.66666666666663" width="81" height="23.333333333333371"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23.333333333333371" id="PH7-zz-FgP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="&quot;occupation&quot;:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdR-Hb-QGp">
+                                <rect key="frame" x="98" y="623" width="128" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="qTg-5E-dmV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yf5-jc-sMn">
+                                <rect key="frame" x="234" y="618" width="160" height="35"/>
+                                <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ymk-GI-xOQ">
+                                <rect key="frame" x="234" y="437" width="160" height="34"/>
+                                <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0f-PK-YjN">
+                                <rect key="frame" x="43" y="831" width="159.33333333333334" height="28.666666666666629"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -788,7 +872,7 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                         <fragment content="Terminos &amp; Condiciones">
                                             <attributes>
                                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <font key="NSFont" size="12" name="Chivo-Light"/>
+                                                <font key="NSFont" size="10" name="Chivo-Light"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="rightToLeft" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -798,119 +882,113 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                     <action selector="toTNCView:" destination="bEw-R0-YhZ" eventType="touchUpInside" id="xy8-Lf-UwV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="&quot;country&quot;:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fc-MF-Gky">
-                                <rect key="frame" x="98" y="540" width="83.666666666666686" height="22"/>
-                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;phone&quot;:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4O-rk-ql2">
-                                <rect key="frame" x="98" y="576" width="69.666666666666686" height="23.333333333333371"/>
-                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="&quot;occupation&quot;:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdR-Hb-QGp">
-                                <rect key="frame" x="98" y="607.33333333333337" width="110.66666666666669" height="21"/>
-                                <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yf5-jc-sMn">
-                                <rect key="frame" x="216.66666666666663" y="600.66666666666663" width="177.33333333333337" height="34"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TQH-4D-JCW"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9EI-ik-MJx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dzo-UD-uXa" secondAttribute="leading" id="0ZT-wU-y3W"/>
-                            <constraint firstItem="cUs-8p-0Ev" firstAttribute="leading" secondItem="9fc-MF-Gky" secondAttribute="trailing" constant="7" id="0vN-Qk-edb"/>
-                            <constraint firstItem="D0f-PK-YjN" firstAttribute="top" secondItem="dzo-UD-uXa" secondAttribute="bottom" constant="36.333333333333371" id="0xd-nu-Gxs"/>
-                            <constraint firstItem="At2-aW-eQl" firstAttribute="trailing" secondItem="lJv-bZ-wnQ" secondAttribute="trailing" id="2PY-d0-6Tq"/>
-                            <constraint firstItem="vW8-FW-zAt" firstAttribute="top" secondItem="YY2-hb-vri" secondAttribute="bottom" constant="8" symbolic="YES" id="2fg-tA-Uu7"/>
-                            <constraint firstItem="lJv-bZ-wnQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KHT-E2-ogb" secondAttribute="trailing" constant="7" id="2sU-q2-14o"/>
-                            <constraint firstItem="Li3-Am-sEs" firstAttribute="leading" secondItem="Soi-T2-4aB" secondAttribute="leading" id="3KD-ez-LLk"/>
-                            <constraint firstItem="KHT-E2-ogb" firstAttribute="top" secondItem="At2-aW-eQl" secondAttribute="bottom" constant="8" symbolic="YES" id="5cw-46-c3n"/>
-                            <constraint firstItem="hSa-U5-EpF" firstAttribute="centerY" secondItem="At2-aW-eQl" secondAttribute="centerY" id="6ZH-SO-e5M"/>
-                            <constraint firstItem="YY2-hb-vri" firstAttribute="leading" secondItem="vW8-FW-zAt" secondAttribute="leading" id="6ze-PN-g3a"/>
-                            <constraint firstItem="Whi-4Q-I3g" firstAttribute="centerY" secondItem="z4O-rk-ql2" secondAttribute="centerY" id="AVA-Kj-Jg0"/>
-                            <constraint firstItem="Li3-Am-sEs" firstAttribute="centerY" secondItem="wOu-fA-5hd" secondAttribute="centerY" id="Ayk-0h-loe"/>
-                            <constraint firstItem="vW8-FW-zAt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BEi-Hy-hnJ" secondAttribute="trailing" constant="2" id="Bus-M9-025"/>
-                            <constraint firstItem="Whi-4Q-I3g" firstAttribute="trailing" secondItem="rgb-kf-I2e" secondAttribute="trailing" id="Bvn-X3-a6g"/>
-                            <constraint firstItem="hdR-Hb-QGp" firstAttribute="centerY" secondItem="Yf5-jc-sMn" secondAttribute="centerY" id="CPC-QW-dK7"/>
-                            <constraint firstItem="lJv-bZ-wnQ" firstAttribute="trailing" secondItem="fDO-eD-C6y" secondAttribute="trailing" id="D8q-f5-dyQ"/>
-                            <constraint firstItem="YY2-hb-vri" firstAttribute="leading" secondItem="Mv4-y1-272" secondAttribute="trailing" constant="2" id="Dbo-VN-zt2"/>
-                            <constraint firstItem="wyM-Ia-S8C" firstAttribute="top" secondItem="dzo-UD-uXa" secondAttribute="bottom" constant="28" id="DxG-JZ-g5Q"/>
-                            <constraint firstItem="dzo-UD-uXa" firstAttribute="trailing" secondItem="wyM-Ia-S8C" secondAttribute="trailing" id="EMB-Wd-qjT"/>
-                            <constraint firstAttribute="bottom" secondItem="9fc-MF-Gky" secondAttribute="bottom" constant="334" id="EWC-cP-fIo"/>
-                            <constraint firstItem="At2-aW-eQl" firstAttribute="leading" secondItem="hSa-U5-EpF" secondAttribute="trailing" constant="8" symbolic="YES" id="FUg-p8-5si"/>
-                            <constraint firstItem="tQ2-kZ-VL9" firstAttribute="leading" secondItem="TQH-4D-JCW" secondAttribute="leading" constant="134" id="GjN-ov-7vU"/>
-                            <constraint firstItem="At2-aW-eQl" firstAttribute="trailing" secondItem="AhI-xA-b93" secondAttribute="trailingMargin" id="Gob-34-7bD"/>
-                            <constraint firstItem="YY2-hb-vri" firstAttribute="trailing" secondItem="vW8-FW-zAt" secondAttribute="trailing" id="HA9-mh-ZMj"/>
-                            <constraint firstItem="tQ2-kZ-VL9" firstAttribute="centerX" secondItem="AhI-xA-b93" secondAttribute="centerX" id="Hjv-Lm-fXf"/>
-                            <constraint firstItem="xLg-Su-GeZ" firstAttribute="leading" secondItem="Li3-Am-sEs" secondAttribute="leading" id="Iny-fs-H2K"/>
-                            <constraint firstItem="Soi-T2-4aB" firstAttribute="leading" secondItem="Mv4-y1-272" secondAttribute="leading" id="JCi-8a-3n5"/>
-                            <constraint firstItem="z4O-rk-ql2" firstAttribute="top" secondItem="9fc-MF-Gky" secondAttribute="bottom" constant="14" id="JdY-1q-W2f"/>
-                            <constraint firstItem="Whi-4Q-I3g" firstAttribute="leading" secondItem="z4O-rk-ql2" secondAttribute="trailing" constant="21" id="JoE-GB-vlf"/>
-                            <constraint firstItem="9fc-MF-Gky" firstAttribute="top" secondItem="Soi-T2-4aB" secondAttribute="bottom" constant="8" symbolic="YES" id="KNJ-FU-6Am"/>
-                            <constraint firstItem="9EI-ik-MJx" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dzo-UD-uXa" secondAttribute="trailing" id="Knr-pB-xJE"/>
-                            <constraint firstItem="Mv4-y1-272" firstAttribute="leading" secondItem="BEi-Hy-hnJ" secondAttribute="leading" id="LCt-Le-bbR"/>
-                            <constraint firstItem="hSa-U5-EpF" firstAttribute="leading" secondItem="TQH-4D-JCW" secondAttribute="leading" constant="98" id="LPE-4w-aKv"/>
-                            <constraint firstItem="TD8-F0-gsT" firstAttribute="leading" secondItem="xLg-Su-GeZ" secondAttribute="leading" id="LPS-Mw-Hza"/>
-                            <constraint firstItem="KHT-E2-ogb" firstAttribute="centerY" secondItem="lJv-bZ-wnQ" secondAttribute="centerY" id="LlQ-h5-VRt"/>
-                            <constraint firstItem="rgb-kf-I2e" firstAttribute="trailing" secondItem="YY2-hb-vri" secondAttribute="trailing" id="NFC-Z6-4W6"/>
-                            <constraint firstItem="Whi-4Q-I3g" firstAttribute="trailing" secondItem="Yf5-jc-sMn" secondAttribute="trailing" id="P04-mT-gzQ"/>
-                            <constraint firstItem="wyM-Ia-S8C" firstAttribute="leading" secondItem="TQH-4D-JCW" secondAttribute="leading" constant="204" id="PtM-h1-ocE"/>
-                            <constraint firstItem="hdR-Hb-QGp" firstAttribute="leading" secondItem="Mv4-y1-272" secondAttribute="leading" id="QD2-TQ-AUZ"/>
-                            <constraint firstItem="TD8-F0-gsT" firstAttribute="centerY" secondItem="fDO-eD-C6y" secondAttribute="centerY" id="R1X-Nq-xe5"/>
-                            <constraint firstItem="Mv4-y1-272" firstAttribute="top" secondItem="hdR-Hb-QGp" secondAttribute="bottom" constant="25" id="RnP-ee-Fa1"/>
-                            <constraint firstItem="TQH-4D-JCW" firstAttribute="bottom" secondItem="D0f-PK-YjN" secondAttribute="bottom" constant="19" id="S5v-PV-QvK"/>
-                            <constraint firstItem="9EI-ik-MJx" firstAttribute="top" secondItem="tQ2-kZ-VL9" secondAttribute="bottom" constant="60" id="Ss7-GP-65c"/>
-                            <constraint firstItem="cUs-8p-0Ev" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9fc-MF-Gky" secondAttribute="trailing" constant="7" id="TJr-GO-jJA"/>
-                            <constraint firstItem="D0f-PK-YjN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hTI-6j-zT0" secondAttribute="leading" id="Tet-3b-Qra"/>
-                            <constraint firstItem="rgb-kf-I2e" firstAttribute="top" secondItem="wOu-fA-5hd" secondAttribute="bottom" constant="4.0000000000000568" id="UJ3-nd-EBu"/>
-                            <constraint firstItem="BEi-Hy-hnJ" firstAttribute="top" secondItem="Mv4-y1-272" secondAttribute="bottom" constant="16" id="Ug6-zR-Wdd"/>
-                            <constraint firstItem="fDO-eD-C6y" firstAttribute="top" secondItem="lJv-bZ-wnQ" secondAttribute="bottom" constant="20" id="VJA-rb-4Bo"/>
-                            <constraint firstItem="tQ2-kZ-VL9" firstAttribute="top" secondItem="TQH-4D-JCW" secondAttribute="top" constant="46" id="VkQ-pS-haw"/>
-                            <constraint firstItem="hdR-Hb-QGp" firstAttribute="top" secondItem="Whi-4Q-I3g" secondAttribute="bottom" constant="2" id="aEI-M5-sKJ"/>
-                            <constraint firstItem="wyM-Ia-S8C" firstAttribute="leading" secondItem="D0f-PK-YjN" secondAttribute="trailing" constant="1" id="ajZ-42-IbD"/>
-                            <constraint firstItem="KHT-E2-ogb" firstAttribute="leading" secondItem="TD8-F0-gsT" secondAttribute="leading" id="dvS-UH-WlZ"/>
-                            <constraint firstItem="9EI-ik-MJx" firstAttribute="centerX" secondItem="AhI-xA-b93" secondAttribute="centerX" id="ep6-f1-PEE"/>
-                            <constraint firstItem="Li3-Am-sEs" firstAttribute="top" secondItem="xLg-Su-GeZ" secondAttribute="bottom" constant="8" symbolic="YES" id="iQT-Sr-1L9"/>
-                            <constraint firstItem="At2-aW-eQl" firstAttribute="top" secondItem="9EI-ik-MJx" secondAttribute="bottom" constant="16.333333333333314" id="jMl-D0-Yva"/>
-                            <constraint firstItem="Soi-T2-4aB" firstAttribute="centerY" secondItem="rgb-kf-I2e" secondAttribute="centerY" id="k8B-0V-6RV"/>
-                            <constraint firstItem="hTI-6j-zT0" firstAttribute="top" secondItem="dzo-UD-uXa" secondAttribute="bottom" constant="1.3333333333333712" id="lKZ-S9-qKz"/>
-                            <constraint firstItem="9EI-ik-MJx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TQH-4D-JCW" secondAttribute="leading" id="lOV-DO-ybd"/>
-                            <constraint firstItem="rgb-kf-I2e" firstAttribute="leading" secondItem="Soi-T2-4aB" secondAttribute="trailing" constant="8" symbolic="YES" id="lfS-g5-fMn"/>
-                            <constraint firstItem="hSa-U5-EpF" firstAttribute="leading" secondItem="KHT-E2-ogb" secondAttribute="leading" id="mqz-sK-9qH"/>
-                            <constraint firstItem="hdR-Hb-QGp" firstAttribute="leading" secondItem="9fc-MF-Gky" secondAttribute="leading" id="nnc-qH-yey"/>
-                            <constraint firstItem="YY2-hb-vri" firstAttribute="top" secondItem="rgb-kf-I2e" secondAttribute="bottom" constant="107.99999999999989" id="ona-LA-VGe"/>
-                            <constraint firstItem="TQH-4D-JCW" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xLg-Su-GeZ" secondAttribute="trailing" symbolic="YES" id="pNZ-ts-5fZ"/>
-                            <constraint firstItem="D0f-PK-YjN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dzo-UD-uXa" secondAttribute="leading" id="pyP-lQ-Vuj"/>
-                            <constraint firstItem="lJv-bZ-wnQ" firstAttribute="leading" secondItem="wyM-Ia-S8C" secondAttribute="leading" id="q2o-6n-KUn"/>
-                            <constraint firstItem="dzo-UD-uXa" firstAttribute="top" secondItem="vW8-FW-zAt" secondAttribute="bottom" constant="-6" id="rWy-WG-PHp"/>
-                            <constraint firstItem="9fc-MF-Gky" firstAttribute="centerY" secondItem="cUs-8p-0Ev" secondAttribute="centerY" id="s16-2D-kGr"/>
-                            <constraint firstItem="fDO-eD-C6y" firstAttribute="trailing" secondItem="wOu-fA-5hd" secondAttribute="trailing" id="sdi-bE-QLl"/>
-                            <constraint firstItem="hdR-Hb-QGp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="z4O-rk-ql2" secondAttribute="leading" id="sw0-IK-gDj"/>
-                            <constraint firstItem="TQH-4D-JCW" firstAttribute="bottom" secondItem="hTI-6j-zT0" secondAttribute="bottom" constant="47" id="t2J-Eh-lqc"/>
-                            <constraint firstItem="wOu-fA-5hd" firstAttribute="trailing" secondItem="rgb-kf-I2e" secondAttribute="trailing" id="uP2-SQ-9zC"/>
-                            <constraint firstItem="Whi-4Q-I3g" firstAttribute="leading" secondItem="cUs-8p-0Ev" secondAttribute="leading" id="ucK-1s-eAj"/>
-                            <constraint firstItem="Mv4-y1-272" firstAttribute="centerY" secondItem="YY2-hb-vri" secondAttribute="centerY" id="wjP-aU-8Ca"/>
-                            <constraint firstItem="fDO-eD-C6y" firstAttribute="leading" secondItem="TD8-F0-gsT" secondAttribute="trailing" constant="8" symbolic="YES" id="xYn-AR-zDE"/>
-                            <constraint firstItem="wyM-Ia-S8C" firstAttribute="leading" secondItem="hTI-6j-zT0" secondAttribute="trailing" constant="73" id="ySg-Uw-xs9"/>
-                            <constraint firstItem="wOu-fA-5hd" firstAttribute="leading" secondItem="Li3-Am-sEs" secondAttribute="trailing" constant="8" symbolic="YES" id="ybp-hk-L0f"/>
-                            <constraint firstItem="hdR-Hb-QGp" firstAttribute="top" secondItem="z4O-rk-ql2" secondAttribute="bottom" constant="8" symbolic="YES" id="yoG-tx-gK4"/>
-                            <constraint firstItem="9fc-MF-Gky" firstAttribute="top" secondItem="rgb-kf-I2e" secondAttribute="bottom" constant="1.3333333333332575" id="z9c-dB-4og"/>
-                            <constraint firstItem="xLg-Su-GeZ" firstAttribute="top" secondItem="TD8-F0-gsT" secondAttribute="bottom" constant="18" id="zCq-ro-FaJ"/>
-                            <constraint firstItem="Whi-4Q-I3g" firstAttribute="top" secondItem="cUs-8p-0Ev" secondAttribute="bottom" constant="2" id="zQp-ev-INI"/>
-                            <constraint firstItem="Yf5-jc-sMn" firstAttribute="leading" secondItem="hdR-Hb-QGp" secondAttribute="trailing" constant="8" symbolic="YES" id="zRT-av-dQI"/>
+                            <constraint firstItem="hTI-6j-zT0" firstAttribute="leading" secondItem="TQH-4D-JCW" secondAttribute="leading" constant="68" id="0ho-eg-EO1"/>
+                            <constraint firstItem="D0f-PK-YjN" firstAttribute="leading" secondItem="TQH-4D-JCW" secondAttribute="leading" constant="43" id="1Nw-58-gkc"/>
+                            <constraint firstItem="Mv4-y1-272" firstAttribute="top" secondItem="hdR-Hb-QGp" secondAttribute="bottom" constant="23" id="1P2-3Y-1b7"/>
+                            <constraint firstItem="vW8-FW-zAt" firstAttribute="top" secondItem="YY2-hb-vri" secondAttribute="bottom" constant="4" id="2vT-8N-XA9"/>
+                            <constraint firstItem="Soi-T2-4aB" firstAttribute="leading" secondItem="9fc-MF-Gky" secondAttribute="leading" id="2wL-2O-mGz"/>
+                            <constraint firstItem="tQ2-kZ-VL9" firstAttribute="centerX" secondItem="9EI-ik-MJx" secondAttribute="centerX" id="3S0-dx-giS"/>
+                            <constraint firstItem="9EI-ik-MJx" firstAttribute="leading" secondItem="TQH-4D-JCW" secondAttribute="leading" constant="43" id="428-b1-vTc"/>
+                            <constraint firstItem="Li3-Am-sEs" firstAttribute="top" secondItem="xLg-Su-GeZ" secondAttribute="bottom" constant="14" id="4FR-QJ-3yJ"/>
+                            <constraint firstItem="Mv4-y1-272" firstAttribute="leading" secondItem="BEi-Hy-hnJ" secondAttribute="leading" id="4HR-I2-Rn3"/>
+                            <constraint firstItem="TD8-F0-gsT" firstAttribute="centerY" secondItem="fDO-eD-C6y" secondAttribute="centerY" id="4YX-AF-zua"/>
+                            <constraint firstItem="TQH-4D-JCW" firstAttribute="bottom" secondItem="hTI-6j-zT0" secondAttribute="bottom" constant="45.333333333333371" id="4mh-gH-aG1"/>
+                            <constraint firstItem="At2-aW-eQl" firstAttribute="trailing" secondItem="lJv-bZ-wnQ" secondAttribute="trailing" id="4oU-rJ-afl"/>
+                            <constraint firstItem="wOu-fA-5hd" firstAttribute="top" secondItem="ymk-GI-xOQ" secondAttribute="bottom" constant="1.6666666666666856" id="5G4-eh-ezt"/>
+                            <constraint firstItem="dzo-UD-uXa" firstAttribute="top" secondItem="BEi-Hy-hnJ" secondAttribute="bottom" constant="9" id="5Vn-db-db4"/>
+                            <constraint firstItem="fDO-eD-C6y" firstAttribute="top" secondItem="lJv-bZ-wnQ" secondAttribute="bottom" constant="22" id="5Yi-S8-Ff7"/>
+                            <constraint firstItem="Yf5-jc-sMn" firstAttribute="top" secondItem="Whi-4Q-I3g" secondAttribute="bottom" constant="2" id="5oh-Pu-qYE"/>
+                            <constraint firstItem="KHT-E2-ogb" firstAttribute="leading" secondItem="TD8-F0-gsT" secondAttribute="leading" id="7ND-Gw-b5N"/>
+                            <constraint firstItem="cUs-8p-0Ev" firstAttribute="top" secondItem="rgb-kf-I2e" secondAttribute="bottom" constant="2" id="85e-my-fkF"/>
+                            <constraint firstItem="Li3-Am-sEs" firstAttribute="trailing" secondItem="Soi-T2-4aB" secondAttribute="trailing" id="8fh-Vj-ae0"/>
+                            <constraint firstItem="Mv4-y1-272" firstAttribute="trailing" secondItem="BEi-Hy-hnJ" secondAttribute="trailing" id="8k1-nw-vcK"/>
+                            <constraint firstItem="fDO-eD-C6y" firstAttribute="leading" secondItem="ymk-GI-xOQ" secondAttribute="leading" id="9Gc-Gr-qGT"/>
+                            <constraint firstItem="hSa-U5-EpF" firstAttribute="leading" secondItem="KHT-E2-ogb" secondAttribute="leading" id="AHX-MC-c04"/>
+                            <constraint firstItem="tQ2-kZ-VL9" firstAttribute="top" secondItem="TQH-4D-JCW" secondAttribute="top" constant="46" id="Anm-k8-plC"/>
+                            <constraint firstItem="lJv-bZ-wnQ" firstAttribute="trailing" secondItem="fDO-eD-C6y" secondAttribute="trailing" id="DJg-ey-ewS"/>
+                            <constraint firstItem="hTI-6j-zT0" firstAttribute="top" secondItem="TQH-4D-JCW" secondAttribute="top" constant="750" id="EAG-xf-y8m"/>
+                            <constraint firstItem="9EI-ik-MJx" firstAttribute="top" secondItem="tQ2-kZ-VL9" secondAttribute="bottom" constant="60" id="FdP-EP-wlt"/>
+                            <constraint firstItem="ymk-GI-xOQ" firstAttribute="leading" secondItem="wOu-fA-5hd" secondAttribute="leading" id="Fvs-7n-c0L"/>
+                            <constraint firstItem="tQ2-kZ-VL9" firstAttribute="centerX" secondItem="AhI-xA-b93" secondAttribute="centerX" id="FwZ-yx-QT7"/>
+                            <constraint firstItem="TD8-F0-gsT" firstAttribute="top" secondItem="KHT-E2-ogb" secondAttribute="bottom" constant="35" id="Idc-JK-Gk7"/>
+                            <constraint firstItem="ymk-GI-xOQ" firstAttribute="top" secondItem="fDO-eD-C6y" secondAttribute="bottom" constant="2" id="JM6-65-9UG"/>
+                            <constraint firstItem="TD8-F0-gsT" firstAttribute="leading" secondItem="xLg-Su-GeZ" secondAttribute="leading" id="JWe-CN-nog"/>
+                            <constraint firstItem="YY2-hb-vri" firstAttribute="leading" secondItem="Mv4-y1-272" secondAttribute="trailing" constant="25" id="Ki4-25-idJ"/>
+                            <constraint firstItem="rgb-kf-I2e" firstAttribute="top" secondItem="wOu-fA-5hd" secondAttribute="bottom" constant="2.3333333333333144" id="LEC-hE-LnU"/>
+                            <constraint firstItem="xLg-Su-GeZ" firstAttribute="top" secondItem="TD8-F0-gsT" secondAttribute="bottom" constant="14.333333333333371" id="Mdj-vt-vJC"/>
+                            <constraint firstItem="TQH-4D-JCW" firstAttribute="trailing" secondItem="hTI-6j-zT0" secondAttribute="trailing" constant="258" id="NEG-8I-XJs"/>
+                            <constraint firstItem="9fc-MF-Gky" firstAttribute="trailing" secondItem="hdR-Hb-QGp" secondAttribute="trailing" id="Ojx-Nl-fmJ"/>
+                            <constraint firstAttribute="bottom" secondItem="wyM-Ia-S8C" secondAttribute="bottom" constant="31.329999999999998" id="PCa-XN-QHT"/>
+                            <constraint firstItem="KHT-E2-ogb" firstAttribute="top" secondItem="hSa-U5-EpF" secondAttribute="bottom" constant="14.666666666666629" id="Pwv-3k-b2m"/>
+                            <constraint firstItem="cUs-8p-0Ev" firstAttribute="leading" secondItem="Whi-4Q-I3g" secondAttribute="leading" id="Q6g-dy-Cp8"/>
+                            <constraint firstItem="YY2-hb-vri" firstAttribute="leading" secondItem="vW8-FW-zAt" secondAttribute="leading" id="Rbh-Ng-Pfw"/>
+                            <constraint firstItem="Yf5-jc-sMn" firstAttribute="leading" secondItem="YY2-hb-vri" secondAttribute="leading" id="Rfd-bR-x0V"/>
+                            <constraint firstItem="xLg-Su-GeZ" firstAttribute="leading" secondItem="Li3-Am-sEs" secondAttribute="leading" id="Rhs-bV-dr3"/>
+                            <constraint firstItem="9EI-ik-MJx" firstAttribute="leading" secondItem="dzo-UD-uXa" secondAttribute="leading" id="SYQ-9z-aUa"/>
+                            <constraint firstItem="At2-aW-eQl" firstAttribute="trailing" secondItem="AhI-xA-b93" secondAttribute="trailingMargin" id="T3C-nU-5R0"/>
+                            <constraint firstItem="hdR-Hb-QGp" firstAttribute="leading" secondItem="Mv4-y1-272" secondAttribute="leading" id="U6o-DX-fZB"/>
+                            <constraint firstItem="Li3-Am-sEs" firstAttribute="leading" secondItem="Soi-T2-4aB" secondAttribute="leading" id="Umh-qm-iWM"/>
+                            <constraint firstItem="BEi-Hy-hnJ" firstAttribute="top" secondItem="Mv4-y1-272" secondAttribute="bottom" constant="12" id="UtE-h8-Ues"/>
+                            <constraint firstItem="z4O-rk-ql2" firstAttribute="leading" secondItem="hdR-Hb-QGp" secondAttribute="leading" id="V6G-Ar-O9W"/>
+                            <constraint firstItem="hdR-Hb-QGp" firstAttribute="top" secondItem="z4O-rk-ql2" secondAttribute="bottom" constant="14.000000000000114" id="Xk1-W1-Bls"/>
+                            <constraint firstItem="lJv-bZ-wnQ" firstAttribute="leading" secondItem="fDO-eD-C6y" secondAttribute="leading" id="ZCZ-8D-bds"/>
+                            <constraint firstItem="ymk-GI-xOQ" firstAttribute="trailing" secondItem="wOu-fA-5hd" secondAttribute="trailing" id="Zcg-eg-s5c"/>
+                            <constraint firstItem="KHT-E2-ogb" firstAttribute="centerY" secondItem="lJv-bZ-wnQ" secondAttribute="centerY" id="Zxg-pg-ULU"/>
+                            <constraint firstItem="TQH-4D-JCW" firstAttribute="trailing" secondItem="D0f-PK-YjN" secondAttribute="trailing" constant="211.66999999999999" id="aAR-NM-zK2"/>
+                            <constraint firstItem="cUs-8p-0Ev" firstAttribute="centerX" secondItem="Whi-4Q-I3g" secondAttribute="centerX" id="b5R-iO-gKj"/>
+                            <constraint firstItem="TQH-4D-JCW" firstAttribute="bottom" secondItem="D0f-PK-YjN" secondAttribute="bottom" constant="2.3300000000000001" id="byj-Ff-P2u"/>
+                            <constraint firstItem="At2-aW-eQl" firstAttribute="leading" secondItem="lJv-bZ-wnQ" secondAttribute="leading" id="cCL-fS-LYP"/>
+                            <constraint firstItem="hSa-U5-EpF" firstAttribute="centerY" secondItem="At2-aW-eQl" secondAttribute="centerY" id="crZ-hM-ahb"/>
+                            <constraint firstItem="wOu-fA-5hd" firstAttribute="leading" secondItem="rgb-kf-I2e" secondAttribute="leading" id="dZo-Cu-lbU"/>
+                            <constraint firstItem="9EI-ik-MJx" firstAttribute="trailing" secondItem="dzo-UD-uXa" secondAttribute="trailing" id="drA-OH-pob"/>
+                            <constraint firstItem="hSa-U5-EpF" firstAttribute="leading" secondItem="TQH-4D-JCW" secondAttribute="leading" constant="98" id="eIk-MK-BuN"/>
+                            <constraint firstItem="9fc-MF-Gky" firstAttribute="leading" secondItem="z4O-rk-ql2" secondAttribute="leading" id="emg-go-A5Y"/>
+                            <constraint firstItem="Whi-4Q-I3g" firstAttribute="leading" secondItem="z4O-rk-ql2" secondAttribute="trailing" constant="55" id="g37-a9-gGy"/>
+                            <constraint firstItem="YY2-hb-vri" firstAttribute="trailing" secondItem="vW8-FW-zAt" secondAttribute="trailing" id="gxI-Lt-Lo1"/>
+                            <constraint firstItem="At2-aW-eQl" firstAttribute="top" secondItem="9EI-ik-MJx" secondAttribute="bottom" constant="16.333333333333314" id="iO5-fN-eWv"/>
+                            <constraint firstItem="wOu-fA-5hd" firstAttribute="trailing" secondItem="rgb-kf-I2e" secondAttribute="trailing" id="iuD-PQ-xQR"/>
+                            <constraint firstItem="cUs-8p-0Ev" firstAttribute="trailing" secondItem="Yf5-jc-sMn" secondAttribute="trailing" id="jD5-ZK-LWW"/>
+                            <constraint firstItem="D0f-PK-YjN" firstAttribute="top" secondItem="TQH-4D-JCW" secondAttribute="top" constant="787" id="lea-LZ-fQn"/>
+                            <constraint firstItem="wyM-Ia-S8C" firstAttribute="top" secondItem="TQH-4D-JCW" secondAttribute="top" constant="757.66999999999996" id="oae-aj-GJV"/>
+                            <constraint firstItem="Whi-4Q-I3g" firstAttribute="leading" secondItem="Yf5-jc-sMn" secondAttribute="leading" id="ofj-Zk-yXl"/>
+                            <constraint firstItem="YY2-hb-vri" firstAttribute="top" secondItem="Yf5-jc-sMn" secondAttribute="bottom" constant="7.6666666666666288" id="pGs-mn-8Za"/>
+                            <constraint firstItem="hSa-U5-EpF" firstAttribute="top" secondItem="9EI-ik-MJx" secondAttribute="bottom" constant="23" id="pjB-t3-TbT"/>
+                            <constraint firstItem="tQ2-kZ-VL9" firstAttribute="leading" secondItem="TQH-4D-JCW" secondAttribute="leading" constant="134" id="rKd-RE-5wq"/>
+                            <constraint firstItem="Mv4-y1-272" firstAttribute="centerY" secondItem="YY2-hb-vri" secondAttribute="centerY" id="rtb-yi-2E4"/>
+                            <constraint firstItem="9fc-MF-Gky" firstAttribute="top" secondItem="Soi-T2-4aB" secondAttribute="bottom" constant="15.333333333333371" id="sct-NW-8Am"/>
+                            <constraint firstItem="lJv-bZ-wnQ" firstAttribute="top" secondItem="At2-aW-eQl" secondAttribute="bottom" constant="1.6666666666666856" id="slm-Ic-dSP"/>
+                            <constraint firstItem="ymk-GI-xOQ" firstAttribute="leading" secondItem="xLg-Su-GeZ" secondAttribute="trailing" constant="72.333333333333314" id="ukH-xM-hXr"/>
+                            <constraint firstItem="Soi-T2-4aB" firstAttribute="trailing" secondItem="9fc-MF-Gky" secondAttribute="trailing" id="vME-Uj-uGx"/>
+                            <constraint firstItem="Yf5-jc-sMn" firstAttribute="trailing" secondItem="YY2-hb-vri" secondAttribute="trailing" id="vr2-iz-bSA"/>
+                            <constraint firstItem="fDO-eD-C6y" firstAttribute="trailing" secondItem="ymk-GI-xOQ" secondAttribute="trailing" id="w54-5A-oAF"/>
+                            <constraint firstItem="Soi-T2-4aB" firstAttribute="top" secondItem="Li3-Am-sEs" secondAttribute="bottom" constant="15.333333333333314" id="wLE-56-jGK"/>
+                            <constraint firstItem="z4O-rk-ql2" firstAttribute="top" secondItem="9fc-MF-Gky" secondAttribute="bottom" constant="13.666666666666515" id="whh-fc-0KI"/>
+                            <constraint firstItem="wyM-Ia-S8C" firstAttribute="leading" secondItem="TQH-4D-JCW" secondAttribute="leading" constant="204" id="xT6-fg-hcm"/>
+                            <constraint firstItem="xLg-Su-GeZ" firstAttribute="centerY" secondItem="ymk-GI-xOQ" secondAttribute="centerY" id="y3V-Kt-cbX"/>
+                            <constraint firstItem="rgb-kf-I2e" firstAttribute="leading" secondItem="cUs-8p-0Ev" secondAttribute="leading" id="yJ0-xq-QD2"/>
+                            <constraint firstItem="rgb-kf-I2e" firstAttribute="trailing" secondItem="cUs-8p-0Ev" secondAttribute="trailing" id="ye6-04-OaC"/>
+                            <constraint firstItem="Whi-4Q-I3g" firstAttribute="top" secondItem="cUs-8p-0Ev" secondAttribute="bottom" constant="2" id="zL8-FQ-6pk"/>
+                            <constraint firstItem="TQH-4D-JCW" firstAttribute="trailing" secondItem="wyM-Ia-S8C" secondAttribute="trailing" constant="43" id="zqF-Zg-e31"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="birthTextInput" destination="ymk-GI-xOQ" id="JXO-Wp-8ov"/>
+                        <outlet property="countryTextInput" destination="cUs-8p-0Ev" id="OjN-91-KHV"/>
+                        <outlet property="endJsonOutlet" destination="dzo-UD-uXa" id="Sgv-ev-f4s"/>
+                        <outlet property="mailTextInput" destination="rgb-kf-I2e" id="Wbl-Jt-MKY"/>
+                        <outlet property="nameTextInput" destination="At2-aW-eQl" id="KB3-ei-Jne"/>
+                        <outlet property="occupationTextInput" destination="Yf5-jc-sMn" id="j6Y-lN-abA"/>
+                        <outlet property="organizationTextInput" destination="wOu-fA-5hd" id="Lm1-NU-bO2"/>
+                        <outlet property="passwordOneTextInput" destination="YY2-hb-vri" id="FUR-OT-idb"/>
+                        <outlet property="passwordTwoTextInput" destination="vW8-FW-zAt" id="jV0-En-xxh"/>
+                        <outlet property="phoneTextInput" destination="Whi-4Q-I3g" id="pZ5-Wf-6ih"/>
+                        <outlet property="sendRegisterButtonOutlet" destination="wyM-Ia-S8C" id="doO-Mj-y9j"/>
+                        <outlet property="surnameTextInput" destination="lJv-bZ-wnQ" id="9v1-5r-jeb"/>
+                        <outlet property="usernameTextInput" destination="fDO-eD-C6y" id="Gg3-st-1Ex"/>
                         <outlet property="vwContainer" destination="AhI-xA-b93" id="jo3-zr-osT"/>
                     </connections>
                 </viewController>

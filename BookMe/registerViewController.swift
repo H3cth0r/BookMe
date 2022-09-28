@@ -13,7 +13,10 @@ class registerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
+        
         // Do any additional setup after loading the view.
         vwContainer.alpha = 0.0
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -41,7 +44,9 @@ class registerViewController: UIViewController {
         }
     }
     
-
+    @objc func dismissKeyboard(){
+        self.view.endEditing(true)
+    }
     
     /*
     // MARK: - Navigation
