@@ -138,7 +138,7 @@ class HourSelectionViewController: UIViewController {
         //print(startInRowIndex)
         
         
-        if startHourRowNumber > endHourRowNumber || modelData[currentRowIndex].occupied{
+        if startHourRowNumber >= endHourRowNumber || modelData[currentRowIndex].occupied{
             endingButtonOutlet.setTitle("End", for: .normal)
             endingButtonOutlet.setTitleColor(.orange, for: .normal)
         }else if selecting == true{
