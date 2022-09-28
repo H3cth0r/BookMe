@@ -17,6 +17,10 @@ class ObjectSelectionViewController: UIViewController {
     @IBOutlet weak var typeObjectTitle: UILabel!
     var theTypeOfObject = ""
     
+    var selectionList: [String] = []
+    
+    // Here the reservation object that will be passed to each
+    // view is created.
     var reservation = ReservationClass()
     
     override func viewDidLoad() {
@@ -73,7 +77,6 @@ class ObjectSelectionViewController: UIViewController {
                                            "Hardware: Arduino",
                                            "Hardware: Raspberry",
                                            "Hardware: Microchip"]
-        var selectionList: [String] = []
         
         if(typeObjectTitle.text == "Space"){
             selectionList = roomsTitleName
@@ -83,6 +86,7 @@ class ObjectSelectionViewController: UIViewController {
             selectionList = softwareTitleName
         }
         
+        var counter = 0
         for i in selectionList{
             let one = ObjectRowElement()
             //one.frame = CGRect(x: 0, y: 0, width: 414, height: 63)
@@ -92,12 +96,19 @@ class ObjectSelectionViewController: UIViewController {
             one.objType = typeObjectTitle.text!
             one.setupV()
             one.bookMeButton.addTarget(self, action: #selector(toNextBookingConfigView), for: .touchUpInside)
+            one.tag = counter
             objRowvr.addArrangedSubview(one)
+            counter += 1
         }
     }
     
     @objc func toNextBookingConfigView(sender: UIButton!) {
         vwContainer.fadeOut()
+        
+        // setting values to the reservation object
+        self.reservation.objectTypeReservation = theTypeOfObject
+        self.reservation.objectName = selectionList[sender.tag]
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ObjectDescriptionViewController") as! ObjectDescriptionViewController
             vc.theTypeOfObject = self.theTypeOfObject

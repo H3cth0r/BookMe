@@ -10,12 +10,26 @@ import UIKit
 class SIngleDateConfirmationViewController: UIViewController {
     
     @IBOutlet var vwContainer: UIView!
+    
+    // day label
+    @IBOutlet weak var dayLabel: UILabel!
+    // day number label
+    @IBOutlet weak var dayNumberLabel: UILabel!
+    // month label
+    @IBOutlet weak var monthLabel: UILabel!
+    // year label
+    @IBOutlet weak var yearLabel: UILabel!
+    // Hour range label
+    @IBOutlet weak var hourRangeLabel: UILabel!
+    
     var reservation = ReservationClass()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        
     }
     
     @IBAction func saveReservationButton(_ sender: Any) {

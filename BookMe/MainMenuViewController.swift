@@ -21,9 +21,11 @@ class MainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.slideNavMenuController.transform  = CGAffineTransform(translationX: -self.slideNavMenuController.frame.width, y: 0.0)
 
         // Do any additional setup after loading the view.
-        slideNavMenuController.isHidden = true
+        //slideNavMenuController.isHidden = true
         closeSlideNavMenuView.isHidden = true
 
         
@@ -66,9 +68,14 @@ class MainMenuViewController: UIViewController {
     
     @IBAction func showSlideMenu(_ sender: UIButton) {
         closeSlideNavMenuView.isHidden = false
-        slideNavMenuController.isHidden = false
+        //slideNavMenuController.isHidden = false
         slideNavMenuController.layer.shadowRadius = 5
         slideNavMenuController.layer.shadowOpacity = 0.3
+        UIView.animate(withDuration: 0.5, animations: {
+            let zero = CGAffineTransform(translationX: 0.0, y: 0.0)
+            self.slideNavMenuController.transform = zero
+            //self.slideNavMenuController.frame.origin.x = -self.slideNavMenuController.frame.origin.size.width
+        })
         /*
         slideNavMenuController.frame = CGRect(x: 500, y: 500, width: slideNavMenuController.frame.size.width, height: slideNavMenuController.frame.size.height)
         slideNavMenuController.layoutIfNeeded()
@@ -79,7 +86,12 @@ class MainMenuViewController: UIViewController {
     
     @IBAction func closeSlideMenu(_ sender: UIButton) {
         closeSlideNavMenuView.isHidden = true
-        slideNavMenuController.isHidden = true
+        UIView.animate(withDuration: 0.5, animations: {
+            let zero = CGAffineTransform(translationX: -self.slideNavMenuController.frame.width, y: 0.0)
+            self.slideNavMenuController.transform = zero
+            //self.slideNavMenuController.frame.origin.x = -self.slideNavMenuController.frame.origin.size.width
+        })
+        //slideNavMenuController.isHidden = true
     }
     
     

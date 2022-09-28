@@ -10,6 +10,8 @@ import UIKit
 class NumberOfAssistantsViewController: UIViewController {
 
     @IBOutlet weak var vwContainer: UIView!
+    @IBOutlet weak var selectedNumberOfAssistants: UILabel!
+    var currentNumOfAssistants = 1
     
     var reservation = ReservationClass()
     
@@ -17,6 +19,9 @@ class NumberOfAssistantsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        selectedNumberOfAssistants.text = String(currentNumOfAssistants)
+        
         vwContainer.alpha = 0.0
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.vwContainer.fadeIn()
@@ -24,6 +29,9 @@ class NumberOfAssistantsViewController: UIViewController {
     }
     
     @IBAction func toDateSelection(_ sender: Any) {
+        
+        reservation.numberOfAssistants = currentNumOfAssistants
+        
         vwContainer.fadeOut()
         
         reservation.numberOfAssistants = 3
@@ -49,6 +57,19 @@ class NumberOfAssistantsViewController: UIViewController {
     }
     
     
+    @IBAction func addAssistantsButton(_ sender: Any) {
+        if(reservation.maxNumberOfAssistans-1 >= currentNumOfAssistants){
+            currentNumOfAssistants += 1
+            selectedNumberOfAssistants.text = String(currentNumOfAssistants)
+        }
+    }
+    
+    @IBAction func decreaseAssistantsButton(_ sender: Any) {
+        if(currentNumOfAssistants >= 2){
+            currentNumOfAssistants -= 1
+            selectedNumberOfAssistants.text = String(currentNumOfAssistants)
+        }
+    }
     @IBAction func toMainMenuButton(_ sender: Any) {
         // To Main Menu after some time
         vwContainer.fadeOut()
@@ -59,6 +80,7 @@ class NumberOfAssistantsViewController: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }
     }
+    
     
     /*
     // MARK: - Navigation

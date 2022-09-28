@@ -28,6 +28,11 @@ class ObjectDescriptionViewController: UIViewController {
         reservation.objectTypeReservation = theTypeOfObject
         reservation.objectName = "VIM"
         if theTypeOfObject == "Space"{
+            
+            
+            // temporal max number of assisstants variable
+            // will be get from json object
+            self.reservation.maxNumberOfAssistans = 10
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "NumberOfAssistantsViewController") as! NumberOfAssistantsViewController
                 //vc.modalTransitionStyle = .crossDissolve
