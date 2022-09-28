@@ -22,6 +22,7 @@ class HourSelectionViewController: UIViewController {
     var endHourRowNumber: Int!
     
     var selecting = false
+    var endSelected = false
     
     var hourModelPicker: HourModelPicker!
     
@@ -80,7 +81,7 @@ class HourSelectionViewController: UIViewController {
         
         print(startInRowIndex)
         
-        
+        endSelected = false
         // Check if occupied
         if modelData[currentRowIndex].occupied{
             // color the text of the button to be orange
@@ -126,19 +127,27 @@ class HourSelectionViewController: UIViewController {
     
     @IBAction func setEndingHour(_ sender: UIButton) {
         
+        if endSelected && currentRowIndex < endHourRowNumber{
+            for i in 0...modelData.count-1{
+                modelData[i].occupy = false
+            }
+        }
+        
         startInRowIndex = currentRowIndex
         endHourRowNumber = currentRowIndex
         //print(startInRowIndex)
         
         
-        // if end is before start
-        if startHourRowNumber > endHourRowNumber{
+        if startHourRowNumber > endHourRowNumber || modelData[currentRowIndex].occupied{
             endingButtonOutlet.setTitle("End", for: .normal)
             endingButtonOutlet.setTitleColor(.orange, for: .normal)
         }else if selecting == true{
             
+            endSelected = true
+            
             endingButtonOutlet.setTitle(currentHourLabel.text, for: .normal)
             endingButtonOutlet.setTitleColor(.white, for: .normal)
+            
             
             for i in startHourRowNumber...endHourRowNumber{
                 modelData[i].occupy = true
