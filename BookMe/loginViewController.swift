@@ -32,6 +32,7 @@ class loginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // creating date picker
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(dateChange(datePicker:)), for: UIControl.Event.valueChanged)
@@ -39,6 +40,7 @@ class loginViewController: UIViewController {
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.maximumDate = Date()
         
+        // adding done button to date picker
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
@@ -46,9 +48,10 @@ class loginViewController: UIViewController {
         birthTextInput.inputAccessoryView = toolbar
         birthTextInput.inputView = datePicker
         birthTextInput.text = formatDate(date: Date())
+        
+        // touch outside keyboard listeners
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         

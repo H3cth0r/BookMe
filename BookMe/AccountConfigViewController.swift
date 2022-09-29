@@ -11,6 +11,17 @@ class AccountConfigViewController: UIViewController {
 
     @IBOutlet var vwContainer: UIView!
     
+    // forumlary input fields
+    @IBOutlet weak var nameTextInput: UITextField!
+    @IBOutlet weak var surnameTextInput: UITextField!
+    @IBOutlet weak var usernameTextInput: UITextField!
+    @IBOutlet weak var birthTextInput: UITextField!
+    @IBOutlet weak var organizationTextInput: UITextField!
+    @IBOutlet weak var mailTextInput: UITextField!
+    @IBOutlet weak var passwordOneTextInput: UITextField!
+    @IBOutlet weak var passwordTwoTextInput: UITextField!
+    
+    
     @IBOutlet weak var confirmChangesView: UIView!
     
     @IBOutlet weak var mailinputspace: UITextField!
@@ -23,14 +34,47 @@ class AccountConfigViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // creating date picker
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(dateChange(datePicker:)), for: UIControl.Event.valueChanged)
+        datePicker.frame.size = CGSize(width: 0, height: 300)
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.maximumDate = Date()
+        
+        // adding done button to date picker
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([doneBtn], animated: true)
+        birthTextInput.inputAccessoryView = toolbar
+        birthTextInput.inputView = datePicker
+        birthTextInput.text = formatDate(date: Date())
+        
+        // tap outside of the keyboard listeners and functionality
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         // Do any additional setup after loading the view.
         confirmChangesView.isHidden = true
+    }
+    // date picker functionality
+    @objc func dateChange(datePicker: UIDatePicker){
+        let dat = formatDate(date: datePicker.date)
+        birthTextInput.text = dat
+        print(dat)
+    }
+    // date picker functionality
+    func formatDate(date: Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date)
+    }
+    // date picker functionality
+    @objc func donePressed(){
+        self.view.endEditing(true)
     }
     
     @objc func dismissKeyboard(){

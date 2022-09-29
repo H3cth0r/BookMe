@@ -2486,7 +2486,7 @@ RESERVATION:</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c11-2o-Voh">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c11-2o-Voh">
                                 <rect key="frame" x="0.0" y="134" width="414" height="657"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -2539,11 +2539,24 @@ RESERVATION:</string>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="W4u-Dz-mIS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="c11-2o-Voh"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="birthTextInput" destination="nSO-GP-VBF" id="2i6-BY-snk"/>
                         <outlet property="confirmChangesView" destination="c11-2o-Voh" id="7GS-ie-qhW"/>
+                        <outlet property="mailTextInput" destination="2yH-0B-wzK" id="QOg-l7-3ul"/>
                         <outlet property="mailinputspace" destination="2yH-0B-wzK" id="qgY-eY-idj"/>
+                        <outlet property="nameTextInput" destination="0zD-zE-JUU" id="tRz-Zd-PCz"/>
+                        <outlet property="organizationTextInput" destination="FbE-1V-KkE" id="K76-Ni-5ev"/>
+                        <outlet property="passwordOneTextInput" destination="fqK-di-8ef" id="pjg-20-ec0"/>
+                        <outlet property="passwordTwoTextInput" destination="Tkz-WU-crx" id="2W6-5O-d6F"/>
                         <outlet property="sendFormOutlet" destination="h3r-CY-mqN" id="FDW-6E-a1D"/>
+                        <outlet property="surnameTextInput" destination="aF0-Ur-BMv" id="g6z-NH-pld"/>
+                        <outlet property="usernameTextInput" destination="FRw-Il-QlQ" id="5PF-Km-uax"/>
                         <outlet property="vwContainer" destination="Hja-5p-wne" id="ho6-HE-4Co"/>
                     </connections>
                 </viewController>
