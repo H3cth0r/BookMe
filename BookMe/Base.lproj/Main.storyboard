@@ -2423,21 +2423,21 @@ RESERVATION:</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0zD-zE-JUU">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pepo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0zD-zE-JUU">
                                 <rect key="frame" x="159" y="415" width="235" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aF0-Ur-BMv">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Smith" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aF0-Ur-BMv">
                                 <rect key="frame" x="179" y="453" width="215" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FRw-Il-QlQ">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Pepo117" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FRw-Il-QlQ">
                                 <rect key="frame" x="197" y="491" width="197" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
@@ -2451,7 +2451,7 @@ RESERVATION:</string>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FbE-1V-KkE">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Skynet" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FbE-1V-KkE">
                                 <rect key="frame" x="216" y="567" width="178" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
@@ -2470,14 +2470,14 @@ RESERVATION:</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tkz-WU-crx">
                                 <rect key="frame" x="192" y="683" width="202" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CONFIG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRi-TA-4Ae">
                                 <rect key="frame" x="185" y="208" width="229" height="72"/>
@@ -2486,7 +2486,7 @@ RESERVATION:</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c11-2o-Voh">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c11-2o-Voh">
                                 <rect key="frame" x="0.0" y="134" width="414" height="657"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -2539,24 +2539,27 @@ RESERVATION:</string>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="W4u-Dz-mIS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="c11-2o-Voh"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="birthTextInput" destination="nSO-GP-VBF" id="2i6-BY-snk"/>
+                        <outlet property="birthTextInputLabel" destination="NqR-hY-OdS" id="OSV-Pe-osC"/>
                         <outlet property="confirmChangesView" destination="c11-2o-Voh" id="7GS-ie-qhW"/>
+                        <outlet property="labelTextInputLabel" destination="G83-cI-1Gd" id="Smf-Ci-fqd"/>
                         <outlet property="mailTextInput" destination="2yH-0B-wzK" id="QOg-l7-3ul"/>
                         <outlet property="mailinputspace" destination="2yH-0B-wzK" id="qgY-eY-idj"/>
                         <outlet property="nameTextInput" destination="0zD-zE-JUU" id="tRz-Zd-PCz"/>
+                        <outlet property="nameTextInputLabel" destination="nnC-4N-rWE" id="D3X-61-S8T"/>
                         <outlet property="organizationTextInput" destination="FbE-1V-KkE" id="K76-Ni-5ev"/>
+                        <outlet property="organizationTextInputLabel" destination="NqR-hY-OdS" id="oj6-bj-ffZ"/>
                         <outlet property="passwordOneTextInput" destination="fqK-di-8ef" id="pjg-20-ec0"/>
+                        <outlet property="passwordOneTextInputLabel" destination="CUx-1z-JD2" id="hRT-Wt-SPC"/>
                         <outlet property="passwordTwoTextInput" destination="Tkz-WU-crx" id="2W6-5O-d6F"/>
+                        <outlet property="passwordTwoTextInputLabel" destination="Jba-O8-rWf" id="QU0-qm-vRX"/>
                         <outlet property="sendFormOutlet" destination="h3r-CY-mqN" id="FDW-6E-a1D"/>
                         <outlet property="surnameTextInput" destination="aF0-Ur-BMv" id="g6z-NH-pld"/>
+                        <outlet property="surnameTextInputLabel" destination="K3C-AV-e8Y" id="dVK-xy-Qke"/>
                         <outlet property="usernameTextInput" destination="FRw-Il-QlQ" id="5PF-Km-uax"/>
+                        <outlet property="usernameTextInputLabel" destination="lkS-Rf-rlo" id="zim-Kb-6iF"/>
                         <outlet property="vwContainer" destination="Hja-5p-wne" id="ho6-HE-4Co"/>
                     </connections>
                 </viewController>
