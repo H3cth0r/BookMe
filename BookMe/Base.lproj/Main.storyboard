@@ -545,7 +545,7 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zl7-Kf-jZH">
                                 <rect key="frame" x="240" y="785" width="119.5" height="66"/>
@@ -598,6 +598,10 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="passwordInputField" destination="5y3-hR-pVh" id="ZZh-on-d1t"/>
+                        <outlet property="passwordInputFieldLabel" destination="n3H-Rk-7wT" id="W2j-5n-7go"/>
+                        <outlet property="usernameOrMailInputField" destination="KIf-SO-zDO" id="By1-fO-Pdh"/>
+                        <outlet property="usernameOrMailInputFieldLabel" destination="hv8-GX-zYH" id="N3i-a3-AKA"/>
                         <outlet property="vwContainer" destination="HTw-My-fbm" id="A03-J0-Hxd"/>
                     </connections>
                 </viewController>
@@ -626,7 +630,7 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;username&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TD8-F0-gsT">
-                                <rect key="frame" x="98" y="406.5" width="108.5" height="21"/>
+                                <rect key="frame" x="98" y="406.5" width="104.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="VFu-1T-llA"/>
                                 </constraints>
@@ -644,16 +648,16 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;organization&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Li3-Am-sEs">
-                                <rect key="frame" x="98" y="478" width="127.5" height="21"/>
+                                <rect key="frame" x="98" y="478" width="133" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="YMr-5H-jyL"/>
+                                    <constraint firstAttribute="height" constant="21" id="F4R-J6-3Ri"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;mail&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Soi-T2-4aB">
-                                <rect key="frame" x="98" y="513" width="127.5" height="21"/>
+                                <rect key="frame" x="98" y="513" width="123.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="bM0-FR-uIR"/>
                                 </constraints>
@@ -662,7 +666,7 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;password&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mv4-y1-272">
-                                <rect key="frame" x="98" y="665" width="110.5" height="21"/>
+                                <rect key="frame" x="98" y="665" width="106.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="PHn-Yk-O0B"/>
                                 </constraints>
@@ -671,7 +675,7 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;password&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEi-Hy-hnJ">
-                                <rect key="frame" x="98" y="698" width="110.5" height="21"/>
+                                <rect key="frame" x="98" y="698" width="106.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Wgr-WU-gTu"/>
                                 </constraints>
@@ -691,21 +695,21 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="At2-aW-eQl">
-                                <rect key="frame" x="233.5" y="308" width="160.5" height="34"/>
+                                <rect key="frame" x="229.5" y="308" width="164.5" height="34"/>
                                 <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lJv-bZ-wnQ">
-                                <rect key="frame" x="233.5" y="344" width="160.5" height="34"/>
+                                <rect key="frame" x="229.5" y="344" width="164.5" height="34"/>
                                 <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fDO-eD-C6y">
-                                <rect key="frame" x="233.5" y="402" width="160.5" height="34.5"/>
+                                <rect key="frame" x="229.5" y="402" width="164.5" height="34.5"/>
                                 <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34.5" id="q1m-H6-yke"/>
@@ -715,7 +719,7 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wOu-fA-5hd">
-                                <rect key="frame" x="233.5" y="473" width="160.5" height="34"/>
+                                <rect key="frame" x="229.5" y="473" width="164.5" height="34"/>
                                 <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="v7z-cg-j6c"/>
@@ -725,21 +729,21 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rgb-kf-I2e">
-                                <rect key="frame" x="233.5" y="508" width="160.5" height="34"/>
+                                <rect key="frame" x="229.5" y="508" width="164.5" height="34"/>
                                 <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUs-8p-0Ev">
-                                <rect key="frame" x="233.5" y="543.5" width="160.5" height="34"/>
+                                <rect key="frame" x="229.5" y="543.5" width="164.5" height="34"/>
                                 <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YY2-hb-vri">
-                                <rect key="frame" x="233.5" y="660" width="160.5" height="34"/>
+                                <rect key="frame" x="229.5" y="660" width="164.5" height="34"/>
                                 <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="NHg-uB-0OV"/>
@@ -749,14 +753,14 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vW8-FW-zAt">
-                                <rect key="frame" x="233.5" y="698" width="160.5" height="34"/>
+                                <rect key="frame" x="229.5" y="698" width="164.5" height="34"/>
                                 <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wyM-Ia-S8C">
-                                <rect key="frame" x="257" y="816" width="113.5" height="40.5"/>
+                                <rect key="frame" x="253" y="816" width="117.5" height="40.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="sendButton" title=""/>
                                 <connections>
@@ -782,7 +786,7 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTI-6j-zT0">
-                                <rect key="frame" x="98" y="825" width="142.5" height="22.5"/>
+                                <rect key="frame" x="98" y="825" width="138.5" height="22.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22.5" id="1q1-db-p0O"/>
                                 </constraints>
@@ -793,19 +797,19 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="&quot;country&quot;:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fc-MF-Gky">
-                                <rect key="frame" x="98" y="548.5" width="127.5" height="24"/>
+                                <rect key="frame" x="98" y="548.5" width="123.5" height="24"/>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="&quot;occupation&quot;:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdR-Hb-QGp">
-                                <rect key="frame" x="98" y="590" width="127.5" height="15.5"/>
+                                <rect key="frame" x="98" y="590" width="123.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Chivo-Regular" family="Chivo" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yf5-jc-sMn">
-                                <rect key="frame" x="233.5" y="579.5" width="160.5" height="35"/>
+                                <rect key="frame" x="229.5" y="579.5" width="164.5" height="35"/>
                                 <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Xyq-v0-QVF"/>
@@ -815,7 +819,7 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ymk-GI-xOQ">
-                                <rect key="frame" x="233.5" y="438.5" width="160.5" height="33.5"/>
+                                <rect key="frame" x="229.5" y="438.5" width="164.5" height="33.5"/>
                                 <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.098039215686274508" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33.5" id="3sX-s6-qC9"/>
@@ -843,10 +847,13 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tQ2-kZ-VL9" firstAttribute="top" secondItem="TQH-4D-JCW" secondAttribute="top" constant="46" id="0W2-DI-4vR"/>
+                            <constraint firstItem="Li3-Am-sEs" firstAttribute="top" secondItem="xLg-Su-GeZ" secondAttribute="bottom" constant="15" id="1fe-Do-kqC"/>
+                            <constraint firstItem="Li3-Am-sEs" firstAttribute="leading" secondItem="Soi-T2-4aB" secondAttribute="leading" id="1hH-5O-1Wu"/>
                             <constraint firstItem="rgb-kf-I2e" firstAttribute="top" secondItem="wOu-fA-5hd" secondAttribute="bottom" constant="1" id="33f-1T-cMQ"/>
                             <constraint firstItem="Mv4-y1-272" firstAttribute="top" secondItem="hdR-Hb-QGp" secondAttribute="bottom" constant="59.333333333333371" id="3d3-FZ-e8a"/>
                             <constraint firstItem="YY2-hb-vri" firstAttribute="trailing" secondItem="vW8-FW-zAt" secondAttribute="trailing" id="4hF-dS-zmZ"/>
                             <constraint firstItem="BEi-Hy-hnJ" firstAttribute="leading" secondItem="hTI-6j-zT0" secondAttribute="leading" id="5lP-G8-JMA"/>
+                            <constraint firstItem="Li3-Am-sEs" firstAttribute="leading" secondItem="xLg-Su-GeZ" secondAttribute="leading" id="6gc-pb-dUY"/>
                             <constraint firstItem="cUs-8p-0Ev" firstAttribute="top" secondItem="wOu-fA-5hd" secondAttribute="bottom" constant="36.5" id="76Y-uQ-oIV"/>
                             <constraint firstItem="Yf5-jc-sMn" firstAttribute="leading" secondItem="YY2-hb-vri" secondAttribute="leading" id="9LO-aJ-2Qj"/>
                             <constraint firstItem="rgb-kf-I2e" firstAttribute="leading" secondItem="Soi-T2-4aB" secondAttribute="trailing" constant="8" symbolic="YES" id="B27-9K-r0i"/>
@@ -854,7 +861,6 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                             <constraint firstItem="KHT-E2-ogb" firstAttribute="top" secondItem="hSa-U5-EpF" secondAttribute="bottom" constant="15" id="Dfe-2w-xfx"/>
                             <constraint firstItem="hTI-6j-zT0" firstAttribute="top" secondItem="dzo-UD-uXa" secondAttribute="bottom" constant="16" id="EAe-2S-oFv"/>
                             <constraint firstItem="wOu-fA-5hd" firstAttribute="leading" secondItem="rgb-kf-I2e" secondAttribute="leading" id="Ehv-Id-q8Q"/>
-                            <constraint firstItem="Li3-Am-sEs" firstAttribute="leading" secondItem="Soi-T2-4aB" secondAttribute="leading" id="GKC-vc-0w7"/>
                             <constraint firstItem="fDO-eD-C6y" firstAttribute="leading" secondItem="TD8-F0-gsT" secondAttribute="trailing" constant="27" id="GMW-fY-l9n"/>
                             <constraint firstItem="dzo-UD-uXa" firstAttribute="top" secondItem="BEi-Hy-hnJ" secondAttribute="bottom" constant="11" id="H4j-ft-Ekb"/>
                             <constraint firstItem="Mv4-y1-272" firstAttribute="trailing" secondItem="BEi-Hy-hnJ" secondAttribute="trailing" id="HeY-xQ-caJ"/>
@@ -872,12 +878,11 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                             <constraint firstItem="fDO-eD-C6y" firstAttribute="leading" secondItem="ymk-GI-xOQ" secondAttribute="leading" id="NsZ-IN-mop"/>
                             <constraint firstItem="At2-aW-eQl" firstAttribute="top" secondItem="9EI-ik-MJx" secondAttribute="bottom" constant="21" id="OFz-Ba-2At"/>
                             <constraint firstItem="fDO-eD-C6y" firstAttribute="trailing" secondItem="ymk-GI-xOQ" secondAttribute="trailing" id="Okw-d3-xOy"/>
-                            <constraint firstItem="wOu-fA-5hd" firstAttribute="leading" secondItem="Li3-Am-sEs" secondAttribute="trailing" constant="8" symbolic="YES" id="Pqw-7x-pdC"/>
                             <constraint firstItem="9EI-ik-MJx" firstAttribute="leading" secondItem="AhI-xA-b93" secondAttribute="leadingMargin" id="QQ6-va-jC4"/>
                             <constraint firstItem="9fc-MF-Gky" firstAttribute="centerY" secondItem="cUs-8p-0Ev" secondAttribute="centerY" id="RDB-li-sGH"/>
+                            <constraint firstItem="Soi-T2-4aB" firstAttribute="top" secondItem="Li3-Am-sEs" secondAttribute="bottom" constant="14" id="Tij-Nq-lWB"/>
                             <constraint firstItem="9EI-ik-MJx" firstAttribute="centerX" secondItem="dzo-UD-uXa" secondAttribute="centerX" id="Uqz-8j-a9p"/>
                             <constraint firstItem="D0f-PK-YjN" firstAttribute="leading" secondItem="TQH-4D-JCW" secondAttribute="leading" constant="140" id="WtI-ld-REK"/>
-                            <constraint firstItem="Soi-T2-4aB" firstAttribute="top" secondItem="Li3-Am-sEs" secondAttribute="bottom" constant="14" id="XWA-R2-msA"/>
                             <constraint firstItem="9fc-MF-Gky" firstAttribute="top" secondItem="Soi-T2-4aB" secondAttribute="bottom" constant="14.666666666666629" id="YZt-lp-hsG"/>
                             <constraint firstItem="dzo-UD-uXa" firstAttribute="leading" secondItem="TQH-4D-JCW" secondAttribute="leading" constant="7" id="Zd1-Zh-cGm"/>
                             <constraint firstItem="lJv-bZ-wnQ" firstAttribute="top" secondItem="At2-aW-eQl" secondAttribute="bottom" constant="2" id="arG-3K-JUv"/>
@@ -895,15 +900,14 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                             <constraint firstItem="TD8-F0-gsT" firstAttribute="leading" secondItem="xLg-Su-GeZ" secondAttribute="leading" id="iqz-od-2RW"/>
                             <constraint firstItem="9EI-ik-MJx" firstAttribute="trailing" secondItem="At2-aW-eQl" secondAttribute="trailing" id="iwH-Kg-9Jd"/>
                             <constraint firstItem="Soi-T2-4aB" firstAttribute="leading" secondItem="9fc-MF-Gky" secondAttribute="leading" id="jXw-VR-bZo"/>
-                            <constraint firstItem="Li3-Am-sEs" firstAttribute="top" secondItem="xLg-Su-GeZ" secondAttribute="bottom" constant="15" id="kJ2-1R-Fj5"/>
                             <constraint firstItem="hdR-Hb-QGp" firstAttribute="leading" secondItem="Mv4-y1-272" secondAttribute="leading" id="kMS-Xd-4mF"/>
                             <constraint firstItem="At2-aW-eQl" firstAttribute="leading" secondItem="lJv-bZ-wnQ" secondAttribute="leading" id="l7U-8y-HrZ"/>
                             <constraint firstItem="cUs-8p-0Ev" firstAttribute="trailing" secondItem="Yf5-jc-sMn" secondAttribute="trailing" id="l9L-lW-bMp"/>
                             <constraint firstItem="rgb-kf-I2e" firstAttribute="leading" secondItem="cUs-8p-0Ev" secondAttribute="leading" id="lbU-45-tRr"/>
-                            <constraint firstItem="xLg-Su-GeZ" firstAttribute="leading" secondItem="Li3-Am-sEs" secondAttribute="leading" id="mF2-Qv-IUo"/>
                             <constraint firstItem="wOu-fA-5hd" firstAttribute="trailing" secondItem="rgb-kf-I2e" secondAttribute="trailing" id="nGu-Zo-aHB"/>
                             <constraint firstItem="YY2-hb-vri" firstAttribute="leading" secondItem="Mv4-y1-272" secondAttribute="trailing" constant="25" id="nTh-pt-cL2"/>
                             <constraint firstItem="hSa-U5-EpF" firstAttribute="top" secondItem="9EI-ik-MJx" secondAttribute="bottom" constant="27.5" id="neG-C0-tbf"/>
+                            <constraint firstItem="TQH-4D-JCW" firstAttribute="trailing" secondItem="Li3-Am-sEs" secondAttribute="trailing" constant="183" id="nm9-VO-z4T"/>
                             <constraint firstItem="ymk-GI-xOQ" firstAttribute="top" secondItem="fDO-eD-C6y" secondAttribute="bottom" constant="2" id="opX-tX-7i2"/>
                             <constraint firstItem="9EI-ik-MJx" firstAttribute="trailing" secondItem="AhI-xA-b93" secondAttribute="trailingMargin" id="owb-fM-eAu"/>
                             <constraint firstItem="Mv4-y1-272" firstAttribute="leading" secondItem="BEi-Hy-hnJ" secondAttribute="leading" id="pMb-pJ-nIE"/>
