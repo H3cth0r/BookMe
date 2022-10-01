@@ -1,12 +1,10 @@
 {
   "images" : [
     {
-      "filename" : "typeHardwareButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "typeHardwareButton-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

@@ -1,12 +1,10 @@
 {
   "images" : [
     {
-      "filename" : "currentBookingsButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "currentBookingsButton-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

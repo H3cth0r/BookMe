@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "logButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "logButton-1.png",
+      "filename" : "logButton.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "logButton-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,12 +1,10 @@
 {
   "images" : [
     {
-      "filename" : "typeSoftwareButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "typeSoftwareButton-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

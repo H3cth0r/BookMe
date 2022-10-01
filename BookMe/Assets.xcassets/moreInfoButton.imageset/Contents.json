@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "moreInfoButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "moreInfoButton-1.png",
+      "filename" : "moreInfoButton.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "moreInfoButton-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

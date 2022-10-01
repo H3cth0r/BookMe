@@ -1,12 +1,10 @@
 {
   "images" : [
     {
-      "filename" : "nextButtonSquare.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "nextButtonSquare-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

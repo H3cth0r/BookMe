@@ -1,12 +1,10 @@
 {
   "images" : [
     {
-      "filename" : "saveReservationButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "saveReservationButton-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

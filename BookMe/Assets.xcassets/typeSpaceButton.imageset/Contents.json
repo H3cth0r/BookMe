@@ -1,12 +1,10 @@
 {
   "images" : [
     {
-      "filename" : "typeSpaceButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "typeSpaceButton-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

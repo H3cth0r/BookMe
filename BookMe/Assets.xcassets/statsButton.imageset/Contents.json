@@ -1,12 +1,10 @@
 {
   "images" : [
     {
-      "filename" : "statsButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "statsButton-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

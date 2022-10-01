@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "regButton.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "regButton-1.png",
+      "filename" : "regButton.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "regButton-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -11,6 +11,10 @@ class loginViewController: UIViewController {
 
     @IBOutlet var vwContainer: UIView!
     
+    // terms n conditions button
+    @IBOutlet weak var termsNConditionsButtonOutlet: UIButton!
+    
+    
     // Fdrmulary fields
     @IBOutlet weak var nameTextInput: UITextField!
     @IBOutlet weak var surnameTextInput: UITextField!
@@ -19,18 +23,34 @@ class loginViewController: UIViewController {
     @IBOutlet weak var organizationTextInput: UITextField!
     @IBOutlet weak var mailTextInput: UITextField!
     @IBOutlet weak var countryTextInput: UITextField!
-    @IBOutlet weak var phoneTextInput: UITextField!
     @IBOutlet weak var occupationTextInput: UITextField!
     @IBOutlet weak var passwordOneTextInput: UITextField!
     @IBOutlet weak var passwordTwoTextInput: UITextField!
+    // other
     @IBOutlet weak var sendRegisterButtonOutlet: UIButton!
     @IBOutlet weak var endJsonOutlet: UILabel!
+    // Formulary fields labels
+    @IBOutlet weak var nameTextInputLabel: UILabel!
+    @IBOutlet weak var surnameTextInputLabel: UILabel!
+    @IBOutlet weak var usernameTextInputLabel: UILabel!
+    @IBOutlet weak var birthTextInputLabel: UILabel!
+    @IBOutlet weak var organizationTextInputLabel: UILabel!
+    @IBOutlet weak var mailTextInputLabel: UILabel!
+    @IBOutlet weak var countryTextInputLabel: UILabel!
+    @IBOutlet weak var occupationTextInputLabel: UILabel!
+    @IBOutlet weak var passwordOneTextInputLabel: UILabel!
+    @IBOutlet weak var passwordTwoTextInputLabel: UILabel!
+    
+    
     
     var editingSomeTextInput = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // styling text terms n conditions
+        termsNConditionsButtonOutlet.titleLabel?.font = UIFont(name: "Chivo-Regular", size: 11)
         
         // creating date picker
         let datePicker = UIDatePicker()
@@ -86,7 +106,7 @@ class loginViewController: UIViewController {
     @objc func keyboardWillShow(notification: NSNotification){
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
             let keyboardHeight = keyboardFrame.cgRectValue.height
-            let bottomSpace = self.view.frame.height - (self.sendRegisterButtonOutlet.frame.origin.y + sendRegisterButtonOutlet.frame.height + 200)
+            let bottomSpace = self.view.frame.height - (self.sendRegisterButtonOutlet.frame.origin.y + sendRegisterButtonOutlet.frame.height + 150)
             if editingSomeTextInput == false{
                 editingSomeTextInput = true
                 self.view.frame.origin.y -= keyboardHeight + bottomSpace
@@ -104,12 +124,16 @@ class loginViewController: UIViewController {
     }
     
     @IBAction func toVerificationButton(_ sender: UIButton) {
-        vwContainer.fadeOut()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyViewController") as! VerifyViewController
-            //vc.modalTransitionStyle = .crossDissolve
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
+        
+        // if fields inputs are okay, do this
+        if(validateFieldsInput()){
+            vwContainer.fadeOut()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyViewController") as! VerifyViewController
+                //vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
         }
     }
     
@@ -132,6 +156,112 @@ class loginViewController: UIViewController {
             //vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
+        termsNConditionsButtonOutlet.titleLabel?.font = UIFont(name: "Chivo-Regular", size: 11)
+    }
+    func validateFieldsInput()->Bool{
+        var allOk = true
+        
+        // validate name
+        if(!isValidName(nameTextInput.text ?? "Pepo")){
+            allOk = false
+            nameTextInputLabel.textColor = .red
+        } else {
+            nameTextInputLabel.textColor = .white
+        }
+        
+        // validate surname
+        if(!isValidName(surnameTextInput.text ?? "Smith")){
+            allOk = false
+            surnameTextInputLabel.textColor = .red
+        } else {
+            surnameTextInputLabel.textColor = .white
+        }
+        
+        // validate username
+        if(!isValidUsername(usernameTextInput.text ?? "Pepo117")){
+            allOk = false
+            usernameTextInputLabel.textColor = .red
+        }else {
+            usernameTextInputLabel.textColor = .white
+        }
+        
+        // validatate organization
+        if(!isValidUsername(organizationTextInput.text ?? "Facebook")){
+            allOk = false
+            organizationTextInputLabel.textColor = .red
+        } else {
+            organizationTextInputLabel.textColor = .white
+        }
+        
+        // valdiate mail
+        if(!isValidEmail(mailTextInput.text ?? "elPepo@tec.mx")){
+            allOk = false
+            mailTextInputLabel.textColor = .red
+        } else {
+            mailTextInputLabel.textColor = .white
+        }
+        
+        // is valid country
+        if(!isValidName(countryTextInput.text ?? "México")){
+            allOk = false
+            countryTextInputLabel.textColor = .red
+        } else {
+            countryTextInputLabel.textColor = .white
+        }
+        
+        // is valid occupation
+        if(!isValidName(occupationTextInput.text ?? "Developer")){
+            allOk = false
+            occupationTextInputLabel.textColor = .red
+        } else {
+            occupationTextInputLabel.textColor = .white
+        }
+        
+        // validate passowrd one
+        if(!isValidPassword(password: passwordOneTextInput.text ?? "Pepo117@2022")){
+            allOk = false
+            passwordOneTextInputLabel.textColor = .red
+            passwordOneTextInputLabel.textColor = .red
+        } else {
+            passwordOneTextInputLabel.textColor = .white
+            passwordTwoTextInputLabel.textColor = .white
+        }
+        
+        // validate password two
+        if(passwordOneTextInput.text != passwordTwoTextInput.text){
+            allOk = false
+            passwordTwoTextInputLabel.textColor = .red
+        } else {
+            passwordTwoTextInputLabel.textColor = .white
+        }
+        
+        return allOk
+    }
+    
+    func isValidName(_ name: String) -> Bool {
+        //Declaring the rule of characters to be used. Applying rule to current state. Verifying the result.
+        let regex = "[A-Za-z]{2,}"
+        let test = NSPredicate(format: "SELF MATCHES %@", regex)
+        let result = test.evaluate(with: name)
+        
+        return result
+    }
+    func isValidUsername(_ username:String) -> Bool {
+        let RegEx = "\\w{7,18}"
+        let Test = NSPredicate(format:"SELF MATCHES %@", RegEx)
+        return Test.evaluate(with: username)
+    }
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    // https://stackoverflow.com/questions/57771505/use-regex-to-validate-a-password-on-ios-swift
+    func isValidPassword(password: String) -> Bool {
+        let passRegEx = "(?=[^a-z]*[a-z])(?=[^0-9]*[0-9])[a-zA-Z0-9!@#$%^&*]{8,}"
+        let passwordTest = NSPredicate(format: "SELF MATCHES %@", passRegEx)
+        return passwordTest.evaluate(with: password)
     }
     
     /*
