@@ -64,8 +64,8 @@ class twoDatesSelectionViewController: UIViewController {
             one.labelDate.text = i
             one.selectDateButton.tag = counter
             one.selectDateButton.addTarget(self, action: #selector(selectThisDate), for: .touchUpInside)
-            one.labelDate.frame = CGRect(x: 10, y: 10, width: 250, height: 250)
-            one.selectDateButton.frame = CGRect(x: 145, y: 260, width: 151, height: 50)
+            one.labelDate.frame = CGRect(x: 10, y: -15, width: 250, height: 250)
+            one.selectDateButton.frame = CGRect(x: 145, y: 220, width: 151, height: 50)
             
             upperDateSelectionBand.addArrangedSubview(one)
             //lowerDateSelectionBand.addArrangedSubview(one)
@@ -84,8 +84,8 @@ class twoDatesSelectionViewController: UIViewController {
             one.labelDate.text = i
             one.selectDateButton.tag = counter
             one.selectDateButton.addTarget(self, action: #selector(selectThisDateSecond), for: .touchUpInside)
-            one.labelDate.frame = CGRect(x: 10, y: 10, width: 250, height: 250)
-            one.selectDateButton.frame = CGRect(x: 145, y: 230, width: 151, height: 50)
+            one.labelDate.frame = CGRect(x: 10, y: -15, width: 250, height: 250)
+            one.selectDateButton.frame = CGRect(x: 145, y: 220, width: 151, height: 50)
             
             //upperDateSelectionBand.addArrangedSubview(one)
             lowerDateSelectionBand.addArrangedSubview(one)

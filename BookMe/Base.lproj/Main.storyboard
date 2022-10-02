@@ -495,12 +495,6 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="BooKME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZQ-bP-63d">
-                                <rect key="frame" x="138" y="90" width="139" height="41"/>
-                                <fontDescription key="fontDescription" name="Chivo-Light" family="Chivo" pointSize="35"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyM-ds-0Mm">
                                 <rect key="frame" x="43" y="282" width="329" height="101.66666666666669"/>
                                 <string key="text">{
@@ -566,6 +560,15 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                     <action selector="returnToLogOrReg:" destination="ae9-Wg-bOP" eventType="touchUpInside" id="rmy-YP-eSB"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BooKME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZQ-bP-63d">
+                                <rect key="frame" x="112" y="87" width="190" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="YHt-qa-T0i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Chivo-Light" family="Chivo" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NXb-RB-311"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -573,16 +576,13 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                             <constraint firstItem="n3H-Rk-7wT" firstAttribute="centerY" secondItem="5y3-hR-pVh" secondAttribute="centerY" id="231-jf-9iA"/>
                             <constraint firstItem="91r-jo-Wth" firstAttribute="leading" secondItem="fRG-z4-GsC" secondAttribute="leading" id="48u-Ie-NR0"/>
                             <constraint firstItem="NXb-RB-311" firstAttribute="bottom" secondItem="zl7-Kf-jZH" secondAttribute="bottom" constant="11.000000000000114" id="7Iw-gP-ZI1"/>
-                            <constraint firstItem="HZQ-bP-63d" firstAttribute="top" secondItem="NXb-RB-311" secondAttribute="top" constant="46" id="8Kx-Q2-shF"/>
                             <constraint firstItem="KIf-SO-zDO" firstAttribute="trailing" secondItem="HTw-My-fbm" secondAttribute="trailingMargin" id="8a1-w4-2eP"/>
-                            <constraint firstItem="HZQ-bP-63d" firstAttribute="centerX" secondItem="HTw-My-fbm" secondAttribute="centerX" id="AIe-pe-gvT"/>
                             <constraint firstItem="91r-jo-Wth" firstAttribute="top" secondItem="5y3-hR-pVh" secondAttribute="bottom" constant="1" id="Abh-yD-JYC"/>
                             <constraint firstItem="KIf-SO-zDO" firstAttribute="leading" secondItem="5y3-hR-pVh" secondAttribute="leading" id="B5M-zc-3nU"/>
+                            <constraint firstItem="HZQ-bP-63d" firstAttribute="leading" secondItem="NXb-RB-311" secondAttribute="leading" constant="112" id="FAW-yK-1WK"/>
                             <constraint firstItem="NXb-RB-311" firstAttribute="bottom" secondItem="fRG-z4-GsC" secondAttribute="bottom" constant="14" id="FtG-g0-R9Y"/>
                             <constraint firstItem="5y3-hR-pVh" firstAttribute="trailing" secondItem="91r-jo-Wth" secondAttribute="trailing" id="Fu0-Aw-Cbn"/>
                             <constraint firstItem="QyM-ds-0Mm" firstAttribute="leading" secondItem="NXb-RB-311" secondAttribute="leading" constant="43" id="JPj-oI-V2w"/>
-                            <constraint firstItem="HZQ-bP-63d" firstAttribute="centerX" secondItem="QyM-ds-0Mm" secondAttribute="centerX" id="Jql-pr-0F4"/>
-                            <constraint firstItem="HZQ-bP-63d" firstAttribute="leading" secondItem="NXb-RB-311" secondAttribute="leading" constant="138" id="Nja-cc-9gd"/>
                             <constraint firstItem="QyM-ds-0Mm" firstAttribute="leading" secondItem="91r-jo-Wth" secondAttribute="leading" id="Opw-NE-RaI"/>
                             <constraint firstItem="fRG-z4-GsC" firstAttribute="centerY" secondItem="zl7-Kf-jZH" secondAttribute="centerY" id="SQB-kh-c4z"/>
                             <constraint firstItem="zl7-Kf-jZH" firstAttribute="leading" secondItem="fRG-z4-GsC" secondAttribute="trailing" constant="73" id="Z8A-Un-3zL"/>
@@ -591,8 +591,11 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                             <constraint firstItem="QyM-ds-0Mm" firstAttribute="top" secondItem="HTw-My-fbm" secondAttribute="top" constant="282" id="fUh-Xv-sP9"/>
                             <constraint firstItem="KIf-SO-zDO" firstAttribute="trailing" secondItem="5y3-hR-pVh" secondAttribute="trailing" id="j00-4s-583"/>
                             <constraint firstItem="91r-jo-Wth" firstAttribute="top" secondItem="n3H-Rk-7wT" secondAttribute="bottom" constant="8.3333333333332575" id="nL0-hc-Thj"/>
+                            <constraint firstItem="HZQ-bP-63d" firstAttribute="centerX" secondItem="QyM-ds-0Mm" secondAttribute="centerX" id="rm1-gJ-msQ"/>
                             <constraint firstItem="hv8-GX-zYH" firstAttribute="centerY" secondItem="KIf-SO-zDO" secondAttribute="centerY" id="tG4-EM-ivL"/>
+                            <constraint firstItem="HZQ-bP-63d" firstAttribute="top" secondItem="NXb-RB-311" secondAttribute="top" constant="43" id="vLT-2I-EeH"/>
                             <constraint firstItem="hv8-GX-zYH" firstAttribute="leading" secondItem="n3H-Rk-7wT" secondAttribute="leading" id="wQm-m8-zXA"/>
+                            <constraint firstItem="HZQ-bP-63d" firstAttribute="centerX" secondItem="HTw-My-fbm" secondAttribute="centerX" id="yfg-lt-6O1"/>
                             <constraint firstItem="hv8-GX-zYH" firstAttribute="leading" secondItem="NXb-RB-311" secondAttribute="leading" constant="104" id="zCf-ZK-sJd"/>
                             <constraint firstItem="5y3-hR-pVh" firstAttribute="top" secondItem="KIf-SO-zDO" secondAttribute="bottom" constant="6" id="zvy-U0-cC5"/>
                         </constraints>

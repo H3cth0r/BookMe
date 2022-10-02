@@ -53,6 +53,8 @@ class oneDateSelectionViewController: UIViewController {
             one.labelDate.text = i
             one.selectDateButton.tag = counter
             one.selectDateButton.addTarget(self, action: #selector(selectThisDate), for: .touchUpInside)
+            one.labelDate.frame = CGRect(x: 10, y: -25, width: 250, height: 250)
+            one.selectDateButton.frame = CGRect(x: 145, y: 320, width: 151, height: 50)
             objCard.addArrangedSubview(one)
             counter += 1
         }

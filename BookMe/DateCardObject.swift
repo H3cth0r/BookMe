@@ -13,7 +13,7 @@ class DateCardObject: UIView {
     
     lazy var labelDate: UILabel! = {
         let labelDate = UILabel(frame: CGRect(x: 10, y: 10, width: 250, height: 250))
-        labelDate.font = UIFont(name: "Chivo-Bold", size: 50)
+        labelDate.font = UIFont(name: "Chivo-Bold", size: 40)
         labelDate.text = dateText
         labelDate.textAlignment = .left
         labelDate.textColor = .black
