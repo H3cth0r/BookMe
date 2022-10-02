@@ -47,8 +47,10 @@ class AccountConfigViewController: UIViewController {
     
     @IBOutlet weak var mailinputspace: UITextField!
     
-    
     @IBOutlet weak var sendFormOutlet: UIButton!
+    
+    // user profile photo image outlet
+    @IBOutlet weak var userProfilePhoto: UIImageView!
     
     var editingSomeTextInput = false
     
@@ -63,6 +65,17 @@ class AccountConfigViewController: UIViewController {
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.maximumDate = Date()
         
+        // User profile picture selection configuration
+        let tapImageGR = UITapGestureRecognizer(target: self, action: #selector(self.showImagePickerOptions))
+        userProfilePhoto.addGestureRecognizer(tapImageGR)
+        userProfilePhoto.isUserInteractionEnabled = true
+        
+        // check if user has saved an image on user defaults
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "profilePicture") != nil {
+            userProfilePhoto.image = UIImage(data: defaults.object(forKey: "profilePicture") as! Data)
+        }
+
         // adding done button to date picker
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -270,6 +283,47 @@ class AccountConfigViewController: UIViewController {
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", passRegEx)
         return passwordTest.evaluate(with: password)
     }
+    
+    @objc func showImagePickerOptions(){
+        let alertVC = UIAlertController(title: "Pick your best angle", message: "Pick your best angle", preferredStyle: .actionSheet)
+        
+        // Image picker for camera
+        let cameraAction = UIAlertAction(title: "Camera", style: .default){[weak self] (ACTION) in
+            guard let self = self else{
+                return
+            }
+            let cameraImagePicker = self.imagePicker(sourceType: .camera)
+            cameraImagePicker.delegate = self
+            self.present(cameraImagePicker, animated: true)
+        }
+        
+        // Image picker for camera
+        let libraryAction = UIAlertAction(title: "Library", style: .default){[weak self] (ACTION) in
+            guard let self = self else{
+                return
+            }
+            let libraryImagePicker = self.imagePicker(sourceType: .photoLibrary)    // <<<<<<<<<<<<<<<
+            libraryImagePicker.delegate = self
+            self.present(libraryImagePicker, animated: true)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertVC.addAction(cameraAction)
+        alertVC.addAction(libraryAction)
+        alertVC.addAction(cancelAction)
+        self.present(alertVC, animated: true, completion: nil)
+        
+    }
+    
+    func imagePicker(sourceType: UIImagePickerController.SourceType) -> UIImagePickerController{
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = sourceType
+        return imagePicker
+    }
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 
@@ -281,3 +335,25 @@ class AccountConfigViewController: UIViewController {
     */
 
 }
+
+
+// extension for the image selection
+extension AccountConfigViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        let image = info[.originalImage] as! UIImage
+        print(info[.imageURL] ?? "lol")
+        
+        // save image url to userdefaults
+        let defaults = UserDefaults.standard
+        //defaults.set(info[.imageURL], forKey: "profilePictureURL")
+        let dataImage = image.pngData()
+        defaults.set(dataImage, forKey: "profilePicture")
+        
+        self.userProfilePhoto.image = image
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+}
+
+

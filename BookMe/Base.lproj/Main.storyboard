@@ -1058,7 +1058,7 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                     <constraint firstAttribute="height" constant="20" id="jHe-eP-VHs"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="xrr-8m-UCC">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="xrr-8m-UCC">
                                 <rect key="frame" x="337" y="57" width="45" height="45"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Bo-a0-A5u">
@@ -1181,7 +1181,7 @@ Assistants</string>
                                 <rect key="frame" x="26" y="117" width="362" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="J0t-EU-x4i">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="J0t-EU-x4i">
                                 <rect key="frame" x="338" y="57" width="56" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1711,7 +1711,7 @@ Assistants</string>
                                     <constraint firstAttribute="height" constant="20" id="6mX-Ka-PhT"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="jzC-Mi-yUa">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="jzC-Mi-yUa">
                                 <rect key="frame" x="338" y="57" width="56" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="meN-Zr-05p"/>
@@ -2546,6 +2546,7 @@ RESERVATION:</string>
                         <outlet property="sendFormOutlet" destination="h3r-CY-mqN" id="FDW-6E-a1D"/>
                         <outlet property="surnameTextInput" destination="aF0-Ur-BMv" id="g6z-NH-pld"/>
                         <outlet property="surnameTextInputLabel" destination="K3C-AV-e8Y" id="dVK-xy-Qke"/>
+                        <outlet property="userProfilePhoto" destination="8sB-49-2vl" id="JLH-FG-sGi"/>
                         <outlet property="usernameTextInput" destination="FRw-Il-QlQ" id="5PF-Km-uax"/>
                         <outlet property="usernameTextInputLabel" destination="lkS-Rf-rlo" id="zim-Kb-6iF"/>
                         <outlet property="vwContainer" destination="Hja-5p-wne" id="ho6-HE-4Co"/>

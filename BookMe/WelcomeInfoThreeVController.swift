@@ -30,7 +30,7 @@ class WelcomeInfoThreeVController: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }
     }
-    
+
     /*
     // MARK: - Navigation
 

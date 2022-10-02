@@ -13,6 +13,10 @@ class ReserveOrMoreInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "doneBasicTutorial")
+        
         vwContainer.alpha = 0.0
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.vwContainer.fadeIn()

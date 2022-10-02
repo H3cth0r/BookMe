@@ -15,6 +15,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //let defaults = UserDefaults
+       // UserDefaults.resetStandardUserDefaults()
+        
+        //print(defaults.bool(forKey: "doneBasicTutorial"))
+        if UserDefaults.standard.bool(forKey: "doneBasicTutorial") {
+            toInfoOrReserv()
+        }
+        
     }
     
     @IBAction func buttonNextView(_ sender: UIButton) {
@@ -28,6 +41,14 @@ class ViewController: UIViewController {
 
         //vwContainer.fadeIn()
     }
+    
+    func toInfoOrReserv(){
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ReserveOrMoreInfoViewController") as! ReserveOrMoreInfoViewController
+        //vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     
 
 }
