@@ -50,12 +50,14 @@
 		A49159D428BFE2C1006DF136 /* Chivo-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A49159CC28BFE2C1006DF136 /* Chivo-Black.ttf */; };
 		A49159D628BFF0D0006DF136 /* GeneralMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49159D528BFF0D0006DF136 /* GeneralMethods.swift */; };
 		A49159D828BFFE99006DF136 /* WelcomeInfoTwoVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49159D728BFFE99006DF136 /* WelcomeInfoTwoVController.swift */; };
+		A4A7530328EA088F00DCDC4E /* UserAccountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A7530228EA088F00DCDC4E /* UserAccountData.swift */; };
 		A4A8147E28DEAE6E0070EC87 /* DateCardObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A8147D28DEAE6E0070EC87 /* DateCardObject.swift */; };
 		A4B652EF28C455D500E48DCF /* NumberOfAssistantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B652EE28C455D500E48DCF /* NumberOfAssistantsViewController.swift */; };
 		A4C9AB4028DCD780006C746E /* DateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9AB3F28DCD780006C746E /* DateSelectionViewController.swift */; };
 		A4DB750728C25B5B00C19228 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB750628C25B5B00C19228 /* VerifyViewController.swift */; };
 		A4DB750928C27A6F00C19228 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB750828C27A6F00C19228 /* MainMenuViewController.swift */; };
 		A4DB750D28C2A66800C19228 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB750C28C2A66800C19228 /* SlideMenuViewController.swift */; };
+		A4DCE58528EA745D0029C6E2 /* SwiftJWT in Frameworks */ = {isa = PBXBuildFile; productRef = A4DCE58428EA745D0029C6E2 /* SwiftJWT */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +106,7 @@
 		A49159CC28BFE2C1006DF136 /* Chivo-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chivo-Black.ttf"; sourceTree = "<group>"; };
 		A49159D528BFF0D0006DF136 /* GeneralMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralMethods.swift; sourceTree = "<group>"; };
 		A49159D728BFFE99006DF136 /* WelcomeInfoTwoVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInfoTwoVController.swift; sourceTree = "<group>"; };
+		A4A7530228EA088F00DCDC4E /* UserAccountData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountData.swift; sourceTree = "<group>"; };
 		A4A8147D28DEAE6E0070EC87 /* DateCardObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCardObject.swift; sourceTree = "<group>"; };
 		A4B652EE28C455D500E48DCF /* NumberOfAssistantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfAssistantsViewController.swift; sourceTree = "<group>"; };
 		A4C9AB3F28DCD780006C746E /* DateSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DCE58528EA745D0029C6E2 /* SwiftJWT in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +151,7 @@
 				A430AF8A28C31FD20076565C /* ObjectRowElement.swift */,
 				A45FD90728BC5C2100E7D788 /* SceneDelegate.swift */,
 				A45FD90928BC5C2100E7D788 /* ViewController.swift */,
+				A4A7530228EA088F00DCDC4E /* UserAccountData.swift */,
 				A45FD90B28BC5C2100E7D788 /* Main.storyboard */,
 				A4086B3E28DFF4E700CFEFCF /* HourModelPicker.swift */,
 				A4086B4028DFF51700CFEFCF /* HourModel.swift */,
@@ -220,6 +225,9 @@
 			dependencies = (
 			);
 			name = BookMe;
+			packageProductDependencies = (
+				A4DCE58428EA745D0029C6E2 /* SwiftJWT */,
+			);
 			productName = BookMe;
 			productReference = A45FD90228BC5C2100E7D788 /* BookMe.app */;
 			productType = "com.apple.product-type.application";
@@ -248,6 +256,9 @@
 				Base,
 			);
 			mainGroup = A45FD8F928BC5C2100E7D788;
+			packageReferences = (
+				A4DCE58328EA745D0029C6E2 /* XCRemoteSwiftPackageReference "Swift-JWT" */,
+			);
 			productRefGroup = A45FD90328BC5C2100E7D788 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -287,6 +298,7 @@
 				A45FD90A28BC5C2100E7D788 /* ViewController.swift in Sources */,
 				A43F966F28C7F2A900F76546 /* ObjectDescriptionViewController.swift in Sources */,
 				A4338C9128C5400000C715FB /* ReservationClass.swift in Sources */,
+				A4A7530328EA088F00DCDC4E /* UserAccountData.swift in Sources */,
 				A4A8147E28DEAE6E0070EC87 /* DateCardObject.swift in Sources */,
 				A4338CAB28C68DA300C715FB /* MoreInfoOfHubViewController.swift in Sources */,
 				A4DB750D28C2A66800C19228 /* SlideMenuViewController.swift in Sources */,
@@ -538,6 +550,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A4DCE58328EA745D0029C6E2 /* XCRemoteSwiftPackageReference "Swift-JWT" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/IBM-Swift/Swift-JWT";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A4DCE58428EA745D0029C6E2 /* SwiftJWT */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4DCE58328EA745D0029C6E2 /* XCRemoteSwiftPackageReference "Swift-JWT" */;
+			productName = SwiftJWT;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A45FD8FA28BC5C2100E7D788 /* Project object */;
 }

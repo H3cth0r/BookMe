@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftJWT
 
 class registerViewController: UIViewController {
 
@@ -33,6 +34,11 @@ class registerViewController: UIViewController {
     }
     
     @IBAction func toVerificationButton(_ sender: UIButton) {
+        
+        var uadc = userAccountDataController()
+        Task{
+            await uadc.fetchUserAccountData()
+        }
         if(validateInputFields()){
             vwContainer.fadeOut()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

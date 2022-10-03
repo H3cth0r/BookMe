@@ -633,7 +633,7 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;username&quot; :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TD8-F0-gsT">
-                                <rect key="frame" x="98" y="406.5" width="104.5" height="21"/>
+                                <rect key="frame" x="98" y="406.5" width="133" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="VFu-1T-llA"/>
                                 </constraints>
@@ -864,7 +864,7 @@ Además, podrás ver tus propias estadísticas, como la cantidad de reservas tot
                             <constraint firstItem="KHT-E2-ogb" firstAttribute="top" secondItem="hSa-U5-EpF" secondAttribute="bottom" constant="15" id="Dfe-2w-xfx"/>
                             <constraint firstItem="hTI-6j-zT0" firstAttribute="top" secondItem="dzo-UD-uXa" secondAttribute="bottom" constant="16" id="EAe-2S-oFv"/>
                             <constraint firstItem="wOu-fA-5hd" firstAttribute="leading" secondItem="rgb-kf-I2e" secondAttribute="leading" id="Ehv-Id-q8Q"/>
-                            <constraint firstItem="fDO-eD-C6y" firstAttribute="leading" secondItem="TD8-F0-gsT" secondAttribute="trailing" constant="27" id="GMW-fY-l9n"/>
+                            <constraint firstItem="fDO-eD-C6y" firstAttribute="leading" secondItem="TD8-F0-gsT" secondAttribute="trailing" constant="-1.5" id="GMW-fY-l9n"/>
                             <constraint firstItem="dzo-UD-uXa" firstAttribute="top" secondItem="BEi-Hy-hnJ" secondAttribute="bottom" constant="11" id="H4j-ft-Ekb"/>
                             <constraint firstItem="Mv4-y1-272" firstAttribute="trailing" secondItem="BEi-Hy-hnJ" secondAttribute="trailing" id="HeY-xQ-caJ"/>
                             <constraint firstItem="vW8-FW-zAt" firstAttribute="top" secondItem="YY2-hb-vri" secondAttribute="bottom" constant="4" id="IF3-Qf-fPQ"/>
