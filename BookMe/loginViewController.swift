@@ -125,6 +125,12 @@ class loginViewController: UIViewController {
     
     @IBAction func toVerificationButton(_ sender: UIButton) {
         
+        let uDataController = userAccountDataController()
+        Task{
+            //await uDataController.registerNewUser()
+            await uDataController.saveNewData()
+        }
+        
         // if fields inputs are okay, do this
         if(validateFieldsInput()){
             vwContainer.fadeOut()
