@@ -15,12 +15,11 @@ class ReservationDataController{
     let getTimeRangesURL    =       URL(string: "http://127.0.0.1:5000/app/api/getTimeRanges")!
     let getTicketsURL       =       URL(string: "http://127.0.0.1:5000/app/api/getTickets")!
     let getTicketURL        =       URL(string: "http://127.0.0.1:5000/app/api/getTicket")!
-    //let getQRURL            =       URL(string: "http://127.0.0.1:5000/api/getTicket/<qr>")!
     let newTickerURL        =       URL(string: "http://127.0.0.1:5000/app/api/newTicket")!
     let deleteTicket        =       URL(string: "http://127.0.0.1:5000/app/api/deleteTicket")!
     
     
-    func getHardwareObjects() async{
+    func getHardwareObjects(completion: @escaping ([HardwareObject])->Void) async{
         
         let defaults        =       UserDefaults.standard
         
@@ -39,14 +38,16 @@ class ReservationDataController{
             do{
                let response = try JSONDecoder().decode([HardwareObject].self, from: data)
                 print(String(response[0].identifier))
+                completion(response)
             } catch{
                 print(error)
+                completion([HardwareObject(generalObjectID: 0, identifier: "none", description: "none", operativeSystem: "none", hardwareType: "none", totalWeigh: 0)])
             }
         }
         task.resume()
     }
     
-    func getSoftwarebjects() async{
+    func getSoftwarebjects(completion: @escaping ([SoftwareObject])->Void) async{
         
         let defaults        =       UserDefaults.standard
         
@@ -64,15 +65,16 @@ class ReservationDataController{
             }
             do{
                let response = try JSONDecoder().decode([SoftwareObject].self, from: data)
-                print(String(response[0].identifier))
+                completion(response)
             } catch{
                 print(error)
+                completion([SoftwareObject(generalObjectID: 0, identifier: "none", name: "none", brand: "node", description: "node", operativeSystem: "none", totalWeight: 0)])
             }
         }
         task.resume()
     }
     
-    func getRoomobjects() async{
+    func getRoomobjects(completion: @escaping ([RoomObject])->Void) async{
         
         let defaults        =       UserDefaults.standard
         
@@ -91,8 +93,10 @@ class ReservationDataController{
             do{
                let response = try JSONDecoder().decode([RoomObject].self, from: data)
                 print(String(response[0].name))
+                completion(response)
             } catch{
                 print(error)
+                completion([RoomObject(generalObjectID: 0, name: "none", description: "none", location: "none", capacity: 0, totalWeight: 0)])
             }
         }
         task.resume()

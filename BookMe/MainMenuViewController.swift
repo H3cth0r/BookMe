@@ -22,11 +22,27 @@ class MainMenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // run task to run all user data
+        let userDataController = userAccountDataController()
+        let userDefaults = UserDefaults.standard
+        let username: String = userDefaults.object(forKey: "username") as! String
+        let hpass: String = userDefaults.object(forKey: "hashPassword") as! String
+        Task{
+            await userDataController.fetchUserAccountData(username_t:username, hashPassword_t:hpass, completion: {result in
+                if(result){
+                    print("Succesfull log")
+                }else{
+                    print("Error on log")
+                }
+            })
+        }
+        
         self.slideNavMenuController.transform  = CGAffineTransform(translationX: -self.slideNavMenuController.frame.width, y: 0.0)
 
         // Do any additional setup after loading the view.
         //slideNavMenuController.isHidden = true
         closeSlideNavMenuView.isHidden = true
+        
 
         
     }

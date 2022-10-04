@@ -20,25 +20,50 @@ class userAccountDataController{
     let registerURL          =   URL(string: "http://127.0.0.1:5000/app/api/register")!
     let verifyURL            =   URL(string: "http://127.0.0.1:5000/app/api/verifyNewUserData")!
     let changeDataURL        =   URL(string: "http://127.0.0.1:5000/app/api/changeUserData")!
-    //let baseURL             =   URL(string: "http://4.228.81.149:5000/app/api/login")!
-    //let mailOrUsername      =   "A01659891@tec.mx"
     
-    let firstName           =   "Pepo"
-    let lastName            =   "Smith"
-    let username            =   "elPepe"
-    let birthDate           =   "2001/11/23"
-    let organization        =   "organization"
-    let email                =   "a01354645“tec.mx"
-    let ocupation          =   "hacker"
-    let countryId           =   12
-    let mailOrUsername      =   "pepo117"
-    let password            =   "pepo"
-    let hashPassword        =   "d50d3319bccca99d3093b689745b168cc79ecfd0e18e3e80be6d8c6ad1061407"
+    var firstName           :   String!
+    var lastName            :   String!
+    var username            :   String!
+    var birthDate           :   String!
+    var organization        :   String!
+    var email               :   String!
+    var userId              :   String!
+    var ocupation           :   String!
+    var countryId           :   Int!
+    var mailOrUsername      :   String!
+    var password            :   String!
+    var hashPassword        :   String!
     
-    func fetchUserAccountData() async{
-        
-        //var allOk = true
-        
+    func setSavedValues(){
+        /*
+         defaults.set(String(responseTwo.jwt),                   forKey: "userJWT")
+         defaults.set(String(jwt.claims.firstName),              forKey: "userFirstName")
+         defaults.set(String(jwt.claims.lastName),               forKey: "userLastName")
+         defaults.set(String(jwt.claims.email),                  forKey: "userEmail")
+         defaults.set(Int(jwt.claims.id ?? 1),                   forKey: "userId")
+         defaults.set(String(jwt.claims.hashPassword ?? "sdfsf"),forKey: "userHashPassword")
+         defaults.set(Int(   jwt.claims.admin),                  forKey: "userIsAdmin")
+         defaults.set(Int(   jwt.claims.blocked),                forKey: "userIsBlocked")
+         */
+        let defaults = UserDefaults.standard
+        self.firstName          =   defaults.object(forKey: "userFirstName")        as? String
+        self.lastName           =   defaults.object(forKey: "userLastName")         as? String
+        self.username           =   defaults.object(forKey: "userUsername")         as? String
+        self.birthDate          =   defaults.object(forKey: "userBirthDay")         as? String
+        self.organization       =   defaults.object(forKey: "userOrganization")     as? String
+        self.email              =   defaults.object(forKey: "userEmail")            as? String
+        self.userId             =   defaults.object(forKey: "userId")               as? String
+        self.hashPassword       =   defaults.object(forKey: "hashPassword")         as? String
+    }
+    
+    
+    /*
+     *  @brief
+     *  This method will only get the jwt of the user and a boolean if athorized.
+     *  Then if the authorized == true, it will get redirected to verification view.
+     */
+    
+    func loginWithCredentials(username_t: String, hashPassword_t: String, completion: @escaping (Bool)->Void) async{
         // request from base URL
         var request         =   URLRequest(url: self.loginURL)
         
@@ -46,8 +71,8 @@ class userAccountDataController{
         request.httpMethod  = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let body: [String: AnyHashable] = [
-            "username"     : self.mailOrUsername,
-            "password"  : self.hashPassword
+            "username"      : username_t,
+            "password"      : hashPassword_t
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         
@@ -59,19 +84,52 @@ class userAccountDataController{
             do{
                 //let response = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
                 let responseTwo = try JSONDecoder().decode(UserDataResponse.self, from: data)
-                //print("SUCCESS: \(response)")
-                //print("SUCCESS: \(responseTwo)")
-                //print("THIS IS THE JWT \(String(responseTwo.jwt))")
+                completion(responseTwo.authorized)
+                
+            } catch{
+                print(error)
+                completion(false)
+            }
+        }
+        task.resume()
+    }
+    
+    
+    /*
+     *  @brief
+     *  This method will get the user data when it gets to the main view.
+     */
+    func fetchUserAccountData(username_t: String, hashPassword_t: String, completion: @escaping (Bool)->Void) async{
+        // request from base URL
+        var request         =   URLRequest(url: self.loginURL)
+        
+        // Method body headers
+        request.httpMethod  = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let body: [String: AnyHashable] = [
+            "username"      : username_t,
+            "password"      : hashPassword_t
+        ]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+        
+        // make request
+        let task            =   URLSession.shared.dataTask(with: request){data, _, error in
+            guard let data = data, error == nil else{
+                return
+            }
+            do{
+                //let response = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                let responseTwo = try JSONDecoder().decode(UserDataResponse.self, from: data)
+                print(responseTwo)
                 
                 let jwtVerifier = JWTVerifier.hs256(key: Data("BooKMeIsCool".utf8))
                 let jwtDecoder = JWTDecoder(jwtVerifier: jwtVerifier)
                 let jwt = try jwtDecoder.decode(JWT<UserDataDecoded>.self, fromString: responseTwo.jwt)
-                //print(String(jwt.claims.lastName))
-                //let UDO = UserDataObject(id: Int(jwt.claims.id ?? 1), email: String(jwt.claims.email), firstName: String(jwt.claims.firstName), lastName: String(jwt.claims.lastName), hashPassword: String(jwt.claims.hashPassword ?? "sdfsf"), admin: Int(jwt.claims.admin), blocked: Int( jwt.claims.blocked))
 
                 // save claims to defaults(jwt)
                 let defaults = UserDefaults.standard
                 
+                // set data to defaults
                 defaults.set(String(responseTwo.jwt),                   forKey: "userJWT")
                 defaults.set(String(jwt.claims.firstName),              forKey: "userFirstName")
                 defaults.set(String(jwt.claims.lastName),               forKey: "userLastName")
@@ -83,58 +141,55 @@ class userAccountDataController{
                 
                 if defaults.object(forKey: "userFirstName") != nil{
                     print(defaults.object(forKey: "userFirstName") as! String)
-                    //print(defaults.object(forKey: "userFirstName") as! String)
                 }
+                completion(true)
                 
             } catch{
                 print(error)
+                completion(false)
             }
         }
         task.resume()
         
     }
     
-    func registerNewUser() async{
-        let str = self.password
+    func registerNewUser(firstName_t: String, lastName_t: String, username_t: String, birthDate_t: String, organization_t: String, mail_t: String, ocupation_t: String, countryId_t: String, password_t: String, completion: @escaping (Bool)->Void) async{
+        let str = password_t
         let dat = ccSha256(data: str.data(using: .utf8)!)
-        let hp = dat.map { String(format: "%02hhx", $0) }.joined()
-        //print("sha256 String: \(data.map { String(format: "%02hhx", $0) }.joined())")
-        //print(hp == self.hashPassword)
+        let hp: String = dat.map{ String(format: "%02hhx", $0) }.joined()
+
         var request     =   URLRequest(url: self.registerURL)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let body: [String: AnyHashable] = [
-            "firstName"      :  self.firstName,
-            "lastName"       :  self.lastName,
-            "username"       :  self.username,
-            "birthDate"      :  self.birthDate,
-            "organization"   :  self.organization,
-            "email"          :  self.email,
-            "ocupation"      :  self.ocupation,
-            "countryId"      :  self.countryId,
+            "firstName"      :  firstName_t,
+            "lastName"       :  lastName_t,
+            "username"       :  username_t,
+            "birthDate"      :  birthDate_t,
+            "organization"   :  organization_t,
+            "email"          :  mail_t,
+            "ocupation"      :  ocupation_t,
+            "countryId"      :  1,
             "hashPassword"   :  hp
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
-        
-        
         // make request
         let task            =   URLSession.shared.dataTask(with: request){data, _, error in
             guard let data = data, error == nil else{
                 return
             }
             do{
-               let response = try JSONDecoder().decode(UserDataRegistrationResponse.self, from: data)
-                print(response)
+                let response = try JSONDecoder().decode(UserDataRegistrationResponse.self, from: data)
+                completion(response.readyToVerify)
             } catch{
                 print(error)
+                completion(false)
             }
         }
         task.resume()
-        
-        
     }
     
-    func getVerification() async{
+    func getVerification(username_t: String, email_t: String) async{
         var request     =       URLRequest(url: self.verifyURL)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -143,8 +198,8 @@ class userAccountDataController{
         print(String(defaults.object(forKey: "userJWT") as! String))
         let body: [String: AnyHashable] = [
             "jwt"           : String(defaults.object(forKey: "userJWT") as! String),
-            "username"      : "pepo117",
-            "email"         : "A01659891@tec.mx"
+            "username"      : username_t,
+            "email"         : email_t
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         
@@ -163,7 +218,7 @@ class userAccountDataController{
         task.resume()
     }
     
-    func saveNewData() async{
+    func saveNewData(jwt_t: String, oldHashPassword_t: String, firstName_t: String, lastName_t: String, username_t: String, birthDate_t: String, organization_t: String, email_t: String, hashPassword_t: String) async{
         var request         =       URLRequest(url: self.changeDataURL)
         request.httpMethod  = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -171,14 +226,14 @@ class userAccountDataController{
         let defaults    =   UserDefaults.standard
         let body: [String: AnyHashable] = [
             "jwt"               :   String(defaults.object(forKey: "userJWT") as! String),
-            "oldHashPassword"   :   self.hashPassword,
-            "firstName"         :   "Pepo",
-            "lastName"          :   "Smith",
-            "username"          :   "pepo117",
-            "birthDate"         :   "2002-11-11 11:11:11.111",
-            "organization"      :   "Tec",
-            "email"             :   "A01659891@tec.mx",
-            "hashPassword"      :   self.hashPassword
+            "oldHashPassword"   :   oldHashPassword_t,
+            "firstName"         :   firstName_t,
+            "lastName"          :   lastName_t,
+            "username"          :   username_t,
+            "birthDate"         :   birthDate_t,
+            "organization"      :   organization_t,
+            "email"             :   email_t,
+            "hashPassword"      :   hashPassword_t
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         
@@ -203,6 +258,7 @@ class userAccountDataController{
 
 struct UserDataDecoded: Claims{
     let id: Int!
+    //let username: String!
     let email: String!
     let firstName: String!
     let lastName: String!

@@ -124,22 +124,25 @@ class loginViewController: UIViewController {
     }
     
     @IBAction func toVerificationButton(_ sender: UIButton) {
-        
-        let uDataController = ReservationDataController()
-        Task{
-            //await uDataController.registerNewUser()
-            //await uDataController.newTicket()
-            await uDataController.deleteTicket()
-        }
+        let userDataController = userAccountDataController()
         
         // if fields inputs are okay, do this
         if(validateFieldsInput()){
-            vwContainer.fadeOut()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyViewController") as! VerifyViewController
-                //vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
+            Task{
+                await userDataController.registerNewUser(firstName_t: nameTextInput.text ?? "", lastName_t: surnameTextInput.text ?? "", username_t: usernameTextInput.text ?? "",birthDate_t: (birthTextInput.text ?? "") + " 14:00:00.000000", organization_t: organizationTextInput.text ?? "", mail_t: mailTextInput.text ?? "", ocupation_t: occupationTextInput.text ?? "", countryId_t: countryTextInput.text ?? "", password_t: passwordOneTextInput.text ?? "", completion: {result in
+                    if(result){
+                        print("registered")
+                        self.vwContainer.fadeOut()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyViewController") as! VerifyViewController
+                            //vc.modalTransitionStyle = .crossDissolve
+                            vc.modalPresentationStyle = .fullScreen
+                            self.present(vc, animated: true, completion: nil)
+                        }
+                    }else{
+                        print("not registered bruh")
+                    }
+                })
             }
         }
     }

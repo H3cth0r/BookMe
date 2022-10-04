@@ -25,7 +25,31 @@ class ObjectSelectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let reservationDataController = ReservationDataController()
 
+        Task{
+            if theTypeOfObject == "Software"{
+                await reservationDataController.getSoftwarebjects(completion: { result in
+                    DispatchQueue.main.async {
+                        self.setuptable(listOfObjects: result)
+                    }
+                })
+            } else if theTypeOfObject == "Space"{
+                await reservationDataController.getRoomobjects(completion: {result in
+                    DispatchQueue.main.async {
+                        self.setuptableSpace(listOfObjects: result)
+                    }
+                })
+            } else if theTypeOfObject == "Hardware"{
+                await reservationDataController.getHardwareObjects(completion: { result in
+                    DispatchQueue.main.async {
+                        self.setuptableHardware(listOfObjects: result)
+                    }
+                })
+            }
+
+        }
         // Do any additional setup after loading the view.
         /*
         stackViewRows.leadingAnchor.constraint(equalTo: self.scrollViewObjects.leadingAnchor).isActive = true
@@ -45,53 +69,80 @@ class ObjectSelectionViewController: UIViewController {
         objRowvr.distribution = .fill
         objRowvr.alignment = .fill
         
-        
-        var roomsTitleName: [String] = ["Sala de redes: CDT101",
-                                        "Sala de redes: CDT201",
-                                        "Sala: CDT301",
-                                        "Sala: CDT401"]
-        var softwareTitleName: [String] = ["Software: Adobe XD",
-                                           "Software: Autocad",
-                                           "Software: Blender",
-                                           "Software: VIM",
-                                           "Software: Inkscape",
-                                           "Software: Figma",
-                                           "Software: Terminal",
-                                           "Software: Ubuntu",
-                                           "Software: Word",
-                                           "Software: AutoDesk",
-                                           "Software: Powerpoint",
-                                           "Software: Excel",
-                                           "Software: Android"]
-        var hardwareTitleName: [String] = ["Hardware: Mac",
-                                           "Hardware: Iphone",
-                                           "Hardware: Radio",
-                                           "Hardware: Rocket",
-                                           "Hardware: Clock",
-                                           "Hardware: Server",
-                                           "Hardware: Keyboard",
-                                           "Hardware: Mouse",
-                                           "Hardware: Ipad",
-                                           "Hardware: Plane",
-                                           "Hardware: Microwave",
-                                           "Hardware: Arduino",
-                                           "Hardware: Raspberry",
-                                           "Hardware: Microchip"]
-        
-        if(typeObjectTitle.text == "Space"){
-            selectionList = roomsTitleName
-        }else if(typeObjectTitle.text == "Hardware"){
-            selectionList = hardwareTitleName
-        }else{
-            selectionList = softwareTitleName
-        }
-        
+    
+    }
+    //
+    
+    func setuptable(listOfObjects: [SoftwareObject]){
         var counter = 0
-        for i in selectionList{
+        for i in listOfObjects{
             let one = ObjectRowElement()
+            if i.totalWeight == nil{
+                one.statusLight.image = UIImage(named: "lightGreen")
+            }else if ((i.totalWeight * 100) / 168) < 33{
+                one.statusLight.image = UIImage(named: "lightGreen")
+            }else if ((i.totalWeight * 100) / 168) < 66{
+                one.statusLight.image = UIImage(named: "lightYellow")
+            }else{
+                one.statusLight.image = UIImage(named: "lightRed")
+            }
             //one.frame = CGRect(x: 0, y: 0, width: 414, height: 63)
             one.isUserInteractionEnabled = true
-            one.objName = i
+            one.objName = i.name
+            selectionList.append(i.name)
+            one.heightAnchor.constraint(equalToConstant:55).isActive = true
+            one.objType = typeObjectTitle.text!
+            one.setupV()
+            one.bookMeButton.addTarget(self, action: #selector(toNextBookingConfigView), for: .touchUpInside)
+            one.tag = counter
+            objRowvr.addArrangedSubview(one)
+            counter += 1
+        }
+    }
+    func setuptableSpace(listOfObjects: [RoomObject]){
+        var counter = 0
+        for i in listOfObjects{
+            let one = ObjectRowElement()
+            if i.totalWeight == nil{
+                one.statusLight.image = UIImage(named: "lightGreen")
+            }else if ((i.totalWeight * 100) / 168) < 33{
+                one.statusLight.image = UIImage(named: "lightGreen")
+            }else if ((i.totalWeight * 100) / 168) < 66{
+                one.statusLight.image = UIImage(named: "lightYellow")
+            }else{
+                one.statusLight.image = UIImage(named: "lightRed")
+            }
+            //one.frame = CGRect(x: 0, y: 0, width: 414, height: 63)
+            one.isUserInteractionEnabled = true
+            one.objName = i.name
+            selectionList.append(i.name)
+            one.heightAnchor.constraint(equalToConstant:55).isActive = true
+            one.objType = typeObjectTitle.text!
+            one.setupV()
+            one.bookMeButton.addTarget(self, action: #selector(toNextBookingConfigView), for: .touchUpInside)
+            one.tag = counter
+            objRowvr.addArrangedSubview(one)
+            counter += 1
+        }
+    }
+    
+    func setuptableHardware(listOfObjects: [HardwareObject]){
+        var counter = 0
+        for i in listOfObjects{
+            let one = ObjectRowElement()
+            if i.totalWeigh == nil{
+                one.statusLight.image = UIImage(named: "lightGreen")
+            }else if ((i.totalWeigh * 100) / 168) < 33{
+                one.statusLight.image = UIImage(named: "lightGreen")
+            }else if ((i.totalWeigh * 100) / 168) < 66{
+                one.statusLight.image = UIImage(named: "lightYellow")
+            }else{
+                one.statusLight.image = UIImage(named: "lightRed")
+            }
+            //one.frame = CGRect(x: 0, y: 0, width: 414, height: 63)
+            one.isUserInteractionEnabled = true
+            one.objName = i.identifier
+            selectionList.append(i.identifier)
             one.heightAnchor.constraint(equalToConstant:55).isActive = true
             one.objType = typeObjectTitle.text!
             one.setupV()

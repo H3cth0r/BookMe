@@ -34,12 +34,38 @@ class registerViewController: UIViewController {
     }
     
     @IBAction func toVerificationButton(_ sender: UIButton) {
+        let userDataController = userAccountDataController()
+        let str: String = passwordInputField.text ?? ""
+        let hashedP = ccSha256(data: str.data(using: .utf8)!)
+        let thePassword = String(hashedP.map{ String(format: "%02hhx", $0) }.joined())
+        //var res: (Bool?)->Void
         
-        var uadc = userAccountDataController()
-        Task{
-            await uadc.fetchUserAccountData()
-        }
-        if(validateInputFields()){
+
+        // if(validateInputFields())
+        if(true){
+            
+            // save user and password to defaults, to be used in verify
+            let defaults = UserDefaults.standard
+            defaults.set(self.usernameOrMailInputField.text, forKey: "username")
+            defaults.set(thePassword,           forKey: "hashPassword")
+            
+            Task{
+                await userDataController.loginWithCredentials(username_t: usernameOrMailInputField.text ?? "", hashPassword_t: thePassword, completion: {result in
+                    if(result){
+                        print("we did it")
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyViewController") as! VerifyViewController
+                            //vc.modalTransitionStyle = .crossDissolve
+                            vc.modalPresentationStyle = .fullScreen
+                            self.present(vc, animated: true, completion: nil)
+                        }
+                        //self.something = "pisis"
+                    }else{
+                        print("not nice")
+                    }
+                })
+            }
+            /*
             vwContainer.fadeOut()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyViewController") as! VerifyViewController
@@ -47,6 +73,7 @@ class registerViewController: UIViewController {
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
+             */
         }
     }
     
