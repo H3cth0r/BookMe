@@ -125,10 +125,11 @@ class loginViewController: UIViewController {
     
     @IBAction func toVerificationButton(_ sender: UIButton) {
         
-        let uDataController = userAccountDataController()
+        let uDataController = ReservationDataController()
         Task{
             //await uDataController.registerNewUser()
-            await uDataController.saveNewData()
+            //await uDataController.newTicket()
+            await uDataController.deleteTicket()
         }
         
         // if fields inputs are okay, do this
