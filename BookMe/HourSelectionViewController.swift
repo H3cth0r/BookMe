@@ -27,40 +27,59 @@ class HourSelectionViewController: UIViewController {
     var hourModelPicker: HourModelPicker!
     
     var reservation = ReservationClass()
-    
-    var modelData: [HourModel] = [   HourModel(hour: 15, minute: 30, occupied: true,    occupy: false),
-                                     HourModel(hour: 15, minute: 35, occupied: true,    occupy: false),
-                                     HourModel(hour: 15, minute: 40, occupied: true,    occupy: false),
-                                     HourModel(hour: 15, minute: 45, occupied: true,    occupy: false),
-                                     HourModel(hour: 15, minute: 50, occupied: true,    occupy: false),
-                                     HourModel(hour: 15, minute: 55, occupied: false,   occupy: false),
-                                     HourModel(hour: 16, minute: 00, occupied: false,   occupy: false),
-                                     HourModel(hour: 16, minute: 05, occupied: false,   occupy: false),
-                                     HourModel(hour: 16, minute: 10, occupied: false,   occupy: false),
-                                     HourModel(hour: 16, minute: 15, occupied: false,   occupy: false),
-                                     HourModel(hour: 16, minute: 20, occupied: false,   occupy: false),
-                                     HourModel(hour: 16, minute: 25, occupied: false,   occupy: false),
-                                     HourModel(hour: 16, minute: 30, occupied: true,    occupy: false),
-                                     HourModel(hour: 16, minute: 35, occupied: true,    occupy: false),
-                                     HourModel(hour: 16, minute: 40, occupied: true,    occupy: false),
-        ]
+    var modelData: [HourModel] = []
+
     var modelDataBackup: [HourModel]!
-    
-    //var modelData: [HourModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Task{
+            let reservationDataController = ReservationDataController()
+            let theObjId: Int!
+            if self.reservation.theTypeOfObject == "Software"{
+                theObjId = self.reservation.softwareObject.generalObjectID
+            }else if self.reservation.theTypeOfObject == "Hardware"{
+                theObjId = self.reservation.hardwareObject.generalObjectID
+            }else{
+                theObjId = self.reservation.roomObject.generalObjectID
+            }
+            await reservationDataController.getTimeRanges(theDate: self.reservation.startDate, objID: theObjId,completion: { result in
+                let dateFormatterGetHour = DateFormatter()
+                dateFormatterGetHour.dateFormat = "HH"
+                let dateFormatterGetMin = DateFormatter()
+                dateFormatterGetMin.dateFormat = "mm"
+                let dateFormatterReader = DateFormatter()
+                dateFormatterReader.dateFormat = "HH:mm:ss"
+                var dateIterator: Date = Date()
+                var startDate = dateFormatterReader.date(from: "07:00:00")
+                var occu = false
+                for _ in 0...144{
+                    for j in result{
+                        print("-> " + j.startTime)
+                        dateIterator = dateFormatterReader.date(from: String(j.startTime))!
+                        if dateIterator == startDate{
+                            occu = true
+                        }
+                    }
+
+                    let hourModel = HourModel(hour: Int(dateFormatterGetHour.string(from: startDate!))!, minute: Int(dateFormatterGetMin.string(from: startDate!))!, occupied: occu, occupy: false)
+                    occu = false
+                    self.modelData.append(hourModel)
+                    startDate = Calendar.current.date(byAdding: .minute, value: 5, to: startDate!) ?? Date()
+                }
+                
+                DispatchQueue.main.async{
+                    self.hourViewPicker.delegate = self
+                    self.hourViewPicker.dataSource = self
+                    self.hourViewPicker.selectRow(self.currentRowIndex, inComponent: 0, animated: true)
+                }
+                
+            })
+        }
     
         startingButtonOutlet.setTitleColor(.white, for: .normal)
         
-        //hourModelPicker = HourModelPicker()
-        /*
-        for i in 0...15{
-            for j in 0...12{
-                modelData.append(HourModel(hour: i, minute: j*5, occupied: false, occupy: false))
-            }
-        }
-        */
         print(modelData.count)
         
         // modelData backup
@@ -137,11 +156,21 @@ class HourSelectionViewController: UIViewController {
         endHourRowNumber = currentRowIndex
         //print(startInRowIndex)
         
-        
-        if startHourRowNumber >= endHourRowNumber || modelData[currentRowIndex].occupied{
+        if startHourRowNumber == nil{
+            endingButtonOutlet.setTitle("End", for: .normal)
+            endingButtonOutlet.setTitleColor(.orange, for: .normal)
+        }else if startHourRowNumber >= endHourRowNumber || modelData[currentRowIndex].occupied{
             endingButtonOutlet.setTitle("End", for: .normal)
             endingButtonOutlet.setTitleColor(.orange, for: .normal)
         }else if selecting == true{
+            
+            for i in startHourRowNumber...endHourRowNumber{
+                if modelData[i].occupied{
+                    endingButtonOutlet.setTitle("End", for: .normal)
+                    endingButtonOutlet.setTitleColor(.orange, for: .normal)
+                    return
+                }
+            }
             
             endSelected = true
             

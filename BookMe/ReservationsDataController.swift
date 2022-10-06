@@ -104,7 +104,7 @@ class ReservationDataController{
     }
     
     
-    func getTimeRanges(completion: @escaping ([TimeRanges])->Void) async{
+    func getTimeRanges(theDate: String, objID: Int, completion: @escaping ([TimeRanges])->Void) async{
         
         let defaults        =       UserDefaults.standard
         
@@ -113,8 +113,8 @@ class ReservationDataController{
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let body: [String: AnyHashable] =   [
             "jwt"     :       String(defaults.object(forKey: "userJWT") as! String),
-            "date"    :       "2022-10-19",
-            "objectId":       4
+            "date"    :       theDate,
+            "objectId":       objID
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         // make request

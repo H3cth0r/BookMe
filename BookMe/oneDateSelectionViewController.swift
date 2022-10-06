@@ -15,6 +15,12 @@ class oneDateSelectionViewController: UIViewController {
     @IBOutlet weak var selectedDateLabel: UILabel!
     
     var reservation = ReservationClass()
+    
+    var listOfDates: [Date]!
+    
+    var selected: Bool = false
+    
+    var theSelectedDate: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,49 +36,59 @@ class oneDateSelectionViewController: UIViewController {
         
         selectedDateLabel.text = "DD  /  MM  /  YY"
         selectedDateLabel.textColor = .white
+
+        var counter: Int = 0
+        var startDate = Date()
+        let dateFormatterCard = DateFormatter()
+        dateFormatterCard.dateFormat = "EEEE dd MMMM yyyy"
+        listOfDates = []
         
-        var datesList: [String] = ["TUESDAY 20TH AUGUST 2022",
-                                   "TUESDAY 21TH AUGUST 2022",
-                                   "TUESDAY 22TH AUGUST 2022",
-                                   "TUESDAY 23TH AUGUST 2022",
-                                   "TUESDAY 24TH AUGUST 2022",
-                                   "TUESDAY 25TH AUGUST 2022",
-                                   "TUESDAY 26TH AUGUST 2022",
-                                   "TUESDAY 27TH AUGUST 2022",
-                                   "TUESDAY 28TH AUGUST 2022"
-        ]
-        var counter = 0
-        for i in datesList{
+        for _ in 0...29{
             let one = DateCardObject()
             one.isUserInteractionEnabled = true
-            one.dateText = i
+            one.dateText = dateFormatterCard.string(from: startDate).uppercased()
             one.backgroundColor = .white
             one.heightAnchor.constraint(equalToConstant:380).isActive = true
             one.widthAnchor.constraint(equalToConstant: 280).isActive = true
             one.setupV()
-            one.labelDate.text = i
+            one.labelDate.text = dateFormatterCard.string(from: startDate).uppercased()
             one.selectDateButton.tag = counter
             one.selectDateButton.addTarget(self, action: #selector(selectThisDate), for: .touchUpInside)
             one.labelDate.frame = CGRect(x: 10, y: -25, width: 250, height: 250)
             one.selectDateButton.frame = CGRect(x: 145, y: 320, width: 151, height: 50)
             objCard.addArrangedSubview(one)
             counter += 1
+            
+            listOfDates.append(startDate)
+            startDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate) ?? Date()
         }
 
     }
     
     @objc func selectThisDate(sender: UIButton!){
         print(sender.tag)
-        selectedDateLabel.text = "23  /  08  /  22"
+        let dateFormatterSelection = DateFormatter()
+        dateFormatterSelection.dateFormat = "dd / MM / yy"
+        let dateFormatterSelectionFormat = DateFormatter()
+        dateFormatterSelectionFormat.dateFormat = "yyyy-MM-dd"
+        let res = dateFormatterSelection.date(from: selectedDateLabel.text ?? "")
+        theSelectedDate = dateFormatterSelectionFormat.string(from: res ?? Date())
+        selected = true
+        selectedDateLabel.text = dateFormatterSelection.string(from: self.listOfDates[sender.tag])
     }
     
     @IBAction func toHourSelection(_ sender: Any) {
+        if !selected{
+            return
+        }
         vwContainer.fadeOut()
         reservation.startDate = "FROM: TUESDAY 23TH AUGUST 2022 11.00"
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "HourSelectionViewController") as! HourSelectionViewController
             //vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
+            vc.reservation.startDate = self.theSelectedDate!
+            vc.reservation.endDate = self.theSelectedDate!
             vc.reservation = self.reservation
             self.present(vc, animated: true, completion: nil)
         }
