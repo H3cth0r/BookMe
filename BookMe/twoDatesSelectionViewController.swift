@@ -17,6 +17,21 @@ class twoDatesSelectionViewController: UIViewController {
     @IBOutlet weak var firstDateLabel: UILabel!
     @IBOutlet weak var secondDateLabel: UILabel!
     
+    var dateList: [String]!
+    var UdtCardObj: [UIView] = []
+    var LdtCardObj: [UIView] = []
+    var listdais: [String] = []
+    
+    // list of all the cards in bands
+    var listOfAllDays: [String] = []
+    var listOFAllDaysDate: [Date] = []
+    
+    var selectedDateOne = false
+    var selectedDateOneIndex: Int?
+    var selectedDateOneDate: Date!
+    var selectedDateTwo = false
+    var selectedDateTwoIndex: Int?
+    var selectedDateTwoDate: Date!
     
     var reservation = ReservationClass()
 
@@ -41,75 +56,164 @@ class twoDatesSelectionViewController: UIViewController {
         lowerDateSelectionBand.distribution = .fill
         lowerDateSelectionBand.alignment = .fill
         
-        var datesList: [String] = ["TUESDAY 20TH AUGUST 2022",
-                                   "TUESDAY 21TH AUGUST 2022",
-                                   "TUESDAY 22TH AUGUST 2022",
-                                   "TUESDAY 23TH AUGUST 2022",
-                                   "TUESDAY 24TH AUGUST 2022",
-                                   "TUESDAY 25TH AUGUST 2022",
-                                   "TUESDAY 26TH AUGUST 2022",
-                                   "TUESDAY 27TH AUGUST 2022",
-                                   "TUESDAY 28TH AUGUST 2022"
-        ]
+        Task{
+            let reservationDataController = ReservationDataController()
+            await reservationDataController.getTimeRangesForDays(objectId: 4,completion: { result in
+                let dateFormatterGet = DateFormatter()
+                dateFormatterGet.dateFormat = "yyyy-MM-dd"
+                
+                var sd = Date()
+                var ed = Date()
+                for i in result{
+                    sd = dateFormatterGet.date(from: i.startDay) ?? Date()
+                    ed = dateFormatterGet.date(from: i.endDay) ?? Date()
+                    while sd <= ed{
+                        self.listdais.append(dateFormatterGet.string(from: sd))
+                        print("STARTDATE \(i.startDay)  ENDATE\(i.endDay)")
+                        sd = Calendar.current.date(byAdding: .day, value: 1, to: sd) ?? Date()
+                    }
+                    
+                }
+                
+                DispatchQueue.main.async {
+                    
+                    var counter: Int = 0
+                    var startDate = Date()
+                    let dateFormatterPrint = DateFormatter()
+                    dateFormatterPrint.dateFormat = "EEEE dd MMMM yyyy"
+                    dateFormatterGet.dateFormat = "yyyy-MM-dd"
+                    for _ in 0...29{
+                        let one = DateCardObject()
+                        one.isUserInteractionEnabled = true
+                        one.dateText = dateFormatterPrint.string(from: startDate).uppercased()
+                        one.heightAnchor.constraint(equalToConstant:180).isActive = true
+                        one.widthAnchor.constraint(equalToConstant: 280).isActive = true
+                        one.setupV()
+                        one.labelDate.text = dateFormatterPrint.string(from: startDate).uppercased()
+                        self.listOfAllDays.append(dateFormatterGet.string(from: startDate))
+                        self.listOFAllDaysDate.append(startDate)
+                        one.selectDateButton.addTarget(self, action: #selector(self.selectThisDateSecond), for: .touchUpInside)
+                        one.selectDateButton.tag = counter
+                        one.labelDate.frame = CGRect(x: 10, y: -15, width: 250, height: 250)
+                        one.selectDateButton.frame = CGRect(x: 145, y: 220, width: 151, height: 50)
+                        if self.listdais.contains(dateFormatterGet.string(from: startDate)){
+                            one.backgroundColor = .gray
+                            one.selectDateButton.isHidden = true
+                            one.isOccupied = true
+                        }else{
+                            one.backgroundColor = .white
+                        }
+                        self.LdtCardObj.append(one)
+                        
+                        let two = DateCardObject()
+                        two.isUserInteractionEnabled = true
+                        two.dateText = dateFormatterPrint.string(from: startDate).uppercased()
+                        two.backgroundColor = .white
+                        two.heightAnchor.constraint(equalToConstant:180).isActive = true
+                        two.widthAnchor.constraint(equalToConstant: 280).isActive = true
+                        two.setupV()
+                        two.labelDate.text = dateFormatterPrint.string(from: startDate).uppercased()
+                        two.selectDateButton.addTarget(self, action: #selector(self.selectThisDate), for: .touchUpInside)
+                        two.selectDateButton.tag = counter
+                        two.labelDate.frame = CGRect(x: 10, y: -15, width: 250, height: 250)
+                        two.selectDateButton.frame = CGRect(x: 145, y: 220, width: 151, height: 50)
+                        if self.listdais.contains(dateFormatterGet.string(from: startDate)){
+                            two.backgroundColor = .gray
+                            two.selectDateButton.isHidden = true
+                            two.isOccupied = true
+                        }else{
+                            two.backgroundColor = .white
+                        }
+                        self.UdtCardObj.append(two)
+                        
+                        counter += 1
+                        startDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate) ?? Date()
+                    }
+
+                    
+                    self.setElementsToView()
+                }
+            })
+        }
         
-        var counter = 0
-        for i in datesList{
-            let one = DateCardObject()
-            one.isUserInteractionEnabled = true
-            one.dateText = i
-            one.backgroundColor = .white
-            one.heightAnchor.constraint(equalToConstant:180).isActive = true
-            one.widthAnchor.constraint(equalToConstant: 280).isActive = true
-            one.setupV()
-            one.labelDate.text = i
-            one.selectDateButton.tag = counter
-            one.selectDateButton.addTarget(self, action: #selector(selectThisDate), for: .touchUpInside)
-            one.labelDate.frame = CGRect(x: 10, y: -15, width: 250, height: 250)
-            one.selectDateButton.frame = CGRect(x: 145, y: 220, width: 151, height: 50)
-            
-            upperDateSelectionBand.addArrangedSubview(one)
-            //lowerDateSelectionBand.addArrangedSubview(one)
-            
-            counter += 1
-        }
-        counter = 0
-        for i in datesList{
-            let one = DateCardObject()
-            one.isUserInteractionEnabled = true
-            one.dateText = i
-            one.backgroundColor = .white
-            one.heightAnchor.constraint(equalToConstant:180).isActive = true
-            one.widthAnchor.constraint(equalToConstant: 280).isActive = true
-            one.setupV()
-            one.labelDate.text = i
-            one.selectDateButton.tag = counter
-            one.selectDateButton.addTarget(self, action: #selector(selectThisDateSecond), for: .touchUpInside)
-            one.labelDate.frame = CGRect(x: 10, y: -15, width: 250, height: 250)
-            one.selectDateButton.frame = CGRect(x: 145, y: 220, width: 151, height: 50)
-            
-            //upperDateSelectionBand.addArrangedSubview(one)
-            lowerDateSelectionBand.addArrangedSubview(one)
-            
-            counter += 1
-        }
         
     }
     
     @objc func selectThisDate(sender: UIButton!){
-        print(sender.tag)
-        firstDateLabel.text = "23  /  08  /  22"
+        
+        if selectedDateTwo{
+            selectedDateTwo = false
+            selectedDateTwoDate = nil
+            secondDateLabel.text = "DD  /  MM  /  YY"
+        }
+        secondDateLabel.textColor = .white
+        
+        selectedDateOne = true
+        selectedDateOneIndex = sender.tag
+        selectedDateOneDate = listOFAllDaysDate[sender.tag]
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "dd / MM / yy"
+        firstDateLabel.text = dateFormatterPrint.string(from: selectedDateOneDate)
+        
+        print("lol")
     }
     @objc func selectThisDateSecond(sender: UIButton!){
-        print(sender.tag)
         secondDateLabel.text = "25  /  08  /  22"
+        
+        if !selectedDateOne || (selectedDateOneIndex ?? 0 > sender.tag){
+            selectedDateTwo = false
+            selectedDateTwoIndex = nil
+            selectedDateTwoDate = nil
+            secondDateLabel.text = "DD  /  MM  /  YY"
+            secondDateLabel.textColor = .red
+            return
+        }
+        
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        //var sd = Date()
+        //var ed = Calendar.current.date(byAdding: .day, value: 30, to: sd) ?? Date()
+        
+        for i in (selectedDateOneIndex ?? 0)...sender.tag{
+            print(listOfAllDays[i])
+            if listdais.contains(listOfAllDays[i]){
+                print(listOfAllDays[i])
+                selectedDateTwo = false
+                selectedDateTwoDate = nil
+                secondDateLabel.text = "DD  /  MM  /  YY"
+                secondDateLabel.textColor = .red
+                return
+            }
+        }
+        
+        secondDateLabel.textColor = .white
+        
+        selectedDateTwo = true
+        selectedDateTwoIndex = sender.tag
+        selectedDateTwoDate = listOFAllDaysDate[sender.tag]
+        
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "dd / MM / yy"
+        secondDateLabel.text = dateFormatterPrint.string(from: selectedDateTwoDate)
+        
+        
     }
     
     @IBAction func toHourSelection(_ sender: Any) {
         vwContainer.fadeOut()
-        reservation.startDate = "FROM: TUESDAY 23TH AUGUST 2022"
-        reservation.endDate = "TO: TUESDAY 30TH AUGUST 2022"
+        if(!selectedDateOne && !selectedDateTwo){
+            return
+        }
+        
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        
+        reservation.startDate = dateFormatterGet.string(from: selectedDateOneDate)
+        reservation.endDate = dateFormatterGet.string(from: selectedDateTwoDate)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "HourSelectionViewController") as! HourSelectionViewController
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "TwoDatesConfirmationViewController") as! TwoDatesConfirmationViewController
             //vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
             vc.reservation = self.reservation
@@ -129,6 +233,12 @@ class twoDatesSelectionViewController: UIViewController {
         }
     }
     
+    func setElementsToView(){
+        for (i, j) in zip(UdtCardObj, LdtCardObj){
+            self.upperDateSelectionBand.addArrangedSubview(i)
+            self.lowerDateSelectionBand.addArrangedSubview(j)
+        }
+    }
     /*
     // MARK: - Navigation
 

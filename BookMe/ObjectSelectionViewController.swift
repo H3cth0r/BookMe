@@ -18,6 +18,9 @@ class ObjectSelectionViewController: UIViewController {
     var theTypeOfObject = ""
     
     var selectionList: [String] = []
+    var hardwareObjects: [HardwareObject]!
+    var softwareObjects: [SoftwareObject]!
+    var RoomObjects: [RoomObject]!
     
     // Here the reservation object that will be passed to each
     // view is created.
@@ -75,6 +78,7 @@ class ObjectSelectionViewController: UIViewController {
     
     func setuptable(listOfObjects: [SoftwareObject]){
         var counter = 0
+        softwareObjects = listOfObjects
         for i in listOfObjects{
             let one = ObjectRowElement()
             if i.totalWeight == nil{
@@ -94,13 +98,14 @@ class ObjectSelectionViewController: UIViewController {
             one.objType = typeObjectTitle.text!
             one.setupV()
             one.bookMeButton.addTarget(self, action: #selector(toNextBookingConfigView), for: .touchUpInside)
-            one.tag = counter
+            one.bookMeButton.tag = counter
             objRowvr.addArrangedSubview(one)
             counter += 1
         }
     }
     func setuptableSpace(listOfObjects: [RoomObject]){
         var counter = 0
+        RoomObjects = listOfObjects
         for i in listOfObjects{
             let one = ObjectRowElement()
             if i.totalWeight == nil{
@@ -120,7 +125,7 @@ class ObjectSelectionViewController: UIViewController {
             one.objType = typeObjectTitle.text!
             one.setupV()
             one.bookMeButton.addTarget(self, action: #selector(toNextBookingConfigView), for: .touchUpInside)
-            one.tag = counter
+            one.bookMeButton.tag = counter
             objRowvr.addArrangedSubview(one)
             counter += 1
         }
@@ -128,6 +133,7 @@ class ObjectSelectionViewController: UIViewController {
     
     func setuptableHardware(listOfObjects: [HardwareObject]){
         var counter = 0
+        hardwareObjects = listOfObjects
         for i in listOfObjects{
             let one = ObjectRowElement()
             if i.totalWeigh == nil{
@@ -147,7 +153,7 @@ class ObjectSelectionViewController: UIViewController {
             one.objType = typeObjectTitle.text!
             one.setupV()
             one.bookMeButton.addTarget(self, action: #selector(toNextBookingConfigView), for: .touchUpInside)
-            one.tag = counter
+            one.bookMeButton.tag = counter
             objRowvr.addArrangedSubview(one)
             counter += 1
         }
@@ -163,6 +169,13 @@ class ObjectSelectionViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ObjectDescriptionViewController") as! ObjectDescriptionViewController
             vc.theTypeOfObject = self.theTypeOfObject
+            if(self.theTypeOfObject == "Software"){
+                vc.softwareObject = self.softwareObjects[sender.tag]
+            } else if (self.theTypeOfObject == "Hardware"){
+                vc.hardwareObject = self.hardwareObjects[sender.tag]
+            } else{
+                vc.roomObject = self.RoomObjects[sender.tag]
+            }
             //vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)

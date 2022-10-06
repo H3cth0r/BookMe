@@ -9,6 +9,13 @@ import Foundation
 
 class ReservationClass{
     
+    // objects
+    var hardwareObject: HardwareObject!
+    var softwareObject: SoftwareObject!
+    var roomObject: RoomObject!
+    
+    var theTypeOfObject: String!
+    
     // Multiple days reservation ?
     var multipleDays = false
     
@@ -22,6 +29,7 @@ class ReservationClass{
     var startDateMonth = ""
     var startDateYear = ""
     var startHour = ""
+    var startDateFormat = ""
     
     var endDate = ""
     var endDateDay = ""
@@ -29,6 +37,7 @@ class ReservationClass{
     var endDateMonth = ""
     var endDateYear = ""
     var endHour = ""
+    var endDateFormat = ""
     
     var numberOfAssistants = 1
     

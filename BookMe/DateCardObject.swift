@@ -10,6 +10,7 @@ import UIKit
 class DateCardObject: UIView {
     
     var dateText = "TUESDAY 23TH AUGUST 2022"
+    var isOccupied = false
     
     lazy var labelDate: UILabel! = {
         let labelDate = UILabel(frame: CGRect(x: 10, y: 10, width: 250, height: 250))

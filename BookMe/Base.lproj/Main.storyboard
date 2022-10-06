@@ -1473,6 +1473,12 @@ Assistants</string>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
+                        <outlet property="maxNumberOfDaysLabel" destination="Jg2-NC-80o" id="TTq-ZZ-tlO"/>
+                        <outlet property="maxNumberOfDaysLabelTitle" destination="d32-dy-X2l" id="c2M-kT-u05"/>
+                        <outlet property="maxSpaceLabel" destination="e7e-aQ-c8n" id="ITa-Ef-5fU"/>
+                        <outlet property="maxSpaceLabelTitle" destination="A6X-Uw-i6h" id="Tg8-wj-wji"/>
+                        <outlet property="objectDescriptionLabel" destination="Uff-bu-S4W" id="J3v-69-3T2"/>
+                        <outlet property="objectNameLabel" destination="BWk-TP-rPG" id="S8C-jd-OSL"/>
                         <outlet property="vwContainer" destination="51I-Fe-1rZ" id="GBi-5k-j6D"/>
                     </connections>
                 </viewController>

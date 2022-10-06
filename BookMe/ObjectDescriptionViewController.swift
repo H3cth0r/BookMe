@@ -10,15 +10,58 @@ import UIKit
 class ObjectDescriptionViewController: UIViewController {
 
     @IBOutlet var vwContainer: UIView!
+    @IBOutlet weak var objectNameLabel: UILabel!
+    @IBOutlet weak var objectDescriptionLabel: UILabel!
+    @IBOutlet weak var maxSpaceLabelTitle: UILabel!
+    @IBOutlet weak var maxSpaceLabel: UILabel!
+    @IBOutlet weak var maxNumberOfDaysLabel: UILabel!
+    @IBOutlet weak var maxNumberOfDaysLabelTitle: UILabel!
+    
+    
     var reservation = ReservationClass()
     var theTypeOfObject = ""
+    var hardwareObject: HardwareObject!
+    var softwareObject: SoftwareObject!
+    var roomObject: RoomObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         vwContainer.alpha = 0.0
         vwContainer.fadeIn()
+        if(self.theTypeOfObject == "Software"){
+            objectNameLabel.text = softwareObject.name
+            objectDescriptionLabel.text = softwareObject.description
+            
+            // max number of assistans
+            maxSpaceLabel.isHidden = true
+            maxSpaceLabelTitle.isHidden = true
+            
+            // max number of days
+            maxNumberOfDaysLabel.text = String(softwareObject.maxDays) + " días."
 
+            reservation.softwareObject = softwareObject
+            reservation.theTypeOfObject = self.theTypeOfObject
+            
+        } else if (self.theTypeOfObject == "Hardware"){
+            objectNameLabel.text = hardwareObject.identifier
+            objectDescriptionLabel.text = hardwareObject.description
+            maxSpaceLabel.isHidden = true
+            maxNumberOfDaysLabel.text = String(hardwareObject.maxDays) + " días."
+            
+            reservation.hardwareObject = hardwareObject
+            reservation.theTypeOfObject = self.theTypeOfObject
+            
+        } else{
+            objectNameLabel.text = roomObject.name
+            objectDescriptionLabel.text = roomObject.description
+            maxSpaceLabel.text = String(roomObject.capacity) + " personas."
+            maxNumberOfDaysLabel.text = String(roomObject.maxDays) + " días."
+            
+            reservation.roomObject = roomObject
+            reservation.theTypeOfObject = self.theTypeOfObject
+            
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -40,29 +83,37 @@ class ObjectDescriptionViewController: UIViewController {
                 vc.reservation = self.reservation
                 self.present(vc, animated: true, completion: nil)
             }
-        } else{
-            let boolRandom = Bool.random()
-            if boolRandom{
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    //let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
-                    //let vc = DateSelectionViewController()
-                    //vc.modalTransitionStyle = .crossDissolve
-                    vc.modalPresentationStyle = .fullScreen
-                    //vc.reservation = self.reservation
-                    self.present(vc, animated: true, completion: nil)
-                }
-            }else{
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "twoDatesSelectionViewController") as! twoDatesSelectionViewController
-                    //vc.modalTransitionStyle = .crossDissolve
-                    vc.modalPresentationStyle = .fullScreen
-                    vc.reservation = self.reservation
-                    self.present(vc, animated: true, completion: nil)
-                }
-            }
-
         }
+         else{
+             var numODays: Int!
+             if theTypeOfObject == "Software"{
+                 numODays = softwareObject.maxDays
+             }else{
+                 numODays = hardwareObject.maxDays
+             }
+             if numODays < 2{
+                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                     //let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
+                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
+                     //let vc = DateSelectionViewController()
+                     //vc.modalTransitionStyle = .crossDissolve
+                     vc.modalPresentationStyle = .fullScreen
+                     //vc.reservation = self.reservation
+                     self.present(vc, animated: true, completion: nil)
+                 }
+             } else{
+                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "twoDatesSelectionViewController") as! twoDatesSelectionViewController
+                     //vc.modalTransitionStyle = .crossDissolve
+                     vc.modalPresentationStyle = .fullScreen
+                     vc.reservation = self.reservation
+                     self.present(vc, animated: true, completion: nil)
+                 }
+             }
+
+         }
+        
+        
     }
     
     
@@ -75,7 +126,7 @@ class ObjectDescriptionViewController: UIViewController {
             vc.theTypeOfObject = self.theTypeOfObject
             self.present(vc, animated: true, completion: nil)
         }
-        
+
     }
     
     /*

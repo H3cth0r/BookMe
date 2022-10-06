@@ -33,9 +33,6 @@ class NumberOfAssistantsViewController: UIViewController {
         reservation.numberOfAssistants = currentNumOfAssistants
         
         vwContainer.fadeOut()
-        
-        reservation.numberOfAssistants = 3
-        
         let boolRandom = Bool.random()
         if boolRandom{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

@@ -9,14 +9,15 @@ import Foundation
 
 class ReservationDataController{
     
-    let getHardwareURL      =       URL(string: "http://127.0.0.1:5000/app/api/getHardware")!
-    let getSoftwareURL      =       URL(string: "http://127.0.0.1:5000/app/api/getSoftware")!
-    let getRoomsURL         =       URL(string: "http://127.0.0.1:5000/app/api/getRooms")!
-    let getTimeRangesURL    =       URL(string: "http://127.0.0.1:5000/app/api/getTimeRanges")!
-    let getTicketsURL       =       URL(string: "http://127.0.0.1:5000/app/api/getTickets")!
-    let getTicketURL        =       URL(string: "http://127.0.0.1:5000/app/api/getTicket")!
-    let newTickerURL        =       URL(string: "http://127.0.0.1:5000/app/api/newTicket")!
-    let deleteTicket        =       URL(string: "http://127.0.0.1:5000/app/api/deleteTicket")!
+    let getHardwareURL          =       URL(string: "http://127.0.0.1:5000/app/api/getHardware")!
+    let getSoftwareURL          =       URL(string: "http://127.0.0.1:5000/app/api/getSoftware")!
+    let getRoomsURL             =       URL(string: "http://127.0.0.1:5000/app/api/getRooms")!
+    let getTimeRangesURL        =       URL(string: "http://127.0.0.1:5000/app/api/getTimeRanges")!
+    let getTicketsURL           =       URL(string: "http://127.0.0.1:5000/app/api/getTickets")!
+    let getTicketURL            =       URL(string: "http://127.0.0.1:5000/app/api/getTicket")!
+    let newTickerURL            =       URL(string: "http://127.0.0.1:5000/app/api/newTicket")!
+    let deleteTicket            =       URL(string: "http://127.0.0.1:5000/app/api/deleteTicket")!
+    let getTimeRangesForDaysURL =       URL(string: "http://127.0.0.1:5000/app/api/getTimeRangesForDays")!
     
     
     func getHardwareObjects(completion: @escaping ([HardwareObject])->Void) async{
@@ -41,7 +42,7 @@ class ReservationDataController{
                 completion(response)
             } catch{
                 print(error)
-                completion([HardwareObject(generalObjectID: 0, identifier: "none", description: "none", operativeSystem: "none", hardwareType: "none", totalWeigh: 0)])
+                completion([HardwareObject(generalObjectID: 0, identifier: "none", description: "none", operativeSystem: "none", hardwareType: "none", totalWeigh: 0, maxDays: 0)])
             }
         }
         task.resume()
@@ -68,7 +69,7 @@ class ReservationDataController{
                 completion(response)
             } catch{
                 print(error)
-                completion([SoftwareObject(generalObjectID: 0, identifier: "none", name: "none", brand: "node", description: "node", operativeSystem: "none", totalWeight: 0)])
+                completion([SoftwareObject(generalObjectID: 0, identifier: "none", name: "none", brand: "node", description: "node", operativeSystem: "none", totalWeight: 0, maxDays: 0)])
             }
         }
         task.resume()
@@ -96,14 +97,14 @@ class ReservationDataController{
                 completion(response)
             } catch{
                 print(error)
-                completion([RoomObject(generalObjectID: 0, name: "none", description: "none", location: "none", capacity: 0, totalWeight: 0)])
+                completion([RoomObject(generalObjectID: 0, name: "none", description: "none", location: "none", capacity: 0, totalWeight: 0, maxDays: 0)])
             }
         }
         task.resume()
     }
     
     
-    func getTimeRanges() async{
+    func getTimeRanges(completion: @escaping ([TimeRanges])->Void) async{
         
         let defaults        =       UserDefaults.standard
         
@@ -112,8 +113,8 @@ class ReservationDataController{
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let body: [String: AnyHashable] =   [
             "jwt"     :       String(defaults.object(forKey: "userJWT") as! String),
-            "date"    :       "2022-09-30",
-            "objectId":       3
+            "date"    :       "2022-10-19",
+            "objectId":       4
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         // make request
@@ -124,11 +125,43 @@ class ReservationDataController{
             do{
                let response = try JSONDecoder().decode([TimeRanges].self, from: data)
                 print(response)
-                if(response.count > 0){
-                    print(String(response[0].startDay))
-                }
+               completion(response)
             } catch{
                 print(error)
+                completion([TimeRanges(startDate: "none", endDate: "none", startDay: "none", startTime: "none", endDay: "none", endTime: "none")])
+            }
+        }
+        task.resume()
+    }
+    
+    func getTimeRangesForDays(objectId: Int, completion: @escaping ([TimeRanges])->Void){
+        let defaults        =       UserDefaults.standard
+        
+        var request         =       URLRequest(url: self.getTimeRangesForDaysURL)
+        request.httpMethod  =       "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        let startDate = Date()
+        let endDate = Calendar.current.date(byAdding: .day, value: 30, to: startDate) ?? Date()
+        let body: [String: AnyHashable] =   [
+            "jwt"       :       String(defaults.object(forKey: "userJWT") as! String),
+            "startDate" :       dateFormatterGet.string(from: startDate),
+            "endDate"   :       dateFormatterGet.string(from: endDate),
+            "objectId"  :       objectId
+        ]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+        // make request
+        let task            =   URLSession.shared.dataTask(with: request){data, _, error in
+            guard let data = data, error == nil else{
+                return
+            }
+            do{
+               let response = try JSONDecoder().decode([TimeRanges].self, from: data)
+               completion(response)
+            } catch{
+                print(error)
+                completion([TimeRanges(startDate: "none", endDate: "none", startDay: "none", startTime: "none", endDay: "none", endTime: "none")])
             }
         }
         task.resume()
@@ -257,6 +290,7 @@ struct HardwareObject: Codable{
     let operativeSystem: String!
     let hardwareType: String!
     let totalWeigh: Double!
+    let maxDays: Int!
 }
 struct SoftwareObject: Codable{
     let generalObjectID: Int!
@@ -266,6 +300,7 @@ struct SoftwareObject: Codable{
     let description: String!
     let operativeSystem: String!
     let totalWeight: Int!
+    let maxDays: Int!
 }
 
 struct RoomObject: Codable{
@@ -275,6 +310,7 @@ struct RoomObject: Codable{
     let location: String!
     let capacity: Int!
     let totalWeight: Int!
+    let maxDays: Int!
 }
 
 struct TimeRanges: Codable{
