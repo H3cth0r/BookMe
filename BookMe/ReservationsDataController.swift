@@ -167,7 +167,7 @@ class ReservationDataController{
         task.resume()
     }
     
-    func getTickets() async{
+    func getTickets(completion: @escaping ([TicketInList])->Void) async{
         
         let defaults        =       UserDefaults.standard
         
@@ -186,8 +186,10 @@ class ReservationDataController{
             do{
                let response = try JSONDecoder().decode([TicketInList].self, from: data)
                 print(response)
+                completion(response)
             } catch{
                 print(error)
+                completion([TicketInList(endDate: "none", objectName: "none", objectType: "none", startDate: "none", ticketId: 0)])
             }
         }
         task.resume()

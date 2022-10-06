@@ -18,7 +18,8 @@ class CurrentBookingsViewController: UIViewController {
     
     var rowToHide: Int!
     
-    var rowsReservationItems: [ReservationRowObjectView]!
+    var rowsReservationItems: [ReservationRowObjectView]! = []
+    var resultListObjects: [TicketInList]!
     
     
     override func viewDidLoad() {
@@ -32,7 +33,7 @@ class CurrentBookingsViewController: UIViewController {
         objRowvr.spacing = 5
         objRowvr.distribution = .fill
         objRowvr.alignment = .fill
-        
+        /*
         var softwareTitleName: [String] = ["Software: Adobe XD",
                                            "Software: Autocad",
                                            "Software: Blender",
@@ -45,26 +46,46 @@ class CurrentBookingsViewController: UIViewController {
                                            "Software: AutoDesk",
                                            "Software: Powerpoint",
                                            "Software: Excel",
-                                           "Software: Android"]
-        rowsReservationItems = []
+                                        "Software: Android"]
+        */
         
-        var counter = 0
-        for i in softwareTitleName{
-            let one = ReservationRowObjectView()
-            one.isUserInteractionEnabled = true
-            one.objName = i
-            one.heightAnchor.constraint(equalToConstant:70).isActive = true
-            //one.backgroundColor = .red
-            one.qrCodeButton.tag = counter
-            one.qrCodeButton.addTarget(self, action: #selector(openTicketButton), for: .touchUpInside)
-            one.deleteButton.tag = counter
-            one.deleteButton.addTarget(self, action: #selector(deleteTicketButton), for: .touchUpInside)
-            one.setupV()
+        Task{
+            let reservationDataController = ReservationDataController()
+            await reservationDataController.getTickets(completion: { result in
+                print(result)
+                self.resultListObjects = result
+                DispatchQueue.main.async {
+                    let dateFormatterRead = DateFormatter()
+                    dateFormatterRead.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+                    let dateFormatterPrint = DateFormatter()
+                    dateFormatterPrint.dateFormat = "MMM dd HH:mm"
+                    var sd = Date()
+                    var ed = Date()
+                    var counter = 0
+                    for i in self.resultListObjects{
+                        let one = ReservationRowObjectView()
+                        one.isUserInteractionEnabled = true
+                        one.objName = i.objectName
+                        one.heightAnchor.constraint(equalToConstant:70).isActive = true
+                        //one.backgroundColor = .red
+                        one.qrCodeButton.tag = counter
+                        one.qrCodeButton.addTarget(self, action: #selector(self.openTicketButton), for: .touchUpInside)
+                        one.deleteButton.tag = counter
+                        one.deleteButton.addTarget(self, action: #selector(self.deleteTicketButton), for: .touchUpInside)
+                        one.setupV()
+                        
+                        sd = dateFormatterRead.date(from: i.startDate) ?? Date()
+                        ed = dateFormatterRead.date(from: i.endDate) ?? Date()
+                        one.initialDateLabel.text = dateFormatterPrint.string(from: sd).uppercased()
+                        one.endDateLabel.text = dateFormatterPrint.string(from: ed).uppercased()
 
-            rowsReservationItems.append(one)
-            //objRowvr.addArrangedSubview(one)
-            objRowvr.addArrangedSubview(rowsReservationItems[counter])
-            counter += 1
+                        self.rowsReservationItems.append(one)
+                        //objRowvr.addArrangedSubview(one)
+                        self.objRowvr.addArrangedSubview(self.rowsReservationItems[counter])
+                        counter += 1
+                    }
+                }
+            })
         }
         
     }
