@@ -58,7 +58,15 @@ class twoDatesSelectionViewController: UIViewController {
         
         Task{
             let reservationDataController = ReservationDataController()
-            await reservationDataController.getTimeRangesForDays(objectId: 4,completion: { result in
+            var objid = 0
+            if reservation.theTypeOfObject == "Software"{
+                objid = Int(reservation.softwareObject.generalObjectID)
+            }else if reservation.theTypeOfObject == "Hardware"{
+                objid = Int(reservation.hardwareObject.generalObjectID)
+            }else{
+                objid = Int(reservation.roomObject.generalObjectID)
+            }
+            await reservationDataController.getTimeRangesForDays(objectId: objid,completion: { result in
                 let dateFormatterGet = DateFormatter()
                 dateFormatterGet.dateFormat = "yyyy-MM-dd"
                 
@@ -156,7 +164,6 @@ class twoDatesSelectionViewController: UIViewController {
         dateFormatterPrint.dateFormat = "dd / MM / yy"
         firstDateLabel.text = dateFormatterPrint.string(from: selectedDateOneDate)
         
-        print("lol")
     }
     @objc func selectThisDateSecond(sender: UIButton!){
         secondDateLabel.text = "25  /  08  /  22"
@@ -174,11 +181,26 @@ class twoDatesSelectionViewController: UIViewController {
         dateFormatterGet.dateFormat = "yyyy-MM-dd"
         //var sd = Date()
         //var ed = Calendar.current.date(byAdding: .day, value: 30, to: sd) ?? Date()
+        var maxNDays = 1
+        if reservation.objectTypeReservation == "Software"{
+           maxNDays = reservation.softwareObject.maxDays
+        } else if reservation.objectTypeReservation == "Hardware"{
+            maxNDays = reservation.hardwareObject.maxDays
+        } else {
+            maxNDays = reservation.roomObject.maxDays
+        }
+        
+        if sender.tag - (selectedDateOneIndex ?? 0) > maxNDays{
+            selectedDateTwo = false
+            selectedDateTwoIndex = nil
+            selectedDateTwoDate = nil
+            secondDateLabel.text = "DD  /  MM  /  YY"
+            secondDateLabel.textColor = .red
+            return
+        }
         
         for i in (selectedDateOneIndex ?? 0)...sender.tag{
-            print(listOfAllDays[i])
             if listdais.contains(listOfAllDays[i]){
-                print(listOfAllDays[i])
                 selectedDateTwo = false
                 selectedDateTwoDate = nil
                 secondDateLabel.text = "DD  /  MM  /  YY"
