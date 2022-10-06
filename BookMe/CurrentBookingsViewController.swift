@@ -114,6 +114,13 @@ class CurrentBookingsViewController: UIViewController {
         deleteBookingMenu.isHidden = true
         let view = self.objRowvr.subviews[rowToHide]
         view.isHidden = true
+        Task{
+            let reservationDataController = ReservationDataController()
+            let ticketid = self.resultListObjects[self.rowToHide].ticketId
+            await reservationDataController.deleteTicket(tickedId: ticketid ?? 0, completion: { result in
+                print("DELETED \(result.ticketDeleted)")
+            })
+        }
         //view.removeFromSuperview()
         //print(sender.tag)
     }

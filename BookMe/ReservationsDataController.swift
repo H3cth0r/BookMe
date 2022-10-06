@@ -257,7 +257,7 @@ class ReservationDataController{
         task.resume()
     }
     
-    func deleteTicket() async{
+    func deleteTicket(tickedId: Int, completion: @escaping (DeletedTicketResp)->Void) async{
         
         let defaults        =       UserDefaults.standard
         
@@ -266,7 +266,7 @@ class ReservationDataController{
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let body: [String: AnyHashable] =   [
             "jwt"           :   String(defaults.object(forKey: "userJWT") as! String),
-            "ticketId"      :   3
+            "ticketId"      :   tickedId
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         // make request
@@ -277,8 +277,10 @@ class ReservationDataController{
             do{
                let response = try JSONDecoder().decode(DeletedTicketResp.self, from: data)
                 print(response)
+                completion(response)
             } catch{
                 print(error)
+                completion(DeletedTicketResp(ticketDeleted: false, errorId: 0))
             }
         }
         task.resume()
