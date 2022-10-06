@@ -221,7 +221,7 @@ class ReservationDataController{
         task.resume()
     }
     
-    func newTicket() async{
+    func newTicket(startDate_t: String, endDate_t: String, objectId_t: Int, objectType_t: String, objectName_t: String, description_t: String,completion: @escaping (SavedTicketResp)->Void) async{
         
         let defaults        =       UserDefaults.standard
         
@@ -230,12 +230,12 @@ class ReservationDataController{
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let body: [String: AnyHashable] =   [
             "jwt"           :   String(defaults.object(forKey: "userJWT") as! String),
-            "startDate"     :   "2022-10-02 12:00:00.000",
-            "endDate"       :   "2022-09-20 12:00:00.000",
-            "objectId"      :   3,
-            "objectType"    :   "HRDWR",
-            "objectName"    :   "Mac Book Air",
-            "description"   :   "Reserva laptop APPLE"
+            "startDate"     :   startDate_t,
+            "endDate"       :   endDate_t,
+            "objectId"      :   objectId_t,
+            "objectType"    :   objectType_t,
+            "objectName"    :   objectName_t,
+            "description"   :   description_t
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         // make request
@@ -246,8 +246,10 @@ class ReservationDataController{
             do{
                let response = try JSONDecoder().decode(SavedTicketResp.self, from: data)
                 print(response)
+                completion(response)
             } catch{
                 print(error)
+                completion(SavedTicketResp(ticketSaved: false))
             }
         }
         task.resume()
@@ -299,7 +301,7 @@ struct SoftwareObject: Codable{
     let brand: String!
     let description: String!
     let operativeSystem: String!
-    let totalWeight: Int!
+    let totalWeight: Double!
     let maxDays: Int!
 }
 

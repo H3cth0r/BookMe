@@ -82,11 +82,11 @@ class oneDateSelectionViewController: UIViewController {
             return
         }
         vwContainer.fadeOut()
-        reservation.startDate = "FROM: TUESDAY 23TH AUGUST 2022 11.00"
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "HourSelectionViewController") as! HourSelectionViewController
             //vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
+            vc.reservation = self.reservation
             vc.reservation.startDate = self.theSelectedDate!
             vc.reservation.endDate = self.theSelectedDate!
             vc.reservation = self.reservation

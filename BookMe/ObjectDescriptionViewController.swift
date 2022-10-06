@@ -110,6 +110,7 @@ class ObjectDescriptionViewController: UIViewController {
                      vc.modalPresentationStyle = .fullScreen
                      vc.reservation = self.reservation
                      vc.reservation.theTypeOfObject = self.theTypeOfObject
+                     vc.reservation.multipleDays = true
                      self.present(vc, animated: true, completion: nil)
                  }
              }

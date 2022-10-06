@@ -34,6 +34,9 @@ class ObjectSelectionViewController: UIViewController {
         Task{
             if theTypeOfObject == "Software"{
                 await reservationDataController.getSoftwarebjects(completion: { result in
+                    for i in result{
+                        print(i.name)
+                    }
                     DispatchQueue.main.async {
                         self.setuptable(listOfObjects: result)
                     }

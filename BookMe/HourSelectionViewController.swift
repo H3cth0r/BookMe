@@ -26,6 +26,8 @@ class HourSelectionViewController: UIViewController {
     
     var hourModelPicker: HourModelPicker!
     
+    var occuDatesList: [Date] = []
+    
     var reservation = ReservationClass()
     var modelData: [HourModel] = []
 
@@ -51,18 +53,37 @@ class HourSelectionViewController: UIViewController {
                 dateFormatterGetMin.dateFormat = "mm"
                 let dateFormatterReader = DateFormatter()
                 dateFormatterReader.dateFormat = "HH:mm:ss"
-                var dateIterator: Date = Date()
                 var startDate = dateFormatterReader.date(from: "07:00:00")
                 var occu = false
+                
+                /*
+                var sdat = Date()
+                var edat = Date()
+                for i in result{
+                    sdat = dateFormatterReader.date(from: String(i.startTime))!
+                    edat = dateFormatterReader.date(from: String(i.endTime))!
+                    while(sdat <= edat){
+                        self.occuDatesList.append(sdat)
+                        sdat = Calendar.current.date(byAdding: .minute, value: 5, to: startDate!) ?? Date()
+                    }
+                }
+                */
+                var sdat = Date()
+                var edat = Date()
+                
                 for _ in 0...144{
+                    /*
+                    if(occuDatesList.contains(startDate ?? Date())){
+                        occu = true
+                    }
+                    */
                     for j in result{
-                        print("-> " + j.startTime)
-                        dateIterator = dateFormatterReader.date(from: String(j.startTime))!
-                        if dateIterator == startDate{
+                        sdat = dateFormatterReader.date(from: j.startTime) ?? Date()
+                        edat = dateFormatterReader.date(from: j.endTime) ?? Date()
+                        if(startDate ?? Date() >= sdat && startDate ?? Date() <= edat){
                             occu = true
                         }
                     }
-
                     let hourModel = HourModel(hour: Int(dateFormatterGetHour.string(from: startDate!))!, minute: Int(dateFormatterGetMin.string(from: startDate!))!, occupied: occu, occupy: false)
                     occu = false
                     self.modelData.append(hourModel)
@@ -190,9 +211,9 @@ class HourSelectionViewController: UIViewController {
     
     @IBAction func toConfirmation(_ sender: Any) {
         vwContainer.fadeOut()
-        reservation.startHour = "11.00"
-        reservation.endHour = "12.00"
-        if reservation.endDate == ""{
+        reservation.startHour = startingButtonOutlet.titleLabel?.text ?? "00.00"
+        reservation.endHour = endingButtonOutlet.titleLabel?.text ?? "00.00"
+        if !reservation.multipleDays{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "SIngleDateConfirmationViewController") as! SIngleDateConfirmationViewController
                 //vc.modalTransitionStyle = .crossDissolve
