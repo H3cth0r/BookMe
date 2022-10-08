@@ -16,6 +16,12 @@ class MainMenuViewController: UIViewController {
     
     
     @IBOutlet weak var closeSlideNavMenuView: UIView!
+    @IBOutlet weak var nextReservationStartLabel: UILabel!
+    @IBOutlet weak var nextReservationEndLabel: UILabel!
+    
+    var nextReservation: Ticket!
+    
+    var closestReservationDate: TicketInList!
     
     
     
@@ -36,6 +42,37 @@ class MainMenuViewController: UIViewController {
                 }
             })
         }
+        
+        Task{
+            let reservationDataController = ReservationDataController()
+            await reservationDataController.getTickets(completion: { result in
+                let dateFormatterRead = DateFormatter()
+                dateFormatterRead.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+                var closestDate = result[0]
+                for i in result{
+                    if dateFormatterRead.date(from: String(i.startDate)) ?? Date() < dateFormatterRead.date(from: String(closestDate.startDate)) ?? Date(){
+                        closestDate = i
+                    }
+                }
+                self.closestReservationDate = closestDate
+                
+                DispatchQueue.main.async {
+                    dateFormatterRead.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+                    let dateFormatterPrint = DateFormatter()
+                    dateFormatterPrint.locale = Locale(identifier: "en-US")
+                    dateFormatterPrint.dateFormat = "MMMM dd'TH' HH:mm"
+                    
+                    let sdat = dateFormatterRead.date(from: String(self.closestReservationDate.startDate))
+                    let edat = dateFormatterRead.date(from: String(self.closestReservationDate.endDate))
+                    
+                    self.nextReservationStartLabel.text = dateFormatterPrint.string(from: sdat ?? Date())
+                    self.nextReservationEndLabel.text = dateFormatterPrint.string(from: edat ?? Date())
+                }
+                
+
+            })
+        }
+        
         
         self.slideNavMenuController.transform  = CGAffineTransform(translationX: -self.slideNavMenuController.frame.width, y: 0.0)
 
@@ -73,8 +110,8 @@ class MainMenuViewController: UIViewController {
         //vwContainer.fadeOut()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "TicketViewController") as! TicketViewController
-            //vc.modalTransitionStyle = .crossDissolve
-            //vc.modalPresentationStyle = .fullScreen
+            vc.theTicketId = self.closestReservationDate.ticketId
+            vc.theObjectType = self.closestReservationDate.objectType
             self.present(vc, animated: true, completion: nil)
         }
     }

@@ -224,10 +224,10 @@ class twoDatesSelectionViewController: UIViewController {
     }
     
     @IBAction func toHourSelection(_ sender: Any) {
-        vwContainer.fadeOut()
         if(!selectedDateOne && !selectedDateTwo){
             return
         }
+        vwContainer.fadeOut()
         
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd"

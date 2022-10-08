@@ -96,6 +96,9 @@ class CurrentBookingsViewController: UIViewController {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "TicketViewController") as! TicketViewController
             //vc.modalTransitionStyle = .crossDissolve
             //vc.modalPresentationStyle = .fullScreen
+            let ticketid = self.resultListObjects[sender.tag].ticketId
+            vc.theTicketId = ticketid
+            vc.theObjectType = self.resultListObjects[sender.tag].objectType
             self.present(vc, animated: true, completion: nil)
         }
     }

@@ -195,7 +195,7 @@ class ReservationDataController{
         task.resume()
     }
     
-    func getTicket() async{
+    func getTicket(objId: Int, objTyp: String, completion: @escaping (Ticket)->Void) async{
         
         let defaults        =       UserDefaults.standard
         
@@ -204,8 +204,8 @@ class ReservationDataController{
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let body: [String: AnyHashable] =   [
             "jwt"     :     String(defaults.object(forKey: "userJWT") as! String),
-            "ticketId":     3,
-            "objectType":   "HRDWR"
+            "ticketId":     objId,
+            "objectType":   objTyp
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         // make request
@@ -215,9 +215,10 @@ class ReservationDataController{
             }
             do{
                let response = try JSONDecoder().decode(Ticket.self, from: data)
-                print(response)
+                completion(response)
             } catch{
                 print(error)
+                completion(Ticket(ticketId: 0, userID: 0, dateRegistered: "none", startDate: "none", endDate: "none", objectId: 0, objectType: "none", objectName: "none", name: "none", qrCode: "none", qrCode64: "none", operativeSystem: "none", objectDescription: "none", weight: 0))
             }
         }
         task.resume()
@@ -349,9 +350,11 @@ struct Ticket: Codable{
     let objectName: String!
     let name: String!
     let qrCode: String!
+    let qrCode64: String!
     // there are two names in same object
     let operativeSystem: String!
     let objectDescription: String!
+    let weight: Double!
 }
 
 struct SavedTicketResp: Codable{

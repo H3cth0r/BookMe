@@ -15,6 +15,8 @@ class HourSelectionViewController: UIViewController {
     @IBOutlet weak var startingButtonOutlet: UIButton!
     @IBOutlet weak var endingButtonOutlet: UIButton!
     
+    var editingTicket = false
+    
     var currentRowIndex: Int = 1
     var startInRowIndex: Int = 1
     

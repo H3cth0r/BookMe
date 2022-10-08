@@ -1941,6 +1941,8 @@ RESERVATION:</string>
                     </view>
                     <connections>
                         <outlet property="closeSlideNavMenuView" destination="3y4-lq-0gF" id="yQU-nS-LUC"/>
+                        <outlet property="nextReservationEndLabel" destination="3ad-8J-URu" id="6Ei-4p-hMq"/>
+                        <outlet property="nextReservationStartLabel" destination="KMD-hl-OD8" id="dvC-pt-oFg"/>
                         <outlet property="slideNavMenuController" destination="bU6-Hd-orf" id="sfL-DA-zVT"/>
                         <outlet property="vwContainer" destination="uAW-li-NmB" id="f9w-d5-xTN"/>
                     </connections>
@@ -2084,39 +2086,21 @@ RESERVATION:</string>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticketProfilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="yHM-yy-q4a">
                                 <rect key="frame" x="195" y="90" width="183" height="181"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="181" id="L19-yu-mek"/>
-                                </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticketImageBar" translatesAutoresizingMaskIntoConstraints="NO" id="tCv-la-OJB">
                                 <rect key="frame" x="358" y="90" width="39" height="181"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="39" id="hxO-N8-R8F"/>
-                                </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticketBarCode" translatesAutoresizingMaskIntoConstraints="NO" id="U8Y-Nn-a30">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ticketBarCode" translatesAutoresizingMaskIntoConstraints="NO" id="U8Y-Nn-a30">
                                 <rect key="frame" x="17" y="279" width="380" height="82"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="82" id="D8C-SI-NLh"/>
-                                </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="confirmationNumTicket" translatesAutoresizingMaskIntoConstraints="NO" id="ecr-Gg-gGb">
                                 <rect key="frame" x="17" y="355" width="380" height="71.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="71.5" id="aud-La-MLo"/>
-                                </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticketInfoSquare" translatesAutoresizingMaskIntoConstraints="NO" id="SSK-Mi-a9H">
                                 <rect key="frame" x="17" y="434.5" width="380" height="387.5"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="# EF3DH5J2B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAO-RD-A7n">
-                                <rect key="frame" x="44" y="378" width="127.5" height="24"/>
-                                <fontDescription key="fontDescription" name="Chivo-Bold" family="Chivo" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CONFIRMED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfm-Hu-Yse">
-                                <rect key="frame" x="203" y="378" width="117" height="24"/>
+                                <rect key="frame" x="237" y="378" width="117" height="24"/>
                                 <fontDescription key="fontDescription" name="Chivo-Light" family="Chivo" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2145,12 +2129,6 @@ RESERVATION:</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticketHandleBar" translatesAutoresizingMaskIntoConstraints="NO" id="cdu-rQ-Buc">
-                                <rect key="frame" x="139" y="25" width="136" height="0.0"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="136" id="XLZ-lS-Ucl"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gd3-Ez-SKO">
                                 <rect key="frame" x="147.5" y="761.5" width="119" height="46.5"/>
                                 <state key="normal" title="Button"/>
@@ -2160,52 +2138,60 @@ RESERVATION:</string>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrTicket" translatesAutoresizingMaskIntoConstraints="NO" id="zLs-al-g4M">
-                                <rect key="frame" x="0.0" y="65" width="230" height="230"/>
+                                <rect key="frame" x="20" y="90" width="158.5" height="181"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="230" id="qB1-PT-yqS"/>
+                                    <constraint firstAttribute="height" constant="181" id="bgZ-mN-Sa3"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="#245GDGD4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42c-zQ-5a8">
+                                <rect key="frame" x="42" y="381" width="143" height="21"/>
+                                <fontDescription key="fontDescription" name="Chivo-Bold" family="Chivo" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R3s-PT-1S6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="yHM-yy-q4a" firstAttribute="top" secondItem="tCv-la-OJB" secondAttribute="top" id="0Ot-1j-v5l"/>
-                            <constraint firstItem="U8Y-Nn-a30" firstAttribute="top" secondItem="tCv-la-OJB" secondAttribute="bottom" constant="8" symbolic="YES" id="0nE-Vw-yfK"/>
-                            <constraint firstItem="ecr-Gg-gGb" firstAttribute="centerY" secondItem="mfm-Hu-Yse" secondAttribute="centerY" id="1y4-W7-AwY"/>
-                            <constraint firstItem="zLs-al-g4M" firstAttribute="top" secondItem="cdu-rQ-Buc" secondAttribute="bottom" constant="40" id="2yR-uX-HCC"/>
-                            <constraint firstItem="ecr-Gg-gGb" firstAttribute="trailing" secondItem="SSK-Mi-a9H" secondAttribute="trailing" id="51f-7J-YVW"/>
-                            <constraint firstItem="KAO-RD-A7n" firstAttribute="top" secondItem="U8Y-Nn-a30" secondAttribute="bottom" constant="17" id="5Qb-pc-yUJ"/>
-                            <constraint firstItem="cdu-rQ-Buc" firstAttribute="centerX" secondItem="U8Y-Nn-a30" secondAttribute="centerX" id="5qE-da-4ZR"/>
-                            <constraint firstItem="ecr-Gg-gGb" firstAttribute="leading" secondItem="SSK-Mi-a9H" secondAttribute="leading" id="6VZ-5K-tCi"/>
-                            <constraint firstItem="cdu-rQ-Buc" firstAttribute="centerX" secondItem="2lG-LJ-xoU" secondAttribute="centerX" id="9Xw-H9-Ppl"/>
-                            <constraint firstItem="Ohn-Hf-vto" firstAttribute="top" secondItem="ecr-Gg-gGb" secondAttribute="bottom" constant="36" id="9gd-ik-klf"/>
-                            <constraint firstItem="tCv-la-OJB" firstAttribute="leading" secondItem="zLs-al-g4M" secondAttribute="trailing" constant="128" id="AUk-vt-8qI"/>
-                            <constraint firstItem="SSK-Mi-a9H" firstAttribute="centerY" secondItem="Ohn-Hf-vto" secondAttribute="centerY" id="G7e-Vl-VTX"/>
-                            <constraint firstItem="tCv-la-OJB" firstAttribute="trailing" secondItem="U8Y-Nn-a30" secondAttribute="trailing" id="HfA-ku-kS7"/>
-                            <constraint firstItem="U8Y-Nn-a30" firstAttribute="leading" secondItem="R3s-PT-1S6" secondAttribute="leading" constant="17" id="Jcd-oe-y7M"/>
-                            <constraint firstItem="U8Y-Nn-a30" firstAttribute="trailing" secondItem="ecr-Gg-gGb" secondAttribute="trailing" id="NS3-3f-MJr"/>
-                            <constraint firstItem="KAO-RD-A7n" firstAttribute="firstBaseline" secondItem="mfm-Hu-Yse" secondAttribute="firstBaseline" id="Qd1-GW-Lv5"/>
-                            <constraint firstItem="zLs-al-g4M" firstAttribute="leading" secondItem="R3s-PT-1S6" secondAttribute="leading" id="RTs-Uq-MZQ"/>
-                            <constraint firstItem="SSK-Mi-a9H" firstAttribute="centerX" secondItem="gd3-Ez-SKO" secondAttribute="centerX" id="Rj3-KO-L0a"/>
-                            <constraint firstItem="SSK-Mi-a9H" firstAttribute="top" secondItem="ecr-Gg-gGb" secondAttribute="bottom" constant="8" symbolic="YES" id="Z9n-83-2Dd"/>
-                            <constraint firstItem="mfm-Hu-Yse" firstAttribute="leading" secondItem="KAO-RD-A7n" secondAttribute="trailing" constant="31.5" id="bVu-Lj-DKq"/>
-                            <constraint firstItem="ecr-Gg-gGb" firstAttribute="top" secondItem="zLs-al-g4M" secondAttribute="bottom" constant="60" id="bo4-VT-Hy0"/>
-                            <constraint firstItem="KAO-RD-A7n" firstAttribute="baseline" secondItem="mfm-Hu-Yse" secondAttribute="baseline" id="fCg-gv-kcU"/>
-                            <constraint firstItem="gd3-Ez-SKO" firstAttribute="leading" secondItem="R3s-PT-1S6" secondAttribute="leading" constant="147.5" id="fI4-TS-cMH"/>
-                            <constraint firstItem="KAO-RD-A7n" firstAttribute="leading" secondItem="R3s-PT-1S6" secondAttribute="leading" constant="44" id="h2n-Rm-cEi"/>
-                            <constraint firstItem="R3s-PT-1S6" firstAttribute="bottom" secondItem="SSK-Mi-a9H" secondAttribute="bottom" constant="40" id="h8t-Jr-XAI"/>
-                            <constraint firstItem="R3s-PT-1S6" firstAttribute="bottom" secondItem="gd3-Ez-SKO" secondAttribute="bottom" constant="54" id="hMY-1o-t8b"/>
-                            <constraint firstItem="yHM-yy-q4a" firstAttribute="top" secondItem="R3s-PT-1S6" secondAttribute="top" constant="46" id="lCK-1h-GoO"/>
-                            <constraint firstItem="Ohn-Hf-vto" firstAttribute="leading" secondItem="R3s-PT-1S6" secondAttribute="leading" constant="42" id="lLe-Eq-Bhe"/>
-                            <constraint firstItem="U8Y-Nn-a30" firstAttribute="top" secondItem="yHM-yy-q4a" secondAttribute="bottom" constant="8" symbolic="YES" id="o5T-Ap-nnA"/>
-                            <constraint firstItem="cdu-rQ-Buc" firstAttribute="top" secondItem="2lG-LJ-xoU" secondAttribute="topMargin" constant="-19" id="puO-UE-VIH"/>
-                            <constraint firstItem="yHM-yy-q4a" firstAttribute="leading" secondItem="R3s-PT-1S6" secondAttribute="leading" constant="195" id="wZ4-QC-GQ2"/>
-                            <constraint firstItem="U8Y-Nn-a30" firstAttribute="leading" secondItem="ecr-Gg-gGb" secondAttribute="leading" id="xeg-aL-AmY"/>
-                            <constraint firstItem="R3s-PT-1S6" firstAttribute="trailing" secondItem="yHM-yy-q4a" secondAttribute="trailing" constant="36" id="y29-Rj-sc8"/>
-                            <constraint firstItem="R3s-PT-1S6" firstAttribute="trailing" secondItem="Ohn-Hf-vto" secondAttribute="trailing" constant="138" id="y7N-w4-n68"/>
+                            <constraint firstItem="U8Y-Nn-a30" firstAttribute="top" secondItem="tCv-la-OJB" secondAttribute="bottom" constant="8" symbolic="YES" id="0Ct-tN-669"/>
+                            <constraint firstItem="U8Y-Nn-a30" firstAttribute="centerX" secondItem="2lG-LJ-xoU" secondAttribute="centerX" id="0Ky-i3-Bss"/>
+                            <constraint firstItem="mfm-Hu-Yse" firstAttribute="top" secondItem="U8Y-Nn-a30" secondAttribute="bottom" constant="17" id="0aF-X0-YIJ"/>
+                            <constraint firstItem="U8Y-Nn-a30" firstAttribute="top" secondItem="yHM-yy-q4a" secondAttribute="bottom" constant="8" symbolic="YES" id="42n-zg-etw"/>
+                            <constraint firstItem="R3s-PT-1S6" firstAttribute="bottom" secondItem="gd3-Ez-SKO" secondAttribute="bottom" constant="54" id="4Pb-h9-2tL"/>
+                            <constraint firstItem="ecr-Gg-gGb" firstAttribute="leading" secondItem="SSK-Mi-a9H" secondAttribute="leading" id="4SZ-B2-S6W"/>
+                            <constraint firstItem="42c-zQ-5a8" firstAttribute="leading" secondItem="Ohn-Hf-vto" secondAttribute="leading" id="502-gN-JCb"/>
+                            <constraint firstItem="zLs-al-g4M" firstAttribute="top" secondItem="yHM-yy-q4a" secondAttribute="top" id="5mo-n9-zLb"/>
+                            <constraint firstItem="tCv-la-OJB" firstAttribute="trailing" secondItem="U8Y-Nn-a30" secondAttribute="trailing" id="8Yv-Cg-hbj"/>
+                            <constraint firstItem="yHM-yy-q4a" firstAttribute="leading" secondItem="R3s-PT-1S6" secondAttribute="leading" constant="195" id="9AV-AY-DE0"/>
+                            <constraint firstItem="R3s-PT-1S6" firstAttribute="trailing" secondItem="Ohn-Hf-vto" secondAttribute="trailing" constant="138" id="AUw-XM-rGB"/>
+                            <constraint firstItem="SSK-Mi-a9H" firstAttribute="centerY" secondItem="Ohn-Hf-vto" secondAttribute="centerY" id="Ayf-Td-upU"/>
+                            <constraint firstItem="ecr-Gg-gGb" firstAttribute="centerY" secondItem="mfm-Hu-Yse" secondAttribute="centerY" id="Eh1-zI-xMC"/>
+                            <constraint firstItem="zLs-al-g4M" firstAttribute="leading" secondItem="2lG-LJ-xoU" secondAttribute="leadingMargin" id="FPc-wi-jdo"/>
+                            <constraint firstItem="SSK-Mi-a9H" firstAttribute="top" secondItem="ecr-Gg-gGb" secondAttribute="bottom" constant="8" symbolic="YES" id="Gym-7L-26c"/>
+                            <constraint firstItem="R3s-PT-1S6" firstAttribute="bottom" secondItem="SSK-Mi-a9H" secondAttribute="bottom" constant="40" id="JTl-eb-GPz"/>
+                            <constraint firstItem="mfm-Hu-Yse" firstAttribute="leading" secondItem="42c-zQ-5a8" secondAttribute="trailing" constant="52" id="KHQ-TJ-1sa"/>
+                            <constraint firstItem="SSK-Mi-a9H" firstAttribute="centerX" secondItem="gd3-Ez-SKO" secondAttribute="centerX" id="KOJ-0Y-GJH"/>
+                            <constraint firstItem="ecr-Gg-gGb" firstAttribute="trailing" secondItem="SSK-Mi-a9H" secondAttribute="trailing" id="KU4-W2-D5l"/>
+                            <constraint firstItem="yHM-yy-q4a" firstAttribute="top" secondItem="tCv-la-OJB" secondAttribute="top" id="LgL-d8-2ut"/>
+                            <constraint firstItem="R3s-PT-1S6" firstAttribute="trailing" secondItem="mfm-Hu-Yse" secondAttribute="trailing" constant="60" id="OT1-be-O6G"/>
+                            <constraint firstItem="ecr-Gg-gGb" firstAttribute="top" secondItem="yHM-yy-q4a" secondAttribute="bottom" constant="84" id="Sqk-ow-f1a"/>
+                            <constraint firstItem="U8Y-Nn-a30" firstAttribute="leading" secondItem="R3s-PT-1S6" secondAttribute="leading" constant="17" id="WUR-Ct-BZV"/>
+                            <constraint firstItem="42c-zQ-5a8" firstAttribute="baseline" secondItem="mfm-Hu-Yse" secondAttribute="firstBaseline" id="Yjr-rK-lCU"/>
+                            <constraint firstItem="SSK-Mi-a9H" firstAttribute="top" secondItem="42c-zQ-5a8" secondAttribute="bottom" constant="32.5" id="ggD-Um-CAg"/>
+                            <constraint firstItem="zLs-al-g4M" firstAttribute="centerX" secondItem="42c-zQ-5a8" secondAttribute="centerX" id="jtq-aH-51i"/>
+                            <constraint firstItem="zLs-al-g4M" firstAttribute="top" secondItem="R3s-PT-1S6" secondAttribute="top" constant="46" id="kgA-Uq-z0z"/>
+                            <constraint firstItem="U8Y-Nn-a30" firstAttribute="top" secondItem="zLs-al-g4M" secondAttribute="bottom" constant="8" symbolic="YES" id="m0E-rd-nMQ"/>
+                            <constraint firstItem="U8Y-Nn-a30" firstAttribute="leading" secondItem="ecr-Gg-gGb" secondAttribute="leading" id="nG2-5O-mMx"/>
+                            <constraint firstItem="R3s-PT-1S6" firstAttribute="trailing" secondItem="yHM-yy-q4a" secondAttribute="trailing" constant="36" id="nwh-Xh-RD5"/>
+                            <constraint firstItem="U8Y-Nn-a30" firstAttribute="trailing" secondItem="ecr-Gg-gGb" secondAttribute="trailing" id="owL-1O-xAU"/>
+                            <constraint firstItem="42c-zQ-5a8" firstAttribute="leading" secondItem="R3s-PT-1S6" secondAttribute="leading" constant="42" id="rt9-Uq-4Pq"/>
+                            <constraint firstItem="Ohn-Hf-vto" firstAttribute="top" secondItem="ecr-Gg-gGb" secondAttribute="bottom" constant="36" id="vuB-Ke-PHG"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="confirmationNumberLabel" destination="42c-zQ-5a8" id="WYl-A6-X8h"/>
+                        <outlet property="jsonReservationInfo" destination="Ohn-Hf-vto" id="fc2-eq-bqC"/>
+                        <outlet property="qrCodeImageView" destination="zLs-al-g4M" id="Ra2-Xj-Pfy"/>
                         <outlet property="vwContainer" destination="2lG-LJ-xoU" id="E7u-iu-WVc"/>
                     </connections>
                 </viewController>
@@ -2817,7 +2803,7 @@ RESERVATION:</string>
         <image name="nextButtonArrow" width="82" height="8"/>
         <image name="nextButtonSquare" width="100" height="100"/>
         <image name="objTypeMenuBar" width="543" height="6"/>
-        <image name="qrTicket" width="115" height="115"/>
+        <image name="qrTicket" width="124" height="124"/>
         <image name="registerButton" width="338" height="189"/>
         <image name="reserveButtonOne" width="338" height="150"/>
         <image name="returnArrowButton" width="191" height="26"/>
@@ -2832,7 +2818,6 @@ RESERVATION:</string>
         <image name="tickerHourSelection" width="17.5" height="20"/>
         <image name="ticketBarCode" width="588" height="124.5"/>
         <image name="ticketDownArrow" width="58" height="8.5"/>
-        <image name="ticketHandleBar" width="210" height="7.5"/>
         <image name="ticketImageBar" width="39" height="276"/>
         <image name="ticketInfoSquare" width="588" height="619.5"/>
         <image name="ticketProfilePicture" width="238.5" height="276"/>
