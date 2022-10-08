@@ -52,7 +52,6 @@ class CurrentBookingsViewController: UIViewController {
         Task{
             let reservationDataController = ReservationDataController()
             await reservationDataController.getTickets(completion: { result in
-                print(result)
                 self.resultListObjects = result
                 DispatchQueue.main.async {
                     let dateFormatterRead = DateFormatter()

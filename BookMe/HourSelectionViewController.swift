@@ -15,7 +15,8 @@ class HourSelectionViewController: UIViewController {
     @IBOutlet weak var startingButtonOutlet: UIButton!
     @IBOutlet weak var endingButtonOutlet: UIButton!
     
-    var editingTicket = false
+    // check if user is editing
+    var userEditing: Bool = false
     
     var currentRowIndex: Int = 1
     var startInRowIndex: Int = 1
@@ -56,38 +57,47 @@ class HourSelectionViewController: UIViewController {
                 let dateFormatterReader = DateFormatter()
                 dateFormatterReader.dateFormat = "HH:mm:ss"
                 var startDate = dateFormatterReader.date(from: "07:00:00")
-                var occu = false
                 
-                /*
+                let normalFormatDate = DateFormatter()
+                normalFormatDate.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+                
+                var occu = false
+                var selected = false
+                
                 var sdat = Date()
                 var edat = Date()
-                for i in result{
-                    sdat = dateFormatterReader.date(from: String(i.startTime))!
-                    edat = dateFormatterReader.date(from: String(i.endTime))!
-                    while(sdat <= edat){
-                        self.occuDatesList.append(sdat)
-                        sdat = Calendar.current.date(byAdding: .minute, value: 5, to: startDate!) ?? Date()
-                    }
-                }
-                */
-                var sdat = Date()
-                var edat = Date()
+                
+                var stringDateHandler = ""
+                
+                print("RECIVED TICKET")
+                print(self.reservation.recivedTicket)
                 
                 for _ in 0...144{
-                    /*
-                    if(occuDatesList.contains(startDate ?? Date())){
-                        occu = true
-                    }
-                    */
                     for j in result{
                         sdat = dateFormatterReader.date(from: j.startTime) ?? Date()
                         edat = dateFormatterReader.date(from: j.endTime) ?? Date()
                         if(startDate ?? Date() >= sdat && startDate ?? Date() <= edat){
                             occu = true
                         }
+                        
+                        sdat = normalFormatDate.date(from: self.reservation.recivedTicket.startDate) ?? Date()
+                        stringDateHandler = dateFormatterReader.string(from: sdat)
+                        sdat = dateFormatterReader.date(from: stringDateHandler) ?? Date()
+                        
+                        edat = normalFormatDate.date(from: self.reservation.recivedTicket.endDate) ?? Date()
+                        stringDateHandler = dateFormatterReader.string(from: edat)
+                        edat = dateFormatterReader.date(from: stringDateHandler) ?? Date()
+                        
+                        if(self.userEditing && startDate ?? Date() >= sdat && startDate ?? Date() <= edat){
+                            print("YESSSSSSSSSS")
+                            occu = false
+                            selected = true
+                            self.selecting = true
+                        }
                     }
-                    let hourModel = HourModel(hour: Int(dateFormatterGetHour.string(from: startDate!))!, minute: Int(dateFormatterGetMin.string(from: startDate!))!, occupied: occu, occupy: false)
+                    let hourModel = HourModel(hour: Int(dateFormatterGetHour.string(from: startDate!))!, minute: Int(dateFormatterGetMin.string(from: startDate!))!, occupied: occu, occupy: selected)
                     occu = false
+                    selected = false
                     self.modelData.append(hourModel)
                     startDate = Calendar.current.date(byAdding: .minute, value: 5, to: startDate!) ?? Date()
                 }
@@ -221,6 +231,7 @@ class HourSelectionViewController: UIViewController {
                 //vc.modalTransitionStyle = .crossDissolve
                 vc.modalPresentationStyle = .fullScreen
                 vc.reservation = self.reservation
+                vc.userEditing = self.userEditing
                 self.present(vc, animated: true, completion: nil)
             }
         }else{
@@ -229,6 +240,7 @@ class HourSelectionViewController: UIViewController {
                 //vc.modalTransitionStyle = .crossDissolve
                 vc.modalPresentationStyle = .fullScreen
                 vc.reservation = self.reservation
+                //vc.userEditing = self.userEditing
                 self.present(vc, animated: true, completion: nil)
             }
         }

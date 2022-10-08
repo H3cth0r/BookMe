@@ -13,6 +13,10 @@ class NumberOfAssistantsViewController: UIViewController {
     @IBOutlet weak var selectedNumberOfAssistants: UILabel!
     var currentNumOfAssistants = 1
     
+    // check if user is editing
+    var userEditing: Bool = false
+    var recivedTicket: Ticket!
+    
     var reservation = ReservationClass()
     
     override func viewDidLoad() {
@@ -33,13 +37,22 @@ class NumberOfAssistantsViewController: UIViewController {
         reservation.numberOfAssistants = currentNumOfAssistants
         
         vwContainer.fadeOut()
-        let boolRandom = Bool.random()
-        if boolRandom{
+        
+        let dateFormatterRead = DateFormatter()
+        dateFormatterRead.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+        let sd = dateFormatterRead.date(from: String(recivedTicket.startDate)) ?? Date()
+        let ed = dateFormatterRead.date(from: String(recivedTicket.endDate)) ?? Date()
+        
+        if reservation.roomObject.maxDays <= 1{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
                 //vc.modalTransitionStyle = .crossDissolve
                 vc.modalPresentationStyle = .fullScreen
                 vc.reservation = self.reservation
+                vc.reservation = self.reservation
+                vc.userEditing = true           // <---------------
+                vc.reservation.recivedTicket = self.recivedTicket
+                vc.reservation.objectTypeReservation = "Space"
                 self.present(vc, animated: true, completion: nil)
             }
         }else{
@@ -48,8 +61,21 @@ class NumberOfAssistantsViewController: UIViewController {
                 //vc.modalTransitionStyle = .crossDissolve
                 vc.modalPresentationStyle = .fullScreen
                 vc.reservation = self.reservation
+                vc.reservation = self.reservation
+                vc.userEditing = true           // <---------------
+                vc.reservation.recivedTicket = self.recivedTicket
+                vc.reservation.objectTypeReservation = "Space"
                 self.present(vc, animated: true, completion: nil)
             }
+        }
+    }
+    
+    func isSameDay(date1: Date, date2: Date) -> Bool {
+        let diff = Calendar.current.dateComponents([.day], from: date1, to: date2)
+        if diff.day == 0 {
+            return true
+        } else {
+            return false
         }
     }
     

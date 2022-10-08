@@ -14,7 +14,11 @@ class oneDateSelectionViewController: UIViewController {
     
     @IBOutlet weak var selectedDateLabel: UILabel!
     
+    
     var reservation = ReservationClass()
+    
+    // check if user is editing
+    var userEditing: Bool = false
     
     var listOfDates: [Date]!
     
@@ -24,6 +28,7 @@ class oneDateSelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Do any additional setup after loading the view.
         
@@ -90,6 +95,7 @@ class oneDateSelectionViewController: UIViewController {
             vc.reservation.startDate = self.theSelectedDate!
             vc.reservation.endDate = self.theSelectedDate!
             vc.reservation = self.reservation
+            vc.userEditing = self.userEditing       // <-----------
             self.present(vc, animated: true, completion: nil)
         }
     }

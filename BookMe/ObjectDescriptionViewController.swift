@@ -75,7 +75,7 @@ class ObjectDescriptionViewController: UIViewController {
             
             // temporal max number of assisstants variable
             // will be get from json object
-            self.reservation.maxNumberOfAssistans = 10
+            self.reservation.maxNumberOfAssistans = roomObject.capacity
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "NumberOfAssistantsViewController") as! NumberOfAssistantsViewController
                 //vc.modalTransitionStyle = .crossDissolve

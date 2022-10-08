@@ -29,6 +29,9 @@ class TwoDatesConfirmationViewController: UIViewController {
     var res1: String!
     var res2: String!
     
+    // check if user is editing
+    var userEditing: Bool = false
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +63,16 @@ class TwoDatesConfirmationViewController: UIViewController {
     }
     
     @IBAction func saveReservationButton(_ sender: Any) {
+        
+        if userEditing{
+            Task{
+                let reservationDataController = ReservationDataController()
+                await reservationDataController.deleteTicket(tickedId: self.reservation.recivedTicket.ticketId, completion: { result in
+                    print("DELETED: \(result)")
+                })
+            }
+        }
+        
         
         Task{
             var objid: Int = 0

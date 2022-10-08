@@ -14,6 +14,8 @@ class ReservationClass{
     var softwareObject: SoftwareObject!
     var roomObject: RoomObject!
     
+    var recivedTicket: Ticket!
+    
     var theTypeOfObject: String!
     
     // Multiple days reservation ?

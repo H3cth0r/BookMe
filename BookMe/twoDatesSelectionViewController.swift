@@ -22,6 +22,11 @@ class twoDatesSelectionViewController: UIViewController {
     var LdtCardObj: [UIView] = []
     var listdais: [String] = []
     
+    // check if user is editing
+    var userEditing: Bool = false
+    var ticketStartDate: Date!
+    var ticketEndDate: Date!
+    
     // list of all the cards in bands
     var listOfAllDays: [String] = []
     var listOFAllDaysDate: [Date] = []
@@ -88,8 +93,23 @@ class twoDatesSelectionViewController: UIViewController {
                     var counter: Int = 0
                     var startDate = Date()
                     let dateFormatterPrint = DateFormatter()
+                    let dateFormatterRead = DateFormatter()
+                    let dateFormatterResult = DateFormatter()
+                    dateFormatterResult.dateFormat = "dd / MM / yy"
                     dateFormatterPrint.dateFormat = "EEEE dd MMMM yyyy"
                     dateFormatterGet.dateFormat = "yyyy-MM-dd"
+                    dateFormatterRead.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+                    if self.userEditing{
+                        self.ticketStartDate = dateFormatterRead.date(from: self.reservation.recivedTicket.startDate) ?? Date()
+                        self.ticketEndDate = dateFormatterRead.date(from: self.reservation.recivedTicket.endDate) ?? Date()
+                        
+                        self.selectedDateOne = true
+                        self.selectedDateTwo = true
+                        
+                        self.firstDateLabel.text = dateFormatterResult.string(from: self.ticketStartDate)
+                        self.secondDateLabel.text = dateFormatterResult.string(from: self.ticketEndDate)
+                        
+                    }
                     for _ in 0...29{
                         let one = DateCardObject()
                         one.isUserInteractionEnabled = true
@@ -110,6 +130,21 @@ class twoDatesSelectionViewController: UIViewController {
                             one.isOccupied = true
                         }else{
                             one.backgroundColor = .white
+                        }
+                        if self.userEditing{
+                            if (startDate >= self.ticketStartDate && startDate <= self.ticketEndDate){
+                                one.backgroundColor = .white
+                                one.selectDateButton.isHidden = false
+                                one.isOccupied = false
+                                
+                                if self.isSameDay(date1: startDate, date2: self.ticketStartDate){
+                                    self.selectedDateOneIndex = one.tag
+                                }
+                                if self.isSameDay(date1: startDate, date2: self.ticketEndDate){
+                                    self.selectedDateTwoIndex = one.tag
+                                }
+                                
+                            }
                         }
                         self.LdtCardObj.append(one)
                         
@@ -132,6 +167,21 @@ class twoDatesSelectionViewController: UIViewController {
                         }else{
                             two.backgroundColor = .white
                         }
+                        if self.userEditing{
+                            if (startDate >= self.ticketStartDate && startDate <= self.ticketEndDate){
+                                two.backgroundColor = .white
+                                two.selectDateButton.isHidden = false
+                                two.isOccupied = false
+                                
+                                if self.isSameDay(date1: startDate, date2: self.ticketStartDate){
+                                    self.selectedDateOneIndex = two.tag
+                                }
+                                if self.isSameDay(date1: startDate, date2: self.ticketEndDate){
+                                    self.selectedDateTwoIndex = two.tag
+                                }
+                                
+                            }
+                        }
                         self.UdtCardObj.append(two)
                         
                         counter += 1
@@ -146,6 +196,17 @@ class twoDatesSelectionViewController: UIViewController {
         
         
     }
+    
+    
+    func isSameDay(date1: Date, date2: Date) -> Bool {
+        let diff = Calendar.current.dateComponents([.day], from: date1, to: date2)
+        if diff.day == 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     
     @objc func selectThisDate(sender: UIButton!){
         
@@ -238,6 +299,7 @@ class twoDatesSelectionViewController: UIViewController {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "TwoDatesConfirmationViewController") as! TwoDatesConfirmationViewController
             //vc.modalTransitionStyle = .crossDissolve
             vc.modalPresentationStyle = .fullScreen
+            vc.userEditing = self.userEditing
             vc.reservation = self.reservation
             self.present(vc, animated: true, completion: nil)
         }

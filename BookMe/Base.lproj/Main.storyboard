@@ -2094,10 +2094,10 @@ RESERVATION:</string>
                                 <rect key="frame" x="17" y="279" width="380" height="82"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="confirmationNumTicket" translatesAutoresizingMaskIntoConstraints="NO" id="ecr-Gg-gGb">
-                                <rect key="frame" x="17" y="355" width="380" height="71.5"/>
+                                <rect key="frame" x="17" y="355" width="380" height="73"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticketInfoSquare" translatesAutoresizingMaskIntoConstraints="NO" id="SSK-Mi-a9H">
-                                <rect key="frame" x="17" y="434.5" width="380" height="387.5"/>
+                                <rect key="frame" x="17" y="436" width="380" height="386"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CONFIRMED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfm-Hu-Yse">
                                 <rect key="frame" x="237" y="378" width="117" height="24"/>
@@ -2106,7 +2106,7 @@ RESERVATION:</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="18" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohn-Hf-vto">
-                                <rect key="frame" x="42" y="462.5" width="234" height="331.5"/>
+                                <rect key="frame" x="42" y="464" width="234" height="330"/>
                                 <string key="text">{
   "reservation" : {
         "user" : {
@@ -2138,7 +2138,7 @@ RESERVATION:</string>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrTicket" translatesAutoresizingMaskIntoConstraints="NO" id="zLs-al-g4M">
-                                <rect key="frame" x="20" y="90" width="158.5" height="181"/>
+                                <rect key="frame" x="20" y="90" width="160.5" height="181"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="181" id="bgZ-mN-Sa3"/>
                                 </constraints>

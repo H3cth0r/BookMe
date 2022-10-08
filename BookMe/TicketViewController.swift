@@ -124,11 +124,17 @@ class TicketViewController: UIViewController {
                         if self.reservation.multipleDays {
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "twoDatesSelectionViewController") as! twoDatesSelectionViewController
                             vc.reservation = self.reservation
+                            vc.userEditing = true           // <---------------
+                            vc.reservation.recivedTicket = self.recivedTicket
+                            vc.reservation.objectTypeReservation = "Hardware"
                             vc.modalPresentationStyle = .fullScreen
                             self.present(vc, animated: true, completion: nil)
                         } else {
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
                             vc.reservation = self.reservation
+                            vc.userEditing = true           // <---------------
+                            vc.reservation.recivedTicket = self.recivedTicket
+                            vc.reservation.objectTypeReservation = "Hardware"
                             vc.modalPresentationStyle = .fullScreen
                             self.present(vc, animated: true, completion: nil)
                         }
@@ -152,11 +158,17 @@ class TicketViewController: UIViewController {
                         if self.reservation.multipleDays {
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "twoDatesSelectionViewController") as! twoDatesSelectionViewController
                             vc.reservation = self.reservation
+                            vc.userEditing = true           // <---------------
+                            vc.reservation.recivedTicket = self.recivedTicket
+                            vc.reservation.objectTypeReservation = "Software"
                             vc.modalPresentationStyle = .fullScreen
                             self.present(vc, animated: true, completion: nil)
                         } else {
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
                             vc.reservation = self.reservation
+                            vc.userEditing = true           // <---------------
+                            vc.reservation.recivedTicket = self.recivedTicket
+                            vc.reservation.objectTypeReservation = "Software"
                             vc.modalPresentationStyle = .fullScreen
                             self.present(vc, animated: true, completion: nil)
                         }
@@ -177,6 +189,10 @@ class TicketViewController: UIViewController {
                     DispatchQueue.main.async {
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "NumberOfAssistantsViewController") as! NumberOfAssistantsViewController
                         vc.reservation = self.reservation
+                        vc.reservation.objectTypeReservation = "Space"
+                        vc.userEditing = true
+                        vc.recivedTicket = self.recivedTicket
+                        vc.reservation.maxNumberOfAssistans = self.reservation.roomObject.capacity
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
                     }

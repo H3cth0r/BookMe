@@ -22,6 +22,11 @@ class SIngleDateConfirmationViewController: UIViewController {
     // Hour range label
     @IBOutlet weak var hourRangeLabel: UILabel!
     
+    
+    // check if user is editing
+    var userEditing: Bool = false
+    
+    
     var reservation = ReservationClass()
     
     var startDateToSend: Date!
@@ -63,6 +68,15 @@ class SIngleDateConfirmationViewController: UIViewController {
     }
     
     @IBAction func saveReservationButton(_ sender: Any) {
+        
+        if userEditing{
+            Task{
+                let reservationDataController = ReservationDataController()
+                await reservationDataController.deleteTicket(tickedId: self.reservation.recivedTicket.ticketId, completion: { result in
+                    print("DELETED: \(result)")
+                })
+            }
+        }
         
         Task{
             var objid: Int = 0
