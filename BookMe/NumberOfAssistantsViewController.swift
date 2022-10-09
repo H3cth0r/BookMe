@@ -40,8 +40,8 @@ class NumberOfAssistantsViewController: UIViewController {
         
         let dateFormatterRead = DateFormatter()
         dateFormatterRead.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
-        let sd = dateFormatterRead.date(from: String(recivedTicket.startDate)) ?? Date()
-        let ed = dateFormatterRead.date(from: String(recivedTicket.endDate)) ?? Date()
+        //let sd = dateFormatterRead.date(from: String(recivedTicket.startDate)) ?? Date()
+        //let ed = dateFormatterRead.date(from: String(recivedTicket.endDate)) ?? Date()
         
         if reservation.roomObject.maxDays <= 1{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -50,7 +50,7 @@ class NumberOfAssistantsViewController: UIViewController {
                 vc.modalPresentationStyle = .fullScreen
                 vc.reservation = self.reservation
                 vc.reservation = self.reservation
-                vc.userEditing = true           // <---------------
+                vc.userEditing = self.userEditing      // <---------------
                 vc.reservation.recivedTicket = self.recivedTicket
                 vc.reservation.objectTypeReservation = "Space"
                 self.present(vc, animated: true, completion: nil)
@@ -62,7 +62,7 @@ class NumberOfAssistantsViewController: UIViewController {
                 vc.modalPresentationStyle = .fullScreen
                 vc.reservation = self.reservation
                 vc.reservation = self.reservation
-                vc.userEditing = true           // <---------------
+                vc.userEditing = self.userEditing       // <---------------
                 vc.reservation.recivedTicket = self.recivedTicket
                 vc.reservation.objectTypeReservation = "Space"
                 self.present(vc, animated: true, completion: nil)

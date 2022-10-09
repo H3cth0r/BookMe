@@ -71,9 +71,12 @@ class twoDatesSelectionViewController: UIViewController {
             }else{
                 objid = Int(reservation.roomObject.generalObjectID)
             }
+            print("OBJID = \(objid)")
             await reservationDataController.getTimeRangesForDays(objectId: objid,completion: { result in
                 let dateFormatterGet = DateFormatter()
                 dateFormatterGet.dateFormat = "yyyy-MM-dd"
+                
+                print("RESULT : \(result)")
                 
                 var sd = Date()
                 var ed = Date()
@@ -125,13 +128,19 @@ class twoDatesSelectionViewController: UIViewController {
                         one.labelDate.frame = CGRect(x: 10, y: -15, width: 250, height: 250)
                         one.selectDateButton.frame = CGRect(x: 145, y: 220, width: 151, height: 50)
                         if self.listdais.contains(dateFormatterGet.string(from: startDate)){
-                            one.backgroundColor = .gray
-                            one.selectDateButton.isHidden = true
-                            one.isOccupied = true
+                            if self.userEditing{
+                                one.backgroundColor = .white
+                            }else {
+                                one.backgroundColor = .gray
+                                one.selectDateButton.isHidden = true
+                                one.isOccupied = true
+                            }
                         }else{
                             one.backgroundColor = .white
                         }
-                        if self.userEditing{
+                        
+                        if self.userEditing == true{
+                            print("EEEEEE EEE  EEEEEE EE      EEEEEEE \(startDate)")
                             if (startDate >= self.ticketStartDate && startDate <= self.ticketEndDate){
                                 one.backgroundColor = .white
                                 one.selectDateButton.isHidden = false
@@ -146,6 +155,7 @@ class twoDatesSelectionViewController: UIViewController {
                                 
                             }
                         }
+                        
                         self.LdtCardObj.append(one)
                         
                         let two = DateCardObject()
@@ -161,13 +171,19 @@ class twoDatesSelectionViewController: UIViewController {
                         two.labelDate.frame = CGRect(x: 10, y: -15, width: 250, height: 250)
                         two.selectDateButton.frame = CGRect(x: 145, y: 220, width: 151, height: 50)
                         if self.listdais.contains(dateFormatterGet.string(from: startDate)){
-                            two.backgroundColor = .gray
-                            two.selectDateButton.isHidden = true
-                            two.isOccupied = true
+                            if self.userEditing{
+                                two.backgroundColor = .white
+                            }else {
+                                two.backgroundColor = .gray
+                                two.selectDateButton.isHidden = true
+                                two.isOccupied = true
+                            }
                         }else{
                             two.backgroundColor = .white
                         }
-                        if self.userEditing{
+                        
+                        if self.userEditing == true{
+                            print("EEEEEE EEE  EEEEEE EE      EEEEEEE \(startDate)")
                             if (startDate >= self.ticketStartDate && startDate <= self.ticketEndDate){
                                 two.backgroundColor = .white
                                 two.selectDateButton.isHidden = false
@@ -182,6 +198,7 @@ class twoDatesSelectionViewController: UIViewController {
                                 
                             }
                         }
+                        
                         self.UdtCardObj.append(two)
                         
                         counter += 1
@@ -261,6 +278,9 @@ class twoDatesSelectionViewController: UIViewController {
         }
         
         for i in (selectedDateOneIndex ?? 0)...sender.tag{
+            if userEditing{
+                break
+            }
             if listdais.contains(listOfAllDays[i]){
                 selectedDateTwo = false
                 selectedDateTwoDate = nil

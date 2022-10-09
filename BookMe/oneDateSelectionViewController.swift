@@ -76,10 +76,10 @@ class oneDateSelectionViewController: UIViewController {
         dateFormatterSelection.dateFormat = "dd / MM / yy"
         let dateFormatterSelectionFormat = DateFormatter()
         dateFormatterSelectionFormat.dateFormat = "yyyy-MM-dd"
+        selectedDateLabel.text = dateFormatterSelection.string(from: self.listOfDates[sender.tag])
         let res = dateFormatterSelection.date(from: selectedDateLabel.text ?? "")
         theSelectedDate = dateFormatterSelectionFormat.string(from: res ?? Date())
         selected = true
-        selectedDateLabel.text = dateFormatterSelection.string(from: self.listOfDates[sender.tag])
     }
     
     @IBAction func toHourSelection(_ sender: Any) {
@@ -90,12 +90,11 @@ class oneDateSelectionViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "HourSelectionViewController") as! HourSelectionViewController
             //vc.modalTransitionStyle = .crossDissolve
-            vc.modalPresentationStyle = .fullScreen
             vc.reservation = self.reservation
             vc.reservation.startDate = self.theSelectedDate!
             vc.reservation.endDate = self.theSelectedDate!
-            vc.reservation = self.reservation
             vc.userEditing = self.userEditing       // <-----------
+            vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
     }

@@ -141,9 +141,10 @@ class ReservationDataController{
         request.httpMethod  =       "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
         let startDate = Date()
         let endDate = Calendar.current.date(byAdding: .day, value: 30, to: startDate) ?? Date()
+        print("SD\(dateFormatterGet.string(from: startDate)) , ED\(dateFormatterGet.string(from: endDate))")
         let body: [String: AnyHashable] =   [
             "jwt"       :       String(defaults.object(forKey: "userJWT") as! String),
             "startDate" :       dateFormatterGet.string(from: startDate),
@@ -158,6 +159,7 @@ class ReservationDataController{
             }
             do{
                let response = try JSONDecoder().decode([TimeRanges].self, from: data)
+                print("THE RESPONSE: \(response)")
                completion(response)
             } catch{
                 print(error)
@@ -316,7 +318,7 @@ struct RoomObject: Codable{
     let description: String!
     let location: String!
     let capacity: Int!
-    let totalWeight: Int!
+    let totalWeight: Double!
     let maxDays: Int!
 }
 

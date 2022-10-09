@@ -81,6 +81,7 @@ class ObjectDescriptionViewController: UIViewController {
                 //vc.modalTransitionStyle = .crossDissolve
                 vc.modalPresentationStyle = .fullScreen
                 vc.reservation = self.reservation
+                vc.userEditing = false
                 vc.reservation.theTypeOfObject = self.theTypeOfObject
                 self.present(vc, animated: true, completion: nil)
             }
@@ -99,6 +100,7 @@ class ObjectDescriptionViewController: UIViewController {
                      //let vc = DateSelectionViewController()
                      //vc.modalTransitionStyle = .crossDissolve
                      vc.modalPresentationStyle = .fullScreen
+                     vc.userEditing = false
                      vc.reservation = self.reservation
                      vc.reservation.theTypeOfObject = self.theTypeOfObject
                      self.present(vc, animated: true, completion: nil)
@@ -108,6 +110,7 @@ class ObjectDescriptionViewController: UIViewController {
                      let vc = self.storyboard?.instantiateViewController(withIdentifier: "twoDatesSelectionViewController") as! twoDatesSelectionViewController
                      //vc.modalTransitionStyle = .crossDissolve
                      vc.modalPresentationStyle = .fullScreen
+                     vc.userEditing = false
                      vc.reservation = self.reservation
                      vc.reservation.theTypeOfObject = self.theTypeOfObject
                      vc.reservation.multipleDays = true

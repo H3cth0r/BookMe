@@ -49,6 +49,7 @@ class HourSelectionViewController: UIViewController {
             }else{
                 theObjId = self.reservation.roomObject.generalObjectID
             }
+            print("THE DATE \(self.reservation.startDate)")
             await reservationDataController.getTimeRanges(theDate: self.reservation.startDate, objID: theObjId,completion: { result in
                 let dateFormatterGetHour = DateFormatter()
                 dateFormatterGetHour.dateFormat = "HH"
@@ -80,15 +81,16 @@ class HourSelectionViewController: UIViewController {
                             occu = true
                         }
                         
-                        sdat = normalFormatDate.date(from: self.reservation.recivedTicket.startDate) ?? Date()
-                        stringDateHandler = dateFormatterReader.string(from: sdat)
-                        sdat = dateFormatterReader.date(from: stringDateHandler) ?? Date()
-                        
-                        edat = normalFormatDate.date(from: self.reservation.recivedTicket.endDate) ?? Date()
-                        stringDateHandler = dateFormatterReader.string(from: edat)
-                        edat = dateFormatterReader.date(from: stringDateHandler) ?? Date()
+
                         
                         if(self.userEditing && startDate ?? Date() >= sdat && startDate ?? Date() <= edat){
+                            sdat = normalFormatDate.date(from: self.reservation.recivedTicket.startDate) ?? Date()
+                            stringDateHandler = dateFormatterReader.string(from: sdat)
+                            sdat = dateFormatterReader.date(from: stringDateHandler) ?? Date()
+                            
+                            edat = normalFormatDate.date(from: self.reservation.recivedTicket.endDate) ?? Date()
+                            stringDateHandler = dateFormatterReader.string(from: edat)
+                            edat = dateFormatterReader.date(from: stringDateHandler) ?? Date()
                             print("YESSSSSSSSSS")
                             occu = false
                             selected = true
