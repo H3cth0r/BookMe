@@ -29,25 +29,44 @@ class VerifyViewController: UIViewController {
             self.vwContainer.fadeIn()
         }
         
-        // To Main Menu after some time
         
-        if commingFromAccountConfig{
-            vwContainer.fadeOut()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
-                //vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
-            }
-        } else{
-            vwContainer.fadeOut()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
-                //vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
-            }
+        // fetch user data
+        let userDataController = userAccountDataController()
+        let userDefaults = UserDefaults.standard
+        let username: String = userDefaults.object(forKey: "username") as! String
+        let hpass: String = userDefaults.object(forKey: "hashPassword") as! String
+        
+        Task{
+            await userDataController.fetchUserAccountData(username_t:username, hashPassword_t:hpass, completion: {result in
+                if(result){
+                    print("Succesfull log")
+                }else{
+                    print("Error on log")
+                }
+                DispatchQueue.main.async {
+                    // To Main Menu after some time
+                    
+                    if self.commingFromAccountConfig{
+                        self.vwContainer.fadeOut()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
+                            //vc.modalTransitionStyle = .crossDissolve
+                            vc.modalPresentationStyle = .fullScreen
+                            self.present(vc, animated: true, completion: nil)
+                        }
+                    } else{
+                        self.vwContainer.fadeOut()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
+                            //vc.modalTransitionStyle = .crossDissolve
+                            vc.modalPresentationStyle = .fullScreen
+                            self.present(vc, animated: true, completion: nil)
+                        }
+                    }
+                }
+            })
         }
+
     }
     
     

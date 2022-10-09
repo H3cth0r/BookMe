@@ -12,6 +12,20 @@ class loginOrRegisterVController: UIViewController {
     @IBOutlet var vwContainer: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let userDafaults = UserDefaults.standard
+        
+        if isKeyPresentInUserDefaults(key: "userJWT"){
+            if userDafaults.value(forKey: "userJWT") as! String != "none"{
+                vwContainer.fadeOut()
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
+                    //vc.modalTransitionStyle = .crossDissolve
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }
+        }
 
         // Do any additional setup after loading the view.
         vwContainer.alpha = 0.0
@@ -53,6 +67,9 @@ class loginOrRegisterVController: UIViewController {
         }
     }
     
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
 
     /*
     // MARK: - Navigation

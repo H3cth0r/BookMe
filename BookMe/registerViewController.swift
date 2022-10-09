@@ -65,15 +65,6 @@ class registerViewController: UIViewController {
                     }
                 })
             }
-            /*
-            vwContainer.fadeOut()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyViewController") as! VerifyViewController
-                //vc.modalTransitionStyle = .crossDissolve
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
-            }
-             */
         }
     }
     

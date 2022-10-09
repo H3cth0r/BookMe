@@ -29,6 +29,7 @@ class MainMenuViewController: UIViewController {
         super.viewDidLoad()
         
         // run task to run all user data
+        /*
         let userDataController = userAccountDataController()
         let userDefaults = UserDefaults.standard
         let username: String = userDefaults.object(forKey: "username") as! String
@@ -42,6 +43,7 @@ class MainMenuViewController: UIViewController {
                 }
             })
         }
+         */
         
         Task{
             let reservationDataController = ReservationDataController()
