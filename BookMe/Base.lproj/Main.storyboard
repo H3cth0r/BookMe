@@ -2524,6 +2524,7 @@ RESERVATION:</string>
                         <outlet property="birthTextInput" destination="nSO-GP-VBF" id="2i6-BY-snk"/>
                         <outlet property="birthTextInputLabel" destination="NqR-hY-OdS" id="OSV-Pe-osC"/>
                         <outlet property="confirmChangesView" destination="c11-2o-Voh" id="7GS-ie-qhW"/>
+                        <outlet property="inputPasswordVerification" destination="Yf2-nV-jMo" id="XpC-tf-iIz"/>
                         <outlet property="labelTextInputLabel" destination="G83-cI-1Gd" id="Smf-Ci-fqd"/>
                         <outlet property="mailTextInput" destination="2yH-0B-wzK" id="QOg-l7-3ul"/>
                         <outlet property="mailinputspace" destination="2yH-0B-wzK" id="qgY-eY-idj"/>

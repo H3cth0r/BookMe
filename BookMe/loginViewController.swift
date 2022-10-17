@@ -132,6 +132,14 @@ class loginViewController: UIViewController {
                 await userDataController.registerNewUser(firstName_t: nameTextInput.text ?? "", lastName_t: surnameTextInput.text ?? "", username_t: usernameTextInput.text ?? "",birthDate_t: (birthTextInput.text ?? "") + " 14:00:00.000000", organization_t: organizationTextInput.text ?? "", mail_t: mailTextInput.text ?? "", ocupation_t: occupationTextInput.text ?? "", countryId_t: countryTextInput.text ?? "", password_t: passwordOneTextInput.text ?? "", completion: {result in
                     if(result){
                         print("registered")
+                        
+                        let str: String = self.passwordOneTextInput.text ?? ""
+                        let hashedP = ccSha256(data: str.data(using: .utf8)!)
+                        let thePassword = String(hashedP.map{ String(format: "%02hhx", $0) }.joined())
+                        
+                        let defaults = UserDefaults.standard
+                        defaults.set(self.usernameTextInput.text, forKey: "username")
+                        defaults.set(thePassword,           forKey: "hashPassword")
                         self.vwContainer.fadeOut()
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyViewController") as! VerifyViewController

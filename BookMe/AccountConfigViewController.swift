@@ -42,6 +42,9 @@ class AccountConfigViewController: UIViewController {
     var oldPasswordOneText: String!
     var oldPassqoesTwoText: String!
     
+    // password for verification
+    @IBOutlet weak var inputPasswordVerification: UITextField!
+    
     
     @IBOutlet weak var confirmChangesView: UIView!
     
@@ -52,10 +55,60 @@ class AccountConfigViewController: UIViewController {
     // user profile photo image outlet
     @IBOutlet weak var userProfilePhoto: UIImageView!
     
+    // Bool for checking if user is chaning profile picture
+    var changedProfilePicture = false
+    
+    
     var editingSomeTextInput = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // creaating task to fetch current saved user data and apply
+        // data to the input views
+        Task{
+            let userAccountDataController = userAccountDataController()
+            let defaults = UserDefaults.standard
+            let username_t = defaults.object(forKey: "username") as! String
+            let hashpwd_t = defaults.object(forKey: "userHashPassword") as! String
+            print(username_t)
+            print(hashpwd_t)
+            await userAccountDataController.fetchUserAccountData(username_t: username_t as! String, hashPassword_t: hashpwd_t as! String, completion: { result in
+                
+                let defaults                = UserDefaults.standard
+                self.oldNameText            = defaults.object(forKey: "userFirstName")  as? String
+                self.oldSurnameText         = defaults.object(forKey: "userLastName")   as? String
+                self.oldUsernameText        = defaults.object(forKey: "username")       as? String
+                self.oldBirthText           = defaults.object(forKey: "birthDate")      as? String
+                self.oldOrganizationText    = defaults.object(forKey: "organization")   as? String
+                self.oldMailText            = defaults.object(forKey: "userEmail")      as? String
+                self.oldPasswordOneText     = ""
+                self.oldPassqoesTwoText     = ""
+                DispatchQueue.main.async {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    let dateFormatterRead = DateFormatter()
+                    dateFormatterRead.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+                    let formatedDate = dateFormatterRead.date(from: self.oldBirthText)
+                    
+                    // profile picture
+                    let pfp = defaults.object(forKey: "pfp") as? String
+                    let dataDecoded : Data = Data(base64Encoded: pfp!, options: .ignoreUnknownCharacters)!
+                    let decodedimage = UIImage(data: dataDecoded)
+                    self.userProfilePhoto.image = decodedimage
+                    
+                    self.nameTextInput.text         = self.oldNameText
+                    self.surnameTextInput.text      = self.oldSurnameText
+                    self.usernameTextInput.text     = self.oldUsernameText
+                    self.birthTextInput.text        = dateFormatter.string(from: formatedDate!)
+                    self.organizationTextInput.text = self.oldOrganizationText
+                    self.mailTextInput.text         = self.oldMailText
+                    
+                    self.setOldValues()
+                }
+            })
+            
+        }
         
         // creating date picker
         let datePicker = UIDatePicker()
@@ -142,6 +195,34 @@ class AccountConfigViewController: UIViewController {
         
     }
     @IBAction func saveDataButton(_ sender: Any) {
+        
+        
+        // first must login, with the old password
+        Task{
+            let userDataController = userAccountDataController()
+            let username_t = UserDefaults.standard.object(forKey: "username")
+            
+            let str: String = self.inputPasswordVerification.text ?? ""
+            let hashedP = ccSha256(data: str.data(using: .utf8)!)
+            let thePassword = String(hashedP.map{ String(format: "%02hhx", $0) }.joined())
+            
+            await userDataController.loginWithCredentials(username_t: username_t as! String, hashPassword_t: thePassword, completion: {result in
+                
+                print(result)
+                if !result{
+                    return
+                }else{
+                    DispatchQueue.main.async {
+                        
+                        self.registerTheNewData()
+                    }
+                }
+                
+            })
+        }
+        
+        
+        /*
         self.view.endEditing(true)
         editingSomeTextInput = false
         confirmChangesView.isHidden = true
@@ -154,7 +235,62 @@ class AccountConfigViewController: UIViewController {
                 self.present(vc, animated: true, completion: nil)
             }
         }
+         */
     }
+    
+    func registerTheNewData(){
+        Task{
+            let userDataController  = userAccountDataController()
+            let defaults            = UserDefaults.standard
+            let jwt_t               = defaults.object(forKey: "userJWT")  as! String
+            let hashp_t             = defaults.object(forKey: "userHashPassword") as! String
+            let firstName_t         = self.nameTextInput.text
+            let lastName_t          = self.surnameTextInput.text
+            let username_t          = self.usernameTextInput.text
+            let birthDate_t         = self.birthTextInput.text! + " 00:00:00.000"
+            let organization_t      = self.organizationTextInput.text
+            let email_t             = self.mailTextInput.text
+            let newHashPassword     = self.passwordOneTextInput.text
+            let imageData           = userProfilePhoto.image?.jpegData(compressionQuality: 1)
+            let imageBase64String = imageData?.base64EncodedString()
+            let pfp_t               = imageBase64String as! String
+            
+            
+            await userDataController.saveNewData(jwt_t: jwt_t, oldHashPassword_t: hashp_t, firstName_t: firstName_t!, lastName_t: lastName_t!, username_t: username_t!, birthDate_t: birthDate_t, organization_t: organization_t!, email_t: email_t!, hashPassword_t: newHashPassword!, pfp_t: pfp_t, completion: {result in
+                print("SAVED? \(result)")
+                
+                    
+                    // present verify screen
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                        
+                        if self.oldMailText != self.mailTextInput.text{
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyViewController") as! VerifyViewController
+                            vc.modalPresentationStyle = .fullScreen
+                            vc.commingFromAccountConfig = true
+                            self.present(vc, animated: true, completion: nil)
+                        }
+                        
+                        self.oldNameText            = self.nameTextInput.text
+                        self.oldSurnameText         = self.surnameTextInput.text
+                        self.oldUsernameText        = self.usernameTextInput.text
+                        self.oldBirthText           = self.birthTextInput.text
+                        self.oldOrganizationText    = self.organizationTextInput.text
+                        self.oldMailText            = self.mailTextInput.text
+                        
+                        // hide confirmation view
+                        self.confirmChangesView.isHidden = true
+                        
+                        // change profile picture = false
+                        self.changedProfilePicture = false
+                        
+                    }
+
+                
+            })
+        }
+    }
+    
+    
     @IBAction func cancelChangesButton(_ sender: Any) {
         confirmChangesView.isHidden = true
     }
@@ -171,7 +307,7 @@ class AccountConfigViewController: UIViewController {
     }
     
     func thereAreChanges()->Bool{
-        if(nameTextInput.text != oldNameText || surnameTextInput.text != oldSurnameText || usernameTextInput.text != oldUsernameText || birthTextInput.text != oldBirthText || organizationTextInput.text != oldOrganizationText || mailinputspace.text != oldMailText || passwordOneTextInput.text != oldPasswordOneText || passwordTwoTextInput.text != oldPassqoesTwoText){
+        if(nameTextInput.text != oldNameText || surnameTextInput.text != oldSurnameText || usernameTextInput.text != oldUsernameText || birthTextInput.text != oldBirthText || organizationTextInput.text != oldOrganizationText || mailinputspace.text != oldMailText || passwordOneTextInput.text != oldPasswordOneText || passwordTwoTextInput.text != oldPassqoesTwoText || self.changedProfilePicture == true){
             return true
         }
         return false
@@ -295,6 +431,9 @@ class AccountConfigViewController: UIViewController {
             let cameraImagePicker = self.imagePicker(sourceType: .camera)
             cameraImagePicker.delegate = self
             self.present(cameraImagePicker, animated: true)
+            
+            // The user is maing a change in his profile picture
+            self.changedProfilePicture = true
         }
         
         // Image picker for camera
@@ -305,6 +444,9 @@ class AccountConfigViewController: UIViewController {
             let libraryImagePicker = self.imagePicker(sourceType: .photoLibrary)    // <<<<<<<<<<<<<<<
             libraryImagePicker.delegate = self
             self.present(libraryImagePicker, animated: true)
+            
+            // The user is maing a change in his profile picture
+            self.changedProfilePicture = true
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

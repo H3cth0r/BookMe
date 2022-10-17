@@ -16,10 +16,10 @@ enum UserAccountDataError: Error, LocalizedError{
 
 
 class userAccountDataController{
-    let loginURL             =   URL(string: "http://127.0.0.1:5000/app/api/login")!
-    let registerURL          =   URL(string: "http://127.0.0.1:5000/app/api/register")!
-    let verifyURL            =   URL(string: "http://127.0.0.1:5000/app/api/verifyNewUserData")!
-    let changeDataURL        =   URL(string: "http://127.0.0.1:5000/app/api/changeUserData")!
+    let loginURL             =   URL(string: "http://10.48.219.224:2000/app/api/login")!
+    let registerURL          =   URL(string: "http://10.48.219.224:2000/app/api/register")!
+    let verifyURL            =   URL(string: "http://10.48.219.224:2000/app/api/verifyNewUserData")!
+    let changeDataURL        =   URL(string: "http://10.48.219.224:2000/app/api/changeUserData")!
     
     var firstName           :   String!
     var lastName            :   String!
@@ -66,6 +66,10 @@ class userAccountDataController{
     func loginWithCredentials(username_t: String, hashPassword_t: String, completion: @escaping (Bool)->Void) async{
         // request from base URL
         var request         =   URLRequest(url: self.loginURL)
+        
+        let defaults = UserDefaults.standard
+        defaults.set(String(username_t),                forKey: "username")
+        defaults.set(String(hashPassword_t),            forKey: "userHashPassword")
         
         // Method body headers
         request.httpMethod  = "POST"
@@ -120,7 +124,10 @@ class userAccountDataController{
             do{
                 //let response = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
                 let responseTwo = try JSONDecoder().decode(UserDataResponse.self, from: data)
-                print(responseTwo)
+                if responseTwo.authorized == false{
+                    print("looOOOOOP4")
+                    return
+                }
                 
                 let jwtVerifier = JWTVerifier.hs256(key: Data("BooKMeIsCool".utf8))
                 let jwtDecoder = JWTDecoder(jwtVerifier: jwtVerifier)
@@ -133,11 +140,17 @@ class userAccountDataController{
                 defaults.set(String(responseTwo.jwt),                   forKey: "userJWT")
                 defaults.set(String(jwt.claims.firstName),              forKey: "userFirstName")
                 defaults.set(String(jwt.claims.lastName),               forKey: "userLastName")
+                defaults.set(String(jwt.claims.username),               forKey: "username")
                 defaults.set(String(jwt.claims.email),                  forKey: "userEmail")
-                defaults.set(Int(jwt.claims.id ?? 1),                   forKey: "userId")
-                defaults.set(String(jwt.claims.hashPassword ?? "sdfsf"),forKey: "userHashPassword")
+                defaults.set(Int(   jwt.claims.id ?? 1),                forKey: "userId")
+                defaults.set(String(jwt.claims.birthDate),              forKey: "birthDate")
+                defaults.set(String(jwt.claims.organization),           forKey: "organization")
+                //defaults.set(String(jwt.claims.hashPassword),           forKey: "userHashPassword")
                 defaults.set(Int(   jwt.claims.admin),                  forKey: "userIsAdmin")
                 defaults.set(Int(   jwt.claims.blocked),                forKey: "userIsBlocked")
+                
+                // set base 64 img
+                defaults.set(String(responseTwo.pfp), forKey: "pfp")
                 
                 if defaults.object(forKey: "userFirstName") != nil{
                     print(defaults.object(forKey: "userFirstName") as! String)
@@ -218,10 +231,21 @@ class userAccountDataController{
         task.resume()
     }
     
-    func saveNewData(jwt_t: String, oldHashPassword_t: String, firstName_t: String, lastName_t: String, username_t: String, birthDate_t: String, organization_t: String, email_t: String, hashPassword_t: String) async{
+    func saveNewData(jwt_t: String, oldHashPassword_t: String, firstName_t: String, lastName_t: String, username_t: String, birthDate_t: String, organization_t: String, email_t: String, hashPassword_t: String, pfp_t: String, completion: @escaping (Bool)->Void) async{
         var request         =       URLRequest(url: self.changeDataURL)
         request.httpMethod  = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        var resultPassword = hashPassword_t
+        
+        if hashPassword_t != ""{
+            let str: String = hashPassword_t
+            let hashedP = ccSha256(data: str.data(using: .utf8)!)
+            let thePassword = String(hashedP.map{ String(format: "%02hhx", $0) }.joined())
+            resultPassword = thePassword
+            let defaults = UserDefaults.standard
+            defaults.set(resultPassword, forKey: "userHashPassword")
+        }
         
         let defaults    =   UserDefaults.standard
         let body: [String: AnyHashable] = [
@@ -233,7 +257,8 @@ class userAccountDataController{
             "birthDate"         :   birthDate_t,
             "organization"      :   organization_t,
             "email"             :   email_t,
-            "hashPassword"      :   hashPassword_t
+            "hashPassword"      :   resultPassword,
+            "pfp"               :   pfp_t
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         
@@ -245,8 +270,10 @@ class userAccountDataController{
             do{
                let response = try JSONDecoder().decode(UserDataChangedResponse.self, from: data)
                 print(response)
+                completion(true)
             } catch{
                 print(error)
+                completion(false)
             }
         }
         task.resume()
@@ -258,13 +285,15 @@ class userAccountDataController{
 
 struct UserDataDecoded: Claims{
     let id: Int!
-    //let username: String!
+    let username: String!
     let email: String!
     let firstName: String!
     let lastName: String!
     let hashPassword: String!
     let admin: Int!
     let blocked: Int!
+    let birthDate: String!
+    let organization: String!
 }
 
 
@@ -272,6 +301,7 @@ struct UserDataResponse: Codable{
     let authorized: Bool!
     let errorId: Int!
     let jwt: String!
+    let pfp: String!
 }
 
 struct UserDataRegistrationResponse: Codable{

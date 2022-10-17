@@ -9,15 +9,15 @@ import Foundation
 
 class ReservationDataController{
     
-    let getHardwareURL          =       URL(string: "http://127.0.0.1:5000/app/api/getHardware")!
-    let getSoftwareURL          =       URL(string: "http://127.0.0.1:5000/app/api/getSoftware")!
-    let getRoomsURL             =       URL(string: "http://127.0.0.1:5000/app/api/getRooms")!
-    let getTimeRangesURL        =       URL(string: "http://127.0.0.1:5000/app/api/getTimeRanges")!
-    let getTicketsURL           =       URL(string: "http://127.0.0.1:5000/app/api/getTickets")!
-    let getTicketURL            =       URL(string: "http://127.0.0.1:5000/app/api/getTicket")!
-    let newTickerURL            =       URL(string: "http://127.0.0.1:5000/app/api/newTicket")!
-    let deleteTicket            =       URL(string: "http://127.0.0.1:5000/app/api/deleteTicket")!
-    let getTimeRangesForDaysURL =       URL(string: "http://127.0.0.1:5000/app/api/getTimeRangesForDays")!
+    let getHardwareURL          =       URL(string: "http://10.48.219.224:2000/app/api/getHardware")!
+    let getSoftwareURL          =       URL(string: "http://10.48.219.224:2000/app/api/getSoftware")!
+    let getRoomsURL             =       URL(string: "http://10.48.219.224:2000/app/api/getRooms")!
+    let getTimeRangesURL        =       URL(string: "http://10.48.219.224:2000/app/api/getTimeRanges")!
+    let getTicketsURL           =       URL(string: "http://10.48.219.224:2000/app/api/getTickets")!
+    let getTicketURL            =       URL(string: "http://10.48.219.224:2000/app/api/getTicket")!
+    let newTickerURL            =       URL(string: "http://10.48.219.224:2000/app/api/newTicket")!
+    let deleteTicket            =       URL(string: "http://10.48.219.224:2000/app/api/deleteTicket")!
+    let getTimeRangesForDaysURL =       URL(string: "http://10.48.219.224:2000/app/api/getTimeRangesForDays")!
     
     
     func getHardwareObjects(completion: @escaping ([HardwareObject])->Void) async{

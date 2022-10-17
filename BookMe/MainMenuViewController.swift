@@ -50,7 +50,13 @@ class MainMenuViewController: UIViewController {
             await reservationDataController.getTickets(completion: { result in
                 let dateFormatterRead = DateFormatter()
                 dateFormatterRead.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
-                var closestDate = result[0]
+                var closestDate = TicketInList(endDate: "none", objectName: "none", objectType: "none", startDate: "none", ticketId: 0)
+                if result.count > 0{
+                    closestDate = result[0]
+                }
+                else{
+                    return
+                }
                 for i in result{
                     if dateFormatterRead.date(from: String(i.startDate)) ?? Date() < dateFormatterRead.date(from: String(closestDate.startDate)) ?? Date(){
                         closestDate = i

@@ -66,14 +66,14 @@ class SlideMenuViewController: UIViewController {
     @IBAction func LogOutButton(_ sender: Any) {
         
         let userDafaults = UserDefaults.standard
-        userDafaults.set(0, forKey: "userIsBlocked")
-        userDafaults.set("", forKey: "userFirstName")
-        userDafaults.set("", forKey: "userEmail")
-        userDafaults.set("none", forKey: "userJWT")
-        userDafaults.set("", forKey: "username")
-        userDafaults.set("", forKey: "userLastName")
-        userDafaults.set("", forKey: "hashPassword")
-        userDafaults.set("", forKey: "userIsAdmin")
+        userDafaults.set(0,         forKey: "userIsBlocked")
+        userDafaults.set("",        forKey: "userFirstName")
+        userDafaults.set("",        forKey: "userEmail")
+        userDafaults.set("none",    forKey: "userJWT")
+        userDafaults.set("",        forKey: "username")
+        userDafaults.set("",        forKey: "userLastName")
+        userDafaults.set("",        forKey: "userHashPassword")
+        userDafaults.set("",        forKey: "userIsAdmin")
         vwContainer.fadeOut()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ReserveOrMoreInfoViewController") as! ReserveOrMoreInfoViewController

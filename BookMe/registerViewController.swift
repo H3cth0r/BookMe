@@ -47,7 +47,7 @@ class registerViewController: UIViewController {
             // save user and password to defaults, to be used in verify
             let defaults = UserDefaults.standard
             defaults.set(self.usernameOrMailInputField.text, forKey: "username")
-            defaults.set(thePassword,           forKey: "hashPassword")
+            defaults.set(thePassword,           forKey: "userHashPassword")
             
             Task{
                 await userDataController.loginWithCredentials(username_t: usernameOrMailInputField.text ?? "", hashPassword_t: thePassword, completion: {result in
@@ -57,6 +57,7 @@ class registerViewController: UIViewController {
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyViewController") as! VerifyViewController
                             //vc.modalTransitionStyle = .crossDissolve
                             vc.modalPresentationStyle = .fullScreen
+                            vc.commingFromLogin = true
                             self.present(vc, animated: true, completion: nil)
                         }
                         //self.something = "pisis"
