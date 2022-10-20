@@ -20,6 +20,8 @@ class registerViewController: UIViewController {
     @IBOutlet weak var usernameOrMailInputFieldLabel: UILabel!
     @IBOutlet weak var passwordInputFieldLabel: UILabel!
     
+    var isLogingWithEmail = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,29 +40,34 @@ class registerViewController: UIViewController {
         let str: String = passwordInputField.text ?? ""
         let hashedP = ccSha256(data: str.data(using: .utf8)!)
         let thePassword = String(hashedP.map{ String(format: "%02hhx", $0) }.joined())
-        //var res: (Bool?)->Void
         
 
         // if(validateInputFields())
-        if(true){
+        if(validateInputFields()){
             
             // save user and password to defaults, to be used in verify
             let defaults = UserDefaults.standard
-            defaults.set(self.usernameOrMailInputField.text, forKey: "username")
+            if !isLogingWithEmail{
+                defaults.set(self.usernameOrMailInputField.text, forKey: "username")
+                defaults.set(false, forKey: "loggedWithEmail")
+            } else{
+                defaults.set(self.usernameOrMailInputField.text, forKey: "userEmail")
+                defaults.set(true, forKey: "loggedWithEmail")
+            }
             defaults.set(thePassword,           forKey: "userHashPassword")
             
             Task{
                 await userDataController.loginWithCredentials(username_t: usernameOrMailInputField.text ?? "", hashPassword_t: thePassword, completion: {result in
                     if(result){
-                        print("we did it")
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyViewController") as! VerifyViewController
                             //vc.modalTransitionStyle = .crossDissolve
                             vc.modalPresentationStyle = .fullScreen
                             vc.commingFromLogin = true
+                            vc.commingFromAccountConfig = false
                             self.present(vc, animated: true, completion: nil)
                         }
-                        //self.something = "pisis"
                     }else{
                         print("not nice")
                     }
@@ -87,18 +94,23 @@ class registerViewController: UIViewController {
         var allOk = true
         if(isValidEmail(usernameOrMailInputField.text ?? "Pepo117@tec.mx")){
             usernameOrMailInputFieldLabel.textColor = .white
+            isLogingWithEmail = true
         } else{
             usernameOrMailInputFieldLabel.textColor = .red
             allOk = false
             if(isValidUsername(usernameOrMailInputField.text ?? "Pepo117")){
                 usernameOrMailInputFieldLabel.textColor = .white
+                isLogingWithEmail = false
                 allOk = true
+            }else{
+                makeAlert(sms: "Wrong mail / username.")
             }
         }
         
         if(!isValidPassword(password: passwordInputField.text ?? "p")){
             allOk = false
             passwordInputFieldLabel.textColor = .red
+            makeAlert(sms: "Wrong password.")
         } else {
             passwordInputFieldLabel.textColor = .white
         }
@@ -127,6 +139,23 @@ class registerViewController: UIViewController {
         return passwordTest.evaluate(with: password)
     }
     
+    func makeAlert(sms: String){
+        
+        // Create new Alert
+         let dialogMessage = UIAlertController(title: "Fix", message: "\(sms)", preferredStyle: .alert)
+         
+         // Create OK button with action handler
+         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+             print("Ok button tapped")
+          })
+         
+         //Add OK button to a dialog message
+         dialogMessage.addAction(ok)
+
+         // Present Alert to
+         self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -136,5 +165,7 @@ class registerViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
 
 }
+

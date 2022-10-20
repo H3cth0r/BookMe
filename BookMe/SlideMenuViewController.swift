@@ -74,6 +74,7 @@ class SlideMenuViewController: UIViewController {
         userDafaults.set("",        forKey: "userLastName")
         userDafaults.set("",        forKey: "userHashPassword")
         userDafaults.set("",        forKey: "userIsAdmin")
+        userDafaults.set("",        forKey: "loggedWithEmail")
         vwContainer.fadeOut()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ReserveOrMoreInfoViewController") as! ReserveOrMoreInfoViewController

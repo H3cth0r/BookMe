@@ -40,6 +40,7 @@
 		A45FD90D28BC5C2100E7D788 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45FD90B28BC5C2100E7D788 /* Main.storyboard */; };
 		A45FD90F28BC5C2400E7D788 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45FD90E28BC5C2400E7D788 /* Assets.xcassets */; };
 		A45FD91228BC5C2400E7D788 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45FD91028BC5C2400E7D788 /* LaunchScreen.storyboard */; };
+		A48838AA28FFD985002A41B0 /* BookMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48838A928FFD985002A41B0 /* BookMeTests.swift */; };
 		A49159CD28BFE2C1006DF136 /* Chivo-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A49159C528BFE2C1006DF136 /* Chivo-LightItalic.ttf */; };
 		A49159CE28BFE2C1006DF136 /* Chivo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A49159C628BFE2C1006DF136 /* Chivo-Bold.ttf */; };
 		A49159CF28BFE2C1006DF136 /* Chivo-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A49159C728BFE2C1006DF136 /* Chivo-Italic.ttf */; };
@@ -60,6 +61,16 @@
 		A4DB750D28C2A66800C19228 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB750C28C2A66800C19228 /* SlideMenuViewController.swift */; };
 		A4DCE58528EA745D0029C6E2 /* SwiftJWT in Frameworks */ = {isa = PBXBuildFile; productRef = A4DCE58428EA745D0029C6E2 /* SwiftJWT */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A48838AB28FFD985002A41B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A45FD8FA28BC5C2100E7D788 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A45FD90128BC5C2100E7D788;
+			remoteInfo = BookMe;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A4086B3A28DFEBC900CFEFCF /* HourPickerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourPickerRowView.swift; sourceTree = "<group>"; };
@@ -97,6 +108,8 @@
 		A45FD90E28BC5C2400E7D788 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A45FD91128BC5C2400E7D788 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A45FD91328BC5C2400E7D788 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A48838A728FFD985002A41B0 /* BookMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A48838A928FFD985002A41B0 /* BookMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMeTests.swift; sourceTree = "<group>"; };
 		A49159C528BFE2C1006DF136 /* Chivo-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chivo-LightItalic.ttf"; sourceTree = "<group>"; };
 		A49159C628BFE2C1006DF136 /* Chivo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chivo-Bold.ttf"; sourceTree = "<group>"; };
 		A49159C728BFE2C1006DF136 /* Chivo-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Chivo-Italic.ttf"; sourceTree = "<group>"; };
@@ -126,6 +139,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A48838A428FFD985002A41B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -133,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				A45FD90428BC5C2100E7D788 /* BookMe */,
+				A48838A828FFD985002A41B0 /* BookMeTests */,
 				A45FD90328BC5C2100E7D788 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -141,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				A45FD90228BC5C2100E7D788 /* BookMe.app */,
+				A48838A728FFD985002A41B0 /* BookMeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,6 +219,14 @@
 			path = BookMe;
 			sourceTree = "<group>";
 		};
+		A48838A828FFD985002A41B0 /* BookMeTests */ = {
+			isa = PBXGroup;
+			children = (
+				A48838A928FFD985002A41B0 /* BookMeTests.swift */,
+			);
+			path = BookMeTests;
+			sourceTree = "<group>";
+		};
 		A49159C428BFE2C1006DF136 /* Chivo */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +265,24 @@
 			productReference = A45FD90228BC5C2100E7D788 /* BookMe.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A48838A628FFD985002A41B0 /* BookMeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A48838AD28FFD985002A41B0 /* Build configuration list for PBXNativeTarget "BookMeTests" */;
+			buildPhases = (
+				A48838A328FFD985002A41B0 /* Sources */,
+				A48838A428FFD985002A41B0 /* Frameworks */,
+				A48838A528FFD985002A41B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A48838AC28FFD985002A41B0 /* PBXTargetDependency */,
+			);
+			name = BookMeTests;
+			productName = BookMeTests;
+			productReference = A48838A728FFD985002A41B0 /* BookMeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -247,6 +295,10 @@
 				TargetAttributes = {
 					A45FD90128BC5C2100E7D788 = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					A48838A628FFD985002A41B0 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = A45FD90128BC5C2100E7D788;
 					};
 				};
 			};
@@ -267,6 +319,7 @@
 			projectRoot = "";
 			targets = (
 				A45FD90128BC5C2100E7D788 /* BookMe */,
+				A48838A628FFD985002A41B0 /* BookMeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -287,6 +340,13 @@
 				A45FD90D28BC5C2100E7D788 /* Main.storyboard in Resources */,
 				A49159D228BFE2C1006DF136 /* Chivo-BlackItalic.ttf in Resources */,
 				A49159D428BFE2C1006DF136 /* Chivo-Black.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A48838A528FFD985002A41B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +400,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A48838A328FFD985002A41B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A48838AA28FFD985002A41B0 /* BookMeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A48838AC28FFD985002A41B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A45FD90128BC5C2100E7D788 /* BookMe */;
+			targetProxy = A48838AB28FFD985002A41B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A45FD90B28BC5C2100E7D788 /* Main.storyboard */ = {
@@ -532,6 +608,42 @@
 			};
 			name = Release;
 		};
+		A48838AE28FFD985002A41B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C6NX9VRN3L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mx.A01658845.BookMeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookMe.app/BookMe";
+			};
+			name = Debug;
+		};
+		A48838AF28FFD985002A41B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C6NX9VRN3L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mx.A01658845.BookMeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookMe.app/BookMe";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -549,6 +661,15 @@
 			buildConfigurations = (
 				A45FD91728BC5C2400E7D788 /* Debug */,
 				A45FD91828BC5C2400E7D788 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A48838AD28FFD985002A41B0 /* Build configuration list for PBXNativeTarget "BookMeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A48838AE28FFD985002A41B0 /* Debug */,
+				A48838AF28FFD985002A41B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

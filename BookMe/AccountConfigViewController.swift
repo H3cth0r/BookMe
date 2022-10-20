@@ -69,10 +69,16 @@ class AccountConfigViewController: UIViewController {
         Task{
             let userAccountDataController = userAccountDataController()
             let defaults = UserDefaults.standard
-            let username_t = defaults.object(forKey: "username") as! String
+            let username_t: String!
+            let loggedWithEmail         = defaults.object(forKey: "loggedWithEmail") as! Bool
+            if !loggedWithEmail{
+                username_t             = defaults.object(forKey: "username") as? String
+            }else{
+                username_t            = defaults.object(forKey: "userEmail") as? String
+                print("USERNAME TTTTTT = \(username_t)")
+            }
+            
             let hashpwd_t = defaults.object(forKey: "userHashPassword") as! String
-            print(username_t)
-            print(hashpwd_t)
             await userAccountDataController.fetchUserAccountData(username_t: username_t as! String, hashPassword_t: hashpwd_t as! String, completion: { result in
                 
                 let defaults                = UserDefaults.standard
@@ -200,13 +206,23 @@ class AccountConfigViewController: UIViewController {
         // first must login, with the old password
         Task{
             let userDataController = userAccountDataController()
-            let username_t = UserDefaults.standard.object(forKey: "username")
+            let defaults = UserDefaults.standard
+            let username_t: String!
+            
+            let loggedWithEmail         = defaults.object(forKey: "loggedWithEmail") as! Bool
+            if !loggedWithEmail{
+                username_t             = defaults.object(forKey: "username") as? String
+            }else{
+                username_t            = defaults.object(forKey: "userEmail") as? String
+                print(loggedWithEmail)
+                print("username_t === \(username_t)")
+            }
             
             let str: String = self.inputPasswordVerification.text ?? ""
             let hashedP = ccSha256(data: str.data(using: .utf8)!)
             let thePassword = String(hashedP.map{ String(format: "%02hhx", $0) }.joined())
             
-            await userDataController.loginWithCredentials(username_t: username_t as! String, hashPassword_t: thePassword, completion: {result in
+            await userDataController.loginWithCredentials(username_t: username_t, hashPassword_t: thePassword, completion: {result in
                 
                 print(result)
                 if !result{

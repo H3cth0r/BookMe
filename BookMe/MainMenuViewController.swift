@@ -19,32 +19,21 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var nextReservationStartLabel: UILabel!
     @IBOutlet weak var nextReservationEndLabel: UILabel!
     
+    @IBOutlet weak var nextReservationOutlet: UIButton!
+    
     var nextReservation: Ticket!
     
     var closestReservationDate: TicketInList!
     
+    @IBOutlet weak var mainProfilePictureImage: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // run task to run all user data
-        /*
-        let userDataController = userAccountDataController()
-        let userDefaults = UserDefaults.standard
-        let username: String = userDefaults.object(forKey: "username") as! String
-        let hpass: String = userDefaults.object(forKey: "hashPassword") as! String
-        Task{
-            await userDataController.fetchUserAccountData(username_t:username, hashPassword_t:hpass, completion: {result in
-                if(result){
-                    print("Succesfull log")
-                }else{
-                    print("Error on log")
-                }
-            })
-        }
-         */
         
+        // Task for getting the current tickets
         Task{
             let reservationDataController = ReservationDataController()
             await reservationDataController.getTickets(completion: { result in
@@ -55,6 +44,10 @@ class MainMenuViewController: UIViewController {
                     closestDate = result[0]
                 }
                 else{
+                    DispatchQueue.main.async {
+                        self.nextReservationOutlet.backgroundColor = .white
+                        self.nextReservationOutlet.isUserInteractionEnabled = false
+                    }
                     return
                 }
                 for i in result{
@@ -79,6 +72,34 @@ class MainMenuViewController: UIViewController {
                 
 
             })
+        }
+        
+        Task{
+            let defaults = UserDefaults.standard
+            
+            let loggedWithEmail         = defaults.object(forKey: "loggedWithEmail") as! Bool
+            let username_t: String!
+            if !loggedWithEmail{
+                username_t             = defaults.object(forKey: "username") as? String
+            }else{
+                username_t            = defaults.object(forKey: "userEmail") as? String
+            }
+            
+            let hashpwd_t = defaults.object(forKey: "userHashPassword") as! String
+            let userDataController = userAccountDataController()
+            await userDataController.fetchUserAccountData(username_t: username_t, hashPassword_t: hashpwd_t, completion: { result in
+                
+                DispatchQueue.main.async {
+                    // profile picture
+                    let pfp = defaults.object(forKey: "pfp") as? String
+                    let dataDecoded : Data = Data(base64Encoded: pfp!, options: .ignoreUnknownCharacters)!
+                    let decodedimage = UIImage(data: dataDecoded)
+                    self.mainProfilePictureImage.contentMode = .scaleAspectFill
+                    self.mainProfilePictureImage.clipsToBounds = true
+                    self.mainProfilePictureImage.image = decodedimage
+                }
+            })
+         
         }
         
         

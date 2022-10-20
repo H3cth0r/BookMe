@@ -132,20 +132,25 @@ class loginViewController: UIViewController {
                 await userDataController.registerNewUser(firstName_t: nameTextInput.text ?? "", lastName_t: surnameTextInput.text ?? "", username_t: usernameTextInput.text ?? "",birthDate_t: (birthTextInput.text ?? "") + " 14:00:00.000000", organization_t: organizationTextInput.text ?? "", mail_t: mailTextInput.text ?? "", ocupation_t: occupationTextInput.text ?? "", countryId_t: countryTextInput.text ?? "", password_t: passwordOneTextInput.text ?? "", completion: {result in
                     if(result){
                         print("registered")
-                        
-                        let str: String = self.passwordOneTextInput.text ?? ""
-                        let hashedP = ccSha256(data: str.data(using: .utf8)!)
-                        let thePassword = String(hashedP.map{ String(format: "%02hhx", $0) }.joined())
-                        
                         let defaults = UserDefaults.standard
-                        defaults.set(self.usernameTextInput.text, forKey: "username")
-                        defaults.set(thePassword,           forKey: "hashPassword")
-                        self.vwContainer.fadeOut()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyViewController") as! VerifyViewController
-                            //vc.modalTransitionStyle = .crossDissolve
-                            vc.modalPresentationStyle = .fullScreen
-                            self.present(vc, animated: true, completion: nil)
+                        defaults.set(false, forKey: "loggedWithEmail")
+                        
+                        DispatchQueue.main.async {
+                            let str: String = self.passwordOneTextInput.text ?? ""
+                            let hashedP = ccSha256(data: str.data(using: .utf8)!)
+                            let thePassword = String(hashedP.map{ String(format: "%02hhx", $0) }.joined())
+                            
+                            let defaults = UserDefaults.standard
+                            defaults.set(self.usernameTextInput.text, forKey: "username")
+                            defaults.set(thePassword,           forKey: "hashPassword")
+                            self.vwContainer.fadeOut()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "VerifyViewController") as! VerifyViewController
+                                //vc.modalTransitionStyle = .crossDissolve
+                                vc.commingFromLogin = false
+                                vc.modalPresentationStyle = .fullScreen
+                                self.present(vc, animated: true, completion: nil)
+                            }
                         }
                     }else{
                         print("not registered bruh")
@@ -183,6 +188,7 @@ class loginViewController: UIViewController {
         if(!isValidName(nameTextInput.text ?? "Pepo")){
             allOk = false
             nameTextInputLabel.textColor = .red
+            makeAlert(sms: "Not valid name input.")
         } else {
             nameTextInputLabel.textColor = .white
         }
@@ -191,6 +197,7 @@ class loginViewController: UIViewController {
         if(!isValidName(surnameTextInput.text ?? "Smith")){
             allOk = false
             surnameTextInputLabel.textColor = .red
+            makeAlert(sms: "Not valid surname input.")
         } else {
             surnameTextInputLabel.textColor = .white
         }
@@ -199,6 +206,7 @@ class loginViewController: UIViewController {
         if(!isValidUsername(usernameTextInput.text ?? "Pepo117")){
             allOk = false
             usernameTextInputLabel.textColor = .red
+            makeAlert(sms: "Not valid username input.")
         }else {
             usernameTextInputLabel.textColor = .white
         }
@@ -207,6 +215,7 @@ class loginViewController: UIViewController {
         if(!isValidUsername(organizationTextInput.text ?? "Facebook")){
             allOk = false
             organizationTextInputLabel.textColor = .red
+            makeAlert(sms: "Not valid organization name input.")
         } else {
             organizationTextInputLabel.textColor = .white
         }
@@ -215,6 +224,7 @@ class loginViewController: UIViewController {
         if(!isValidEmail(mailTextInput.text ?? "elPepo@tec.mx")){
             allOk = false
             mailTextInputLabel.textColor = .red
+            makeAlert(sms: "Not valid mail input..")
         } else {
             mailTextInputLabel.textColor = .white
         }
@@ -223,6 +233,7 @@ class loginViewController: UIViewController {
         if(!isValidName(countryTextInput.text ?? "México")){
             allOk = false
             countryTextInputLabel.textColor = .red
+            makeAlert(sms: "Not valid country name.")
         } else {
             countryTextInputLabel.textColor = .white
         }
@@ -231,6 +242,7 @@ class loginViewController: UIViewController {
         if(!isValidName(occupationTextInput.text ?? "Developer")){
             allOk = false
             occupationTextInputLabel.textColor = .red
+            makeAlert(sms: "Not valid occupation name.")
         } else {
             occupationTextInputLabel.textColor = .white
         }
@@ -239,7 +251,7 @@ class loginViewController: UIViewController {
         if(!isValidPassword(password: passwordOneTextInput.text ?? "Pepo117@2022")){
             allOk = false
             passwordOneTextInputLabel.textColor = .red
-            passwordOneTextInputLabel.textColor = .red
+            makeAlert(sms: "Not valid password input.")
         } else {
             passwordOneTextInputLabel.textColor = .white
             passwordTwoTextInputLabel.textColor = .white
@@ -249,6 +261,7 @@ class loginViewController: UIViewController {
         if(passwordOneTextInput.text != passwordTwoTextInput.text){
             allOk = false
             passwordTwoTextInputLabel.textColor = .red
+            makeAlert(sms: "Not valid password input.")
         } else {
             passwordTwoTextInputLabel.textColor = .white
         }
@@ -280,6 +293,23 @@ class loginViewController: UIViewController {
         let passRegEx = "(?=[^a-z]*[a-z])(?=[^0-9]*[0-9])[a-zA-Z0-9!@#$%^&*]{8,}"
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", passRegEx)
         return passwordTest.evaluate(with: password)
+    }
+    
+    func makeAlert(sms: String){
+        
+        // Create new Alert
+         let dialogMessage = UIAlertController(title: "Fix", message: "\(sms)", preferredStyle: .alert)
+         
+         // Create OK button with action handler
+         let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+             print("Ok button tapped")
+          })
+         
+         //Add OK button to a dialog message
+         dialogMessage.addAction(ok)
+
+         // Present Alert to
+         self.present(dialogMessage, animated: true, completion: nil)
     }
     
     /*

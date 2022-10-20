@@ -16,7 +16,7 @@ class loginOrRegisterVController: UIViewController {
         let userDafaults = UserDefaults.standard
         
         if isKeyPresentInUserDefaults(key: "userJWT"){
-            if userDafaults.value(forKey: "userJWT") as! String != "none"{
+            if (userDafaults.value(forKey: "userJWT") as! String) != "none"{
                 vwContainer.fadeOut()
                 DispatchQueue.main.asyncAfter(deadline: .now()) {
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController

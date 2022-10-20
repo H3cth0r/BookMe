@@ -16,10 +16,12 @@ enum UserAccountDataError: Error, LocalizedError{
 
 
 class userAccountDataController{
-    let loginURL             =   URL(string: "http://10.48.219.224:2000/app/api/login")!
-    let registerURL          =   URL(string: "http://10.48.219.224:2000/app/api/register")!
-    let verifyURL            =   URL(string: "http://10.48.219.224:2000/app/api/verifyNewUserData")!
-    let changeDataURL        =   URL(string: "http://10.48.219.224:2000/app/api/changeUserData")!
+    let loginURL             =   URL(string: "http://4.228.81.149:5000/app/api/login")!
+    let registerURL          =   URL(string: "http://4.228.81.149:5000/app/api/register")!
+    let verifyURL            =   URL(string: "http://4.228.81.149:5000/app/api/verifyNewUserData")!
+    let changeDataURL        =   URL(string: "http://4.228.81.149:5000/app/api/changeUserData")!
+    let personalStatsURL     =   URL(string: "http://4.228.81.149:5000/app/api/stats")!
+    let isVerifiedURL        =   URL(string: "http://4.228.81.149:5000/api/isVerified")!
     
     var firstName           :   String!
     var lastName            :   String!
@@ -68,16 +70,34 @@ class userAccountDataController{
         var request         =   URLRequest(url: self.loginURL)
         
         let defaults = UserDefaults.standard
-        defaults.set(String(username_t),                forKey: "username")
+        let loggedWithEmail = defaults.object(forKey: "loggedWithEmail") as! Bool
+        
+        if !loggedWithEmail{
+            defaults.set(String(username_t),                forKey: "username")
+        }else{
+            defaults.set(String(username_t),                forKey: "userEmail")
+        }
         defaults.set(String(hashPassword_t),            forKey: "userHashPassword")
         
         // Method body headers
         request.httpMethod  = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let body: [String: AnyHashable] = [
+        
+        var body: [String: AnyHashable] = [
             "username"      : username_t,
             "password"      : hashPassword_t
         ]
+        if !loggedWithEmail{
+            body =  [
+                    "username"      : username_t,
+                    "password"      : hashPassword_t
+                    ]
+        }else{
+            body =  [
+                    "email"      : username_t,
+                    "password"      : hashPassword_t
+                    ]
+        }
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         
         // make request
@@ -88,7 +108,8 @@ class userAccountDataController{
             do{
                 //let response = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
                 let responseTwo = try JSONDecoder().decode(UserDataResponse.self, from: data)
-                completion(responseTwo.authorized)
+                //print("THIST IS THE RESPONSE OF LOGIN \(responseTwo)")
+                completion(Bool(responseTwo.authorized))
                 
             } catch{
                 print(error)
@@ -107,13 +128,27 @@ class userAccountDataController{
         // request from base URL
         var request         =   URLRequest(url: self.loginURL)
         
+        let defaults = UserDefaults.standard
+        let loggedWithEmail = defaults.object(forKey: "loggedWithEmail") as! Bool
+
         // Method body headers
         request.httpMethod  = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let body: [String: AnyHashable] = [
+        var body: [String: AnyHashable] = [
             "username"      : username_t,
             "password"      : hashPassword_t
         ]
+        if !loggedWithEmail{
+            body =  [
+                    "username"      : username_t,
+                    "password"      : hashPassword_t
+                    ]
+        }else{
+            body =  [
+                    "email"         : username_t,
+                    "password"      : hashPassword_t
+                    ]
+        }
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         
         // make request
@@ -125,10 +160,9 @@ class userAccountDataController{
                 //let response = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
                 let responseTwo = try JSONDecoder().decode(UserDataResponse.self, from: data)
                 if responseTwo.authorized == false{
-                    print("looOOOOOP4")
+                    print("looOOOOOP4 authorized == false")
                     return
                 }
-                
                 let jwtVerifier = JWTVerifier.hs256(key: Data("BooKMeIsCool".utf8))
                 let jwtDecoder = JWTDecoder(jwtVerifier: jwtVerifier)
                 let jwt = try jwtDecoder.decode(JWT<UserDataDecoded>.self, fromString: responseTwo.jwt)
@@ -154,12 +188,15 @@ class userAccountDataController{
                 
                 if defaults.object(forKey: "userFirstName") != nil{
                     print(defaults.object(forKey: "userFirstName") as! String)
+                    print(defaults.object(forKey: "userLastName") as! String)
                 }
                 completion(true)
+                return
                 
             } catch{
                 print(error)
                 completion(false)
+                return
             }
         }
         task.resume()
@@ -170,6 +207,10 @@ class userAccountDataController{
         let str = password_t
         let dat = ccSha256(data: str.data(using: .utf8)!)
         let hp: String = dat.map{ String(format: "%02hhx", $0) }.joined()
+        
+        let defaults = UserDefaults.standard
+        defaults.set(String(username_t),    forKey: "username")
+        defaults.set(String(hp),            forKey: "userHashPassword")
 
         var request     =   URLRequest(url: self.registerURL)
         request.httpMethod = "POST"
@@ -193,6 +234,8 @@ class userAccountDataController{
             }
             do{
                 let response = try JSONDecoder().decode(UserDataRegistrationResponse.self, from: data)
+                let defaults = UserDefaults.standard
+                defaults.set(Int(response.verifyId), forKey: "verifyId")
                 completion(response.readyToVerify)
             } catch{
                 print(error)
@@ -280,6 +323,62 @@ class userAccountDataController{
         
     }
     
+    func getPersonalStats(jwt_t: String, completion: @escaping (userStatsResponse)->Void) async{
+        var request     =       URLRequest(url: self.personalStatsURL)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let defaults = UserDefaults.standard
+        print(String(defaults.object(forKey: "userJWT") as! String))
+        let body: [String: AnyHashable] = [
+            "jwt"           : jwt_t
+        ]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+        
+        // make request
+        let task            =   URLSession.shared.dataTask(with: request){data, _, error in
+            guard let data = data, error == nil else{
+                return
+            }
+            do{
+               let response = try JSONDecoder().decode(userStatsResponse.self, from: data)
+                print(response)
+                completion(response)
+            } catch{
+                print(error)
+                completion(userStatsResponse(totalReservations: 0, totalHoursReserved: 0, daysSinceRegister: 0, favObjectType: "none", favObjectTypeReservations: 0))
+            }
+        }
+        task.resume()
+    }
+    
+    func isVerified(completion: @escaping(Bool)->Void)async{
+        var request     =       URLRequest(url: self.isVerifiedURL)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let defaults = UserDefaults.standard
+        
+        let body: [String: AnyHashable] = [
+            "verifyId"           :  defaults.object(forKey: "verifyId") as! Int
+        ]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+        // make request
+        let task            =   URLSession.shared.dataTask(with: request){data, _, error in
+            guard let data = data, error == nil else{
+                return
+            }
+            do{
+               let response = try JSONDecoder().decode(verifyIdResponse.self, from: data)
+                print(response)
+                completion(response.verified)
+            } catch{
+                print(error)
+                completion(false)
+            }
+        }
+        task.resume()
+    }
+    
 // end of userAccountDataControlller
 }
 
@@ -306,6 +405,7 @@ struct UserDataResponse: Codable{
 
 struct UserDataRegistrationResponse: Codable{
     let readyToVerify: Bool!
+    let verifyId: Int!
     let errorId: Int!
 }
 
@@ -316,6 +416,18 @@ struct UserDataVerificationResponse: Codable{
 
 struct UserDataChangedResponse: Codable{
     let saved   : Bool!
+}
+
+struct userStatsResponse: Codable{
+    let totalReservations           :   Double!     // ok .
+    let totalHoursReserved          :   Double!     // ok .
+    let daysSinceRegister           :   Double!     // ok
+    let favObjectType               :   String!     // ok
+    let favObjectTypeReservations   :   Double!
+}
+
+struct verifyIdResponse: Codable{
+    let verified: Bool!
 }
 
 func ccSha256(data: Data) -> Data {

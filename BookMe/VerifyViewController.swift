@@ -39,13 +39,10 @@ class VerifyViewController: UIViewController {
         let userDefaults        = UserDefaults.standard
         let username: String    = userDefaults.object(forKey: "username") as! String
         let hpass: String       = userDefaults.object(forKey: "userHashPassword") as! String
-        
-        print("looOOOOOP1")
+
         
         if commingFromLogin{
-            print("looOOOOOP2")
             Task{
-                print("looOOOOOP3")
                 await userDataController.fetchUserAccountData(username_t:username, hashPassword_t:hpass, completion: {result in
                     if(result){
                         print("Succesfull log")
@@ -76,8 +73,8 @@ class VerifyViewController: UIViewController {
                 })
             }
         } else {
-            
-            
+            repeatUntilVerified()
+            /*
             DispatchQueue.main.asyncAfter(deadline: .now() + 30, execute: {
                 
                 Task{
@@ -112,6 +109,7 @@ class VerifyViewController: UIViewController {
                 }
                 
             })
+            */
             
             
         }
@@ -134,6 +132,95 @@ class VerifyViewController: UIViewController {
         
     }
     
+    
+    func repeatUntilVerified(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            let userDataController = userAccountDataController()
+            Task{
+                await userDataController.isVerified(completion:{ result in
+                    if !result{
+                        self.repeatUntilVerified()
+                    }else{
+                        // ================================================================
+                        
+                        
+                        Task{
+                            
+                            // fetch user data
+                            let userDataController  = userAccountDataController()
+                            let userDefaults        = UserDefaults.standard
+                            let loggedWithEmail     = userDefaults.object(forKey: "loggedWithEmail") as! Bool
+                            let username: String!
+                            if !loggedWithEmail{
+                                username            = userDefaults.object(forKey: "username") as? String
+                            }else{
+                                username            = userDefaults.object(forKey: "userEmail") as? String
+                            }
+                            let hpass: String       = userDefaults.object(forKey: "userHashPassword") as! String
+                            print(hpass)
+                            
+                            
+                            await userDataController.fetchUserAccountData(username_t:username, hashPassword_t:hpass, completion: {result in
+                                if(result){
+                                    print("Succesfull log")
+                                }else{
+                                    print("Error on log")
+                                }
+                                DispatchQueue.main.async {
+                                    // To Main Menu after some time
+                                    
+                                    if self.commingFromAccountConfig{
+                                        self.vwContainer.fadeOut()
+                                        DispatchQueue.main.asyncAfter(deadline: .now()) {
+                                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
+                                            //vc.modalTransitionStyle = .crossDissolve
+                                            vc.modalPresentationStyle = .fullScreen
+                                            self.present(vc, animated: true, completion: nil)
+                                        }
+                                    } else{
+                                        self.vwContainer.fadeOut()
+                                        DispatchQueue.main.asyncAfter(deadline: .now()) {
+                                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
+                                            //vc.modalTransitionStyle = .crossDissolve
+                                            vc.modalPresentationStyle = .fullScreen
+                                            self.present(vc, animated: true, completion: nil)
+                                        }
+                                    }
+                                }
+                            })
+                        }
+                        
+                        
+                        // =================================================================
+                    }
+                })
+            }
+        })
+    }
+
+    
+    /*
+    func repeatUntilVerified(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            let userDataController = userAccountDataController()
+            Task{
+                await userDataController.isVerified(completion:{ result in
+                    if !result{
+                        self.repeatUntilVerified()
+                    }else{
+                        self.vwContainer.fadeOut()
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
+                            //vc.modalTransitionStyle = .crossDissolve
+                            vc.modalPresentationStyle = .fullScreen
+                            self.present(vc, animated: true, completion: nil)
+                        }
+                    }
+                })
+            }
+        })
+    }
+    */
     /*
     // MARK: - Navigation
 

@@ -13,6 +13,8 @@ class TicketViewController: UIViewController {
     @IBOutlet weak var jsonReservationInfo: UILabel!
     @IBOutlet weak var confirmationNumberLabel: UILabel!
     @IBOutlet weak var qrCodeImageView: UIImageView!
+    @IBOutlet weak var userProfilePicture: UIImageView!
+    
     
     var hardwareObj: HardwareObject!
     var softwareObj: SoftwareObject!
@@ -28,6 +30,12 @@ class TicketViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let defaults = UserDefaults.standard
+        let pfp = defaults.object(forKey: "pfp") as? String
+        let dataDecoded : Data = Data(base64Encoded: pfp!, options: .ignoreUnknownCharacters)!
+        let decodedimage = UIImage(data: dataDecoded)
+        userProfilePicture.image = decodedimage
 
         // Do any additional setup after loading the view.
         Task{
@@ -128,7 +136,9 @@ class TicketViewController: UIViewController {
                             vc.reservation.recivedTicket = self.recivedTicket
                             vc.reservation.objectTypeReservation = "Hardware"
                             vc.modalPresentationStyle = .fullScreen
-                            self.present(vc, animated: true, completion: nil)
+                            self.dismiss(animated: false, completion: nil)
+                            self.presentingViewController?.present(vc, animated: true, completion: nil)
+                            //self.present(vc, animated: true, completion: nil)
                         } else {
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
                             vc.reservation = self.reservation
@@ -136,7 +146,9 @@ class TicketViewController: UIViewController {
                             vc.reservation.recivedTicket = self.recivedTicket
                             vc.reservation.objectTypeReservation = "Hardware"
                             vc.modalPresentationStyle = .fullScreen
-                            self.present(vc, animated: true, completion: nil)
+                            self.dismiss(animated: false, completion: nil)
+                            self.presentingViewController?.present(vc, animated: true, completion: nil)
+                            //self.present(vc, animated: true, completion: nil)
                         }
                     
                     }
@@ -162,7 +174,9 @@ class TicketViewController: UIViewController {
                             vc.reservation.recivedTicket = self.recivedTicket
                             vc.reservation.objectTypeReservation = "Software"
                             vc.modalPresentationStyle = .fullScreen
-                            self.present(vc, animated: true, completion: nil)
+                            self.dismiss(animated: false, completion: nil)
+                            self.presentingViewController?.present(vc, animated: true, completion: nil)
+                            //self.present(vc, animated: true, completion: nil)
                         } else {
                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "oneDateSelectionViewController") as! oneDateSelectionViewController
                             vc.reservation = self.reservation
@@ -170,7 +184,9 @@ class TicketViewController: UIViewController {
                             vc.reservation.recivedTicket = self.recivedTicket
                             vc.reservation.objectTypeReservation = "Software"
                             vc.modalPresentationStyle = .fullScreen
-                            self.present(vc, animated: true, completion: nil)
+                            self.dismiss(animated: false, completion: nil)
+                            self.presentingViewController?.present(vc, animated: true, completion: nil)
+                            //self.present(vc, animated: true, completion: nil)
                         }
                     
                     }
@@ -194,7 +210,9 @@ class TicketViewController: UIViewController {
                         vc.recivedTicket = self.recivedTicket
                         vc.reservation.maxNumberOfAssistans = self.reservation.roomObject.capacity
                         vc.modalPresentationStyle = .fullScreen
-                        self.present(vc, animated: true, completion: nil)
+                        self.dismiss(animated: false, completion: nil)
+                        self.presentingViewController?.present(vc, animated: true, completion: nil)
+                        //self.present(vc, animated: true, completion: nil)
                     }
                 })
             }
